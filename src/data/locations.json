@@ -1,0 +1,300 @@
+[
+  {
+    "id": "koktebel",
+    "name": "пгт. Коктебель",
+    "region_id": "feodosiya",
+    "price": 180,
+    "free_from": 2000
+  },
+  {
+    "id": "nasypnoe",
+    "name": "с. Насыпное",
+    "region_id": "feodosiya",
+    "price": 160,
+    "free_from": 2000
+  },
+  {
+    "id": "yuzhnoe",
+    "name": "с. Южное",
+    "region_id": "feodosiya",
+    "price": 140,
+    "free_from": 2000
+  },
+  {
+    "id": "nanikovo",
+    "name": "с. Наниково",
+    "region_id": "feodosiya",
+    "price": 140,
+    "free_from": 2000
+  },
+
+  {
+    "id": "grushevka",
+    "name": "с. Грушевка",
+    "region_id": "sudak",
+    "price": 180,
+    "free_from": 2000
+  },
+
+  {
+    "id": "staryy_krym",
+    "name": "г. Старый Крым",
+    "region_id": "kirovskiy",
+    "price": 0,
+    "free_from": 0
+  },
+  {
+    "id": "izyumovka",
+    "name": "с. Изюмовка",
+    "region_id": "kirovskiy",
+    "price": 100,
+    "free_from": 2000
+  },
+  {
+    "id": "krinichki",
+    "name": "с. Кринички",
+    "region_id": "kirovskiy",
+    "price": 90,
+    "free_from": 2000
+  },
+  {
+    "id": "pervomayskoe",
+    "name": "с. Первомайское",
+    "region_id": "kirovskiy",
+    "price": 110,
+    "free_from": 2000
+  },
+  {
+    "id": "otvazhnoe",
+    "name": "с. Отважное",
+    "region_id": "kirovskiy",
+    "price": 110,
+    "free_from": 2000
+  },
+  {
+    "id": "zhuravki",
+    "name": "с. Журавки",
+    "region_id": "kirovskiy",
+    "price": 120,
+    "free_from": 2000
+  },
+  {
+    "id": "babenkovo",
+    "name": "с. Бабенково",
+    "region_id": "kirovskiy",
+    "price": 110,
+    "free_from": 2000
+  },
+  {
+    "id": "abrikosovka",
+    "name": "с. Абрикосовка",
+    "region_id": "kirovskiy",
+    "price": 130,
+    "free_from": 2000
+  },
+  {
+    "id": "zolotoe_pole",
+    "name": "с. Золотое Поле",
+    "region_id": "kirovskiy",
+    "price": 140,
+    "free_from": 2000
+  },
+  {
+    "id": "privetnoe",
+    "name": "с. Приветное",
+    "region_id": "kirovskiy",
+    "price": 150,
+    "free_from": 2000
+  },
+
+  {
+    "id": "kurskoe",
+    "name": "с. Курское",
+    "region_id": "belogorskiy",
+    "price": 150,
+    "free_from": 2000
+  },
+
+  {
+    "id": "mihaylovka",
+    "name": "с. Михайловка",
+    "region_id": "sakskiy",
+    "price": 100,
+    "free_from": 500
+  },
+  {
+    "id": "saki",
+    "name": "г. Саки",
+    "region_id": "sakskiy",
+    "price": 150,
+    "free_from": 700
+  },
+  {
+    "id": "novofyodorovka",
+    "name": "пгт Новофёдоровка",
+    "region_id": "sakskiy",
+    "price": 150,
+    "free_from": 700
+  },
+
+  {
+    "id": "vladimirovka",
+    "name": "с. Владимировка",
+    "region_id": "sakskiy",
+    "price": 200,
+    "free_from": 2000
+  },
+  {
+    "id": "orekhovo",
+    "name": "с. Орехово",
+    "region_id": "sakskiy",
+    "price": 200,
+    "free_from": 2000
+  },
+  {
+    "id": "lesnovka",
+    "name": "с. Лесновка",
+    "region_id": "sakskiy",
+    "price": 200,
+    "free_from": 2000
+  },
+
+  {
+    "id": "pribreznoe",
+    "name": "с. Прибрежное",
+    "region_id": "sakskiy",
+    "price": 180,
+    "free_from": 2000
+  },
+  {
+    "id": "ivanovka",
+    "name": "с. Ивановка",
+    "region_id": "sakskiy",
+    "price": 180,
+    "free_from": 2000
+  },
+  {
+    "id": "chervonoe",
+    "name": "с. Червонное",
+    "region_id": "sakskiy",
+    "price": 180,
+    "free_from": 2000
+  },
+  {
+    "id": "shelkovichnoe",
+    "name": "с. Шелковичное",
+    "region_id": "sakskiy",
+    "price": 180,
+    "free_from": 2000
+  },
+
+  {
+    "id": "teplovka",
+    "name": "с. Тепловка",
+    "region_id": "sakskiy",
+    "price": 190,
+    "free_from": 2000
+  },
+  {
+    "id": "frunze",
+    "name": "с. Фрунзе",
+    "region_id": "sakskiy",
+    "price": 190,
+    "free_from": 2000
+  },
+  {
+    "id": "geroyskoye",
+    "name": "с. Героевское",
+    "region_id": "sakskiy",
+    "price": 190,
+    "free_from": 2000
+  },
+  {
+    "id": "kulikovka",
+    "name": "с. Куликовка",
+    "region_id": "sakskiy",
+    "price": 190,
+    "free_from": 2000
+  },
+  {
+    "id": "garshino",
+    "name": "с. Гаршино",
+    "region_id": "sakskiy",
+    "price": 190,
+    "free_from": 2000
+  },
+
+  {
+    "id": "razdolye",
+    "name": "с. Раздолье",
+    "region_id": "sakskiy",
+    "price": 220,
+    "free_from": 3000
+  },
+  {
+    "id": "klyuchevoe",
+    "name": "с. Ключевое",
+    "region_id": "sakskiy",
+    "price": 220,
+    "free_from": 3000
+  },
+  {
+    "id": "aleksandrovka",
+    "name": "с. Александровка",
+    "region_id": "sakskiy",
+    "price": 220,
+    "free_from": 3000
+  },
+  {
+    "id": "okhotnikovo",
+    "name": "с. Охотниково",
+    "region_id": "sakskiy",
+    "price": 220,
+    "free_from": 3000
+  },
+  {
+    "id": "zhuravli",
+    "name": "с. Журавли",
+    "region_id": "sakskiy",
+    "price": 220,
+    "free_from": 3000
+  },
+  {
+    "id": "mityaevo",
+    "name": "с. Митяево",
+    "region_id": "sakskiy",
+    "price": 220,
+    "free_from": 3000
+  },
+
+  {
+    "id": "vinnitskoe",
+    "name": "с. Винницкое",
+    "region_id": "sakskiy",
+    "price": 250,
+    "free_from": 3000
+  },
+  {
+    "id": "krymskoe",
+    "name": "с. Крымское",
+    "region_id": "sakskiy",
+    "price": 250,
+    "free_from": 3000
+  },
+
+  {
+    "id": "nikolaevka",
+    "name": "с. Николаевка",
+    "region_id": "sakskiy",
+    "price": 300,
+    "free_from": 3500
+  },
+
+  {
+    "id": "evpatoria",
+    "name": "г. Евпатория",
+    "region_id": "evpatoriya",
+    "price": 0,
+    "free_from": 0
+  }
+]

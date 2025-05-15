@@ -1,40 +1,64 @@
-import { StyleSheet } from 'react-native';
+import { StyleSheet, Dimensions } from 'react-native';
 
-export default StyleSheet.create({
+const screenWidth = Dimensions.get('window').width;
+const columns = 4;
+const gap = 16;
+const totalGap = gap * (columns - 1);
+const itemSize = (screenWidth - 48 - totalGap) / columns;
+
+const styles = StyleSheet.create({
   container: {
-    paddingTop: 24,
+    paddingTop: 0,
     paddingHorizontal: 24,
   },
   header: {
     flexDirection: 'row',
     justifyContent: 'space-between',
-    alignItems: 'center',
-    marginBottom: 16,
+    alignItems: 'flex-end',
+    marginBottom: 15,
+    height: 19, // высота как по макету
   },
   title: {
     fontFamily: 'Inter28Bold',
-    fontSize: 28,
+    fontSize: 16,
+    lineHeight: 19,
+    fontWeight: '600',
     color: '#000',
   },
   viewAll: {
     fontFamily: 'Inter18Regular',
-    fontSize: 18,
+    fontSize: 12,
+    lineHeight: 14,
+    fontWeight: '600',
     color: '#FF8600',
+    textAlign: 'right',
+  },
+  flatListContent: {
+    paddingBottom: 24,
+  },
+  columnWrapper: {
+    justifyContent: 'space-between',
+    marginBottom: 23,
   },
   menuItem: {
+    width: itemSize,
     alignItems: 'center',
   },
   menuImage: {
-    width: 100,
-    height: 100,
-    borderRadius: 50,
+    width: 64,
+    height: 64,
+    borderRadius: 32,
     resizeMode: 'cover',
   },
   menuText: {
-    marginTop: 12,
+    marginTop: 10,
     fontFamily: 'Inter18Bold',
-    fontSize: 18,
+    fontSize: 14,
+    lineHeight: 17,
+    fontWeight: '600',
     color: '#000',
     textAlign: 'center',
   },
 });
+
+export default styles;

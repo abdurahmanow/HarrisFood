@@ -1,107 +1,51 @@
-import React, { useState, useEffect } from 'react';
-import {
-  View,
-  TouchableOpacity,
-  Modal,
-  Pressable,
-  FlatList,
-} from 'react-native';
+import React, { useState } from 'react';
+import { View, TouchableOpacity } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
-import AsyncStorage from '@react-native-async-storage/async-storage';
 import Logo from '../assets/ico/harrislogo.svg';
 import LocationIcon from '../assets/ico/Notif.svg';
 import Svg, { Path } from 'react-native-svg';
-import citiesJson from '../data/cities.json';
 import { useCity } from '../context/CityContext';
+import LocationModal from './LocationModal/indexmodal';
 import { styles } from '../styles/HeaderStyles';
 import AppText from './AppText';
 
-type City = {
-  id: string;
-  name: string;
-};
-
-const cities: City[] = citiesJson;
-
 export default function Header() {
   const insets = useSafeAreaInsets();
-  const { city, setCity } = useCity();
+  const { mode, location, address } = useCity();
   const [modalVisible, setModalVisible] = useState(false);
-
-  const selectedCityObj = cities.find((c) => c.id === city);
-  const cityName = selectedCityObj ? selectedCityObj.name : 'Выберите город';
-
-  useEffect(() => {
-    const loadCity = async () => {
-      const storedCity = await AsyncStorage.getItem('selectedCity');
-      if (storedCity) {
-        setCity(storedCity);
-      }
-    };
-
-    loadCity();
-  }, [setCity]);
-
-  const selectCity = async (cityId: string) => {
-    setCity(cityId);
-    await AsyncStorage.setItem('selectedCity', cityId);
-    setModalVisible(false);
-  };
-
-  const openModal = () => setModalVisible(true);
 
   return (
     <>
       <View style={[styles.container, { paddingTop: Math.max(insets.top, 12) }]}>
-        <Logo width={95} height={29} />
+        <Logo width={95} height={29} style={styles.logo} />
 
-        <TouchableOpacity style={styles.rightContainer} onPress={openModal}>
-          <View style={styles.cityInfo}>
-            <AppText variant="small" style={styles.cityLabel}>
-              Город
+        <TouchableOpacity
+          style={styles.deliveryWrapper}
+          activeOpacity={0.8}
+          onPress={() => setModalVisible(true)}
+        >
+          <View style={styles.deliveryTextBlock}>
+            <AppText style={styles.deliveryTypeText} numberOfLines={1}>
+              {mode === 'delivery' ? 'Доставка' : 'Самовывоз'} | {location?.name ?? 'Город'}
             </AppText>
 
-            <View style={styles.cityRow}>
+            <View style={styles.addressRow}>
               <Svg width="12" height="8" viewBox="0 0 10 6" fill="none">
                 <Path d="M1 1L5 5L9 1" stroke="#101010" strokeWidth="2" />
               </Svg>
-              <AppText variant="small" style={styles.cityName} numberOfLines={1}>
-                {cityName}
+              <AppText style={styles.addressText} numberOfLines={1}>
+                {address || 'Выберите адрес'}
               </AppText>
             </View>
           </View>
 
-          <View style={styles.locationIconWrapper}>
-            <LocationIcon width={34} height={34} />
+          <View style={styles.iconWrapper}>
+            <LocationIcon width={24} height={24} />
           </View>
         </TouchableOpacity>
       </View>
 
-      <Modal
-        animationType="fade"
-        transparent
-        visible={modalVisible}
-        onRequestClose={() => setModalVisible(false)}
-      >
-        <Pressable style={styles.modalOverlay} onPress={() => setModalVisible(false)}>
-          <View style={styles.modalContent}>
-            <AppText variant="h2" style={styles.modalTitle}>
-              Выберите город
-            </AppText>
-            <FlatList
-              data={cities}
-              keyExtractor={(item) => item.id}
-              renderItem={({ item }) => (
-                <TouchableOpacity onPress={() => selectCity(item.id)} style={styles.cityOption}>
-                  <AppText variant="body" style={styles.cityOptionText}>
-                    {item.name}
-                  </AppText>
-                </TouchableOpacity>
-              )}
-            />
-          </View>
-        </Pressable>
-      </Modal>
+      <LocationModal visible={modalVisible} onClose={() => setModalVisible(false)} />
     </>
   );
 }

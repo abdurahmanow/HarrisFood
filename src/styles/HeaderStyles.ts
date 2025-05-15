@@ -9,59 +9,45 @@ export const styles = StyleSheet.create({
     justifyContent: 'space-between',
     backgroundColor: '#fff',
   },
-  rightContainer: {
-    flexDirection: 'row',
-    alignItems: 'flex-end',
+  logo: {
+    marginTop: 12,
+    marginRight: 'auto',
   },
-  cityInfo: {
-    justifyContent: 'center',
+  deliveryWrapper: {
+    flexDirection: 'row',
+    alignItems: 'center',
+  },
+  deliveryTextBlock: {
+    flexDirection: 'column',
     alignItems: 'flex-end',
     marginRight: 10,
+    maxWidth: 180,
   },
-  cityLabel: {
-    color: '#606060',
-    fontFamily: 'Inter',
-    fontSize: 12,
-    fontWeight: '400',
-    lineHeight: 18,
-    letterSpacing: 0.16,
+  deliveryTypeText: {
+    color: '#9E9E9E',
+    fontFamily: 'Inter18Regular',
+    fontSize: 11,
+    lineHeight: 14,
+    textAlign: 'right',
+    marginBottom: 2,
   },
-  cityRow: {
+  addressRow: {
     flexDirection: 'row',
     alignItems: 'center',
   },
-  cityName: {
+  addressText: {
     color: '#101010',
-    marginLeft: 8,
-    maxWidth: 140,
+    fontFamily: 'Inter18Regular',
+    fontSize: 14,
+    lineHeight: 18,
+    marginLeft: 6,
   },
-  locationIconWrapper: {
+  iconWrapper: {
     width: 34,
     height: 34,
+    borderRadius: 10,
     backgroundColor: '#FFF4E8',
-    borderRadius: 8,
     justifyContent: 'center',
     alignItems: 'center',
-  },
-  modalOverlay: {
-    flex: 1,
-    backgroundColor: 'rgba(0,0,0,0.7)',
-    justifyContent: 'flex-end',
-  },
-  modalContent: {
-    backgroundColor: '#fff',
-    padding: 20,
-    borderTopLeftRadius: 20,
-    borderTopRightRadius: 20,
-    maxHeight: '75%',
-},
-  modalTitle: {
-    marginBottom: 20,
-  },
-  cityOption: {
-    paddingVertical: 12,
-  },
-  cityOptionText: {
-    color: '#101010',
   },
 });

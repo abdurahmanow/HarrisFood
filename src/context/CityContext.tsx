@@ -1,27 +1,61 @@
 import React, { createContext, useContext, useState, ReactNode } from 'react';
-import citiesJson from '../data/cities.json';
+import regionsJson from '../data/regions.json';
+import locationsJson from '../data/locations.json';
 
-type City = {
+type Region = {
   id: string;
   name: string;
 };
 
-const cities: City[] = citiesJson;
+type Location = {
+  id: string;
+  name: string;
+  region_id: string;
+  price: number;
+  free_from: number;
+};
+
+type DeliveryMode = 'delivery' | 'pickup';
 
 type CityContextType = {
-  city: string;
-  setCity: (city: string) => void;
+  regionId: string;
+  locationId: string;
+  address: string;
+  location: Location | null;
+  mode: DeliveryMode;
+  setRegionId: (regionId: string) => void;
+  setLocationId: (locationId: string) => void;
+  setAddress: (address: string) => void;
+  setMode: (mode: DeliveryMode) => void;
 };
+
+const regions: Region[] = regionsJson;
+const locations: Location[] = locationsJson;
 
 const CityContext = createContext<CityContextType | undefined>(undefined);
 
 export const CityProvider = ({ children }: { children: ReactNode }) => {
-  // Дефолтный город (если нет сохранённого)
-  const defaultCityId = cities[0]?.id ?? 'unknown';
-  const [city, setCity] = useState<string>(defaultCityId);
+  const [regionId, setRegionId] = useState<string>(regions[0]?.id ?? '');
+  const [locationId, setLocationId] = useState<string>(locations[0]?.id ?? '');
+  const [address, setAddress] = useState<string>('');
+  const [mode, setMode] = useState<DeliveryMode>('delivery');
+
+  const location = locations.find(loc => loc.id === locationId) || null;
 
   return (
-    <CityContext.Provider value={{ city, setCity }}>
+    <CityContext.Provider
+      value={{
+        regionId,
+        locationId,
+        address,
+        location,
+        mode,
+        setRegionId,
+        setLocationId,
+        setAddress,
+        setMode,
+      }}
+    >
       {children}
     </CityContext.Provider>
   );

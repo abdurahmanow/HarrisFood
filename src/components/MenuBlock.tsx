@@ -45,8 +45,8 @@ const MenuBlock: React.FC<Props> = ({ items, showViewAll = false, onViewAllPress
         renderItem={renderItem}
         keyExtractor={(item) => item.id.toString()}
         numColumns={columns}
-        contentContainerStyle={{ paddingBottom: 24 }}
-        columnWrapperStyle={{ justifyContent: 'space-between', marginBottom: 24 }}
+        contentContainerStyle={styles.flatListContent}
+        columnWrapperStyle={styles.columnWrapper}
         scrollEnabled={false}
       />
     </View>
