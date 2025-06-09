@@ -4,6 +4,7 @@ import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import Logo from '../assets/ico/harrislogo.svg';
 import LocationIcon from '../assets/ico/Notif.svg';
 import { useCity } from '../context/CityContext';
+import { useSavedAddresses } from '../context/SavedAddressesContext';
 import AppText from './AppText';
 import { styles } from '../styles/HeaderStyles';
 
@@ -13,14 +14,26 @@ type Props = {
 
 export default function Header({ onLocationPress }: Props) {
   const insets = useSafeAreaInsets();
-  const { mode, location, address } = useCity();
+  const { mode, pickup } = useCity();
+  const { selectedAddress } = useSavedAddresses();
+
+  let city = '';
+  let street = '';
+
+  if (mode === 'delivery') {
+    // Город из выбранного адреса
+    city = selectedAddress?.cityName || 'Город';
+    street = selectedAddress?.address || 'Выберите адрес';
+  } else {
+    // Самовывоз
+    city = pickup?.city || 'Город';
+    street = pickup?.street || 'Выберите заведение';
+  }
 
   return (
     <View style={[styles.container, { paddingTop: Math.max(insets.top, 14) }]}>
-      {/* Логотип */}
       <Logo width={95} height={29} style={styles.logo} />
 
-      {/* Адрес и режим + иконка */}
       <TouchableOpacity
         activeOpacity={0.8}
         style={styles.addressContainer}
@@ -28,15 +41,14 @@ export default function Header({ onLocationPress }: Props) {
       >
         <View style={styles.deliveryTextBlock}>
           <AppText style={styles.deliveryTypeText} numberOfLines={1}>
-            {mode === 'delivery' ? 'Доставка' : 'Самовывоз'} | {location?.name ?? 'Город'}
+            {mode === 'delivery'
+              ? `Доставка | ${city}`
+              : `Самовывоз | ${city}`}
           </AppText>
-
           <AppText style={styles.addressText} numberOfLines={1}>
-            {address || 'Выберите адрес'}
+            {street}
           </AppText>
         </View>
-
-        {/* Без подложки — чистая иконка */}
         <LocationIcon width={35} height={35} style={styles.icon} />
       </TouchableOpacity>
     </View>

@@ -1,7 +1,6 @@
-// styles/LocationModal/stylesmodal.ts
-import {StyleSheet} from 'react-native';
+import { StyleSheet } from 'react-native';
 
-export const styles = StyleSheet.create({
+export const commonStyles = StyleSheet.create({
   sheetBackground: {
     backgroundColor: '#fff',
     borderTopLeftRadius: 20,
@@ -17,12 +16,12 @@ export const styles = StyleSheet.create({
   },
   contentWrapper: {
     flex: 1,
-    justifyContent: 'space-between',
+    justifyContent: 'flex-start',
   },
   scroll: {
     paddingHorizontal: 24,
-    paddingTop: 24,
-    paddingBottom: 100,
+    paddingTop: 0,
+    marginBottom: 15,
   },
   titleBlock: {
     marginBottom: 20,
@@ -39,55 +38,15 @@ export const styles = StyleSheet.create({
     color: '#9E9E9E',
     lineHeight: 18,
   },
-
-  // Вниз файла stylesmodal.ts
-  addButtonWrapper: {
+  flex1: {
+    flex: 1,
+  },
+  buttonFixed: {
     position: 'absolute',
-    bottom: 24,
-    left: 24,
-    right: 24,
-  },
-  addButton: {
-    backgroundColor: '#F5F5F5',
-    borderRadius: 12,
-    paddingVertical: 12,
-    alignItems: 'center',
-  },
-  addButtonText: {
-    fontSize: 15,
-    fontFamily: 'Inter18Regular',
-    color: '#9E9E9E',
-  },
-  tabsContainer: {
-    flexDirection: 'row',
-    justifyContent: 'flex-start',
-    marginTop: 15,
-    marginBottom: 20,
-    gap: 25,
-  },
-
-  tab: {
-    width: 159,
-    borderRadius: 5,
-    paddingVertical: 7,
-    paddingHorizontal: 8,
-    backgroundColor: '#F5F5F5',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-
-  tabActive: {
-    backgroundColor: '#FFA52F',
-  },
-
-  tabText: {
-    fontFamily: 'Inter18Bold',
-    fontSize: 16,
-    lineHeight: 22,
-    color: '#FFA52F',
-  },
-
-  tabTextActive: {
-    color: '#fff',
+    left: 0,
+    right: 0,
+    paddingHorizontal: 24,
+    backgroundColor: 'transparent',
+    zIndex: 20,
   },
 });

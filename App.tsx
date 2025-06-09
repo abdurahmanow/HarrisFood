@@ -11,6 +11,7 @@ import { PortalProvider } from '@gorhom/portal';
 import HomeScreen from './src/screens/Home/HomeScreen';
 import { CityProvider } from './src/context/CityContext';
 import LocationBottomSheetProvider from './src/context/LocationBottomSheetProvider';
+import { SavedAddressesProvider } from './src/context/SavedAddressesContext';
 
 const Stack = createStackNavigator();
 const gestureRootStyle = { flex: 1 };
@@ -19,19 +20,21 @@ export default function App() {
   return (
     <GestureHandlerRootView style={gestureRootStyle}>
       <SafeAreaProvider>
-        <CityProvider>
-          <LocationBottomSheetProvider>
-            <PortalProvider>
-              <BottomSheetModalProvider>
-                <NavigationContainer>
-                  <Stack.Navigator screenOptions={{ headerShown: false }}>
-                    <Stack.Screen name="Home" component={HomeScreen} />
-                  </Stack.Navigator>
-                </NavigationContainer>
-              </BottomSheetModalProvider>
-            </PortalProvider>
-          </LocationBottomSheetProvider>
-        </CityProvider>
+        <SavedAddressesProvider>
+          <CityProvider>
+            <LocationBottomSheetProvider>
+              <PortalProvider>
+                <BottomSheetModalProvider>
+                  <NavigationContainer>
+                    <Stack.Navigator screenOptions={{ headerShown: false }}>
+                      <Stack.Screen name="Home" component={HomeScreen} />
+                    </Stack.Navigator>
+                  </NavigationContainer>
+                </BottomSheetModalProvider>
+              </PortalProvider>
+            </LocationBottomSheetProvider>
+          </CityProvider>
+        </SavedAddressesProvider>
       </SafeAreaProvider>
     </GestureHandlerRootView>
   );

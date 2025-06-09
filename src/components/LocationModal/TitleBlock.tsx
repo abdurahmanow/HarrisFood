@@ -2,13 +2,13 @@
 import React from 'react';
 import { View } from 'react-native';
 import AppText from '../AppText';
-import { styles } from '../../styles/LocationModal/stylesmodal';
+import { commonStyles } from '../../styles/LocationModal/stylesmodal';
 
 export default function TitleBlock() {
   return (
-    <View style={styles.titleBlock}>
-      <AppText style={styles.title}>Выберите город</AppText>
-      <AppText style={styles.description}>
+    <View style={commonStyles.titleBlock}>
+      <AppText style={commonStyles.title}>Выберите город</AppText>
+      <AppText style={commonStyles.description}>
         Доставим по адресу или будем ждать вас лично в трёх городах Крыма
       </AppText>
     </View>

@@ -1,37 +1,35 @@
-// components/LocationModal/DeliveryTabs.tsx
 import React from 'react';
-import {View, TouchableOpacity} from 'react-native';
-import {useCity} from '../../context/CityContext';
+import { View, TouchableOpacity } from 'react-native';
+import { useCity } from '../../context/CityContext';
 import AppText from '../AppText';
-import {styles} from '../../styles/LocationModal/stylesmodal';
+import { tabsStyles } from '../../styles/LocationModal/tabsStyles';
 
 export default function DeliveryTabs() {
-  const {mode, setMode} = useCity();
+  const { mode, setMode } = useCity();
 
   return (
-    <View style={styles.tabsContainer}>
-      <View style={{marginRight: 9}}>
+    <View style={tabsStyles.tabsContainer}>
+      <View style={tabsStyles.tabWrapper}>
         <TouchableOpacity
-          style={[styles.tab, mode === 'delivery' && styles.tabActive]}
-          onPress={() => setMode('delivery')}>
-          <AppText
-            style={[
-              styles.tabText,
-              mode === 'delivery' && styles.tabTextActive,
-            ]}>
-            Выбрать адрес
+          style={[tabsStyles.tab, mode === 'delivery' && tabsStyles.tabActive]}
+          onPress={() => setMode('delivery')}
+        >
+          <AppText style={[tabsStyles.tabText, mode === 'delivery' && tabsStyles.tabTextActive]}>
+            Доставка
           </AppText>
         </TouchableOpacity>
       </View>
 
-      <TouchableOpacity
-        style={[styles.tab, mode === 'pickup' && styles.tabActive]}
-        onPress={() => setMode('pickup')}>
-        <AppText
-          style={[styles.tabText, mode === 'pickup' && styles.tabTextActive]}>
-          Самовывоз
-        </AppText>
-      </TouchableOpacity>
+      <View style={tabsStyles.tabWrapper}>
+        <TouchableOpacity
+          style={[tabsStyles.tab, mode === 'pickup' && tabsStyles.tabActive]}
+          onPress={() => setMode('pickup')}
+        >
+          <AppText style={[tabsStyles.tabText, mode === 'pickup' && tabsStyles.tabTextActive]}>
+            Самовывоз
+          </AppText>
+        </TouchableOpacity>
+      </View>
     </View>
   );
 }
