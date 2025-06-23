@@ -2,8 +2,10 @@ import { StyleSheet } from 'react-native';
 
 export const savedAddressListStyles = StyleSheet.create({
   listContent: {
-    paddingTop: 5,
+    borderRadius: 10,
+    paddingVertical: 20,
     paddingHorizontal: 24,
+    marginBottom: 10,
   },
   addressItem: {
     backgroundColor: '#FFF2DC',
@@ -50,11 +52,11 @@ export const savedAddressListStyles = StyleSheet.create({
     backgroundColor: '#FFF2DC',
   },
   radioDot: {
-    width: 12,
-    height: 12,
-    borderRadius: 6,
-    backgroundColor: '#FF9900',
-  },
+  width: 12,
+  height: 12,
+  borderRadius: 6,
+  backgroundColor: '#FF9900',
+},
   textBlock: {
     flex: 1,
     justifyContent: 'center',
@@ -73,10 +75,11 @@ export const savedAddressListStyles = StyleSheet.create({
   },
   emptyText: {
     textAlign: 'center',
-    color: '#aaa',
+    fontFamily: 'Inter28Bold',
+    fontWeight: 'bold',
+    color: '#A9A9A9',
     marginTop: 40,
     fontSize: 16,
-    fontFamily: 'Inter18Regular',
   },
   touchBlock: {
     flexDirection: 'row',

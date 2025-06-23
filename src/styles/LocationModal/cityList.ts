@@ -14,14 +14,19 @@ export const cityListStyles = StyleSheet.create({
     marginBottom: 16,
     marginTop: 8,
   },
+  flatListWrap: {
+    maxHeight: 220, // ограничение по высоте для скролла
+    marginBottom: 16,
+  },
   item: {
     flexDirection: 'row',
     alignItems: 'center',
     minHeight: 33,
-    borderRadius: 7, // по макету чуть меньше чем 8, если хочешь ровно
-    paddingHorizontal: 0,
+    borderRadius: 7,
     backgroundColor: 'transparent',
-    // Не указываем здесь marginBottom!
+  },
+  itemMargin: {
+    marginBottom: 11,
   },
   radio: {
     width: 18,
@@ -48,6 +53,33 @@ export const cityListStyles = StyleSheet.create({
     fontWeight: '400',
   },
   flatListContent: {
-    paddingBottom: 0, // если нужно, можно добавить паддинг
+    paddingBottom: 0,
+  },
+  inputWrapper: {
+    marginTop: 20,
+  },
+  inputLabel: {
+    fontFamily: 'Inter18Regular',
+    fontSize: 13,
+    color: '#A9A9A9',
+    marginBottom: 7,
+    lineHeight: 15,
+  },
+  inputStar: {
+    color: '#FF3B30',
+    fontFamily: 'Inter18Bold',
+    fontSize: 13,
+  },
+  input: {
+    width: '100%',
+    height: 46,
+    borderRadius: 6,
+    borderWidth: 1,
+    borderColor: '#A9A9A9',
+    backgroundColor: '#fff',
+    paddingHorizontal: 16,
+    fontSize: 15,
+    color: '#222',
+    fontFamily: 'Inter18Regular',
   },
 });

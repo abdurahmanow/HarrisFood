@@ -53,29 +53,35 @@ export const CityProvider = ({ children }: { children: ReactNode }) => {
   }, []);
 
   // Если включён самовывоз, подхватываем/устанавливаем pickupId
-  useEffect(() => {
-    if (mode === 'pickup') {
-      (async () => {
-        const savedPickupId = await AsyncStorage.getItem('selected_pickup_id');
-        const valid = pickups.find(p => p.id === savedPickupId);
-        if (savedPickupId && valid) {
-          setPickupIdRaw(savedPickupId);
-        } else if (pickups.length > 0) {
-          setPickupIdRaw(pickups[0].id);
-          await AsyncStorage.setItem('selected_pickup_id', pickups[0].id);
-        }
-      })();
-    }
-  }, [mode]);
+useEffect(() => {
+  if (mode === 'pickup') {
+    (async () => {
+      const savedPickupId = await AsyncStorage.getItem('selected_pickup_id');
+      const valid = pickups.find(p => p.id === savedPickupId);
+      if (savedPickupId && valid) {
+        setPickupIdRaw(savedPickupId);
+      } else if (pickups.length > 0) {
+        setPickupIdRaw(pickups[0].id);
+        await AsyncStorage.setItem('selected_pickup_id', pickups[0].id);
+      }
+    })();
+  }
+}, [mode]);
 
-  const setMode = useCallback(async (newMode: DeliveryMode) => {
-    setModeRaw(newMode);
-    await AsyncStorage.setItem('selected_mode', newMode);
-    setRegionIdRaw('');
-    setLocationIdRaw('');
-    setAddressRaw('');
-    setPickupIdRaw('');
-  }, []);
+const setMode = useCallback(async (newMode: DeliveryMode) => {
+  setModeRaw(newMode);
+  await AsyncStorage.setItem('selected_mode', newMode);
+
+  setRegionIdRaw('');
+  setLocationIdRaw('');
+  setAddressRaw('');
+  setPickupIdRaw('');
+
+  if (newMode === 'pickup' && pickups.length > 0) {
+    setPickupIdRaw(pickups[0].id);
+    await AsyncStorage.setItem('selected_pickup_id', pickups[0].id);
+  }
+}, []);
 
   const setPickupId = useCallback(async (id: string) => {
     setPickupIdRaw(id);

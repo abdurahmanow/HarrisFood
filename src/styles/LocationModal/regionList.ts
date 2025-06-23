@@ -2,12 +2,14 @@ import { StyleSheet } from 'react-native';
 
 export const regionListStyles = StyleSheet.create({
   flatListWrapper: {
-    maxHeight: 490,
+    maxHeight: 490,     // ограничиваем высоту списка регионов
+    minHeight: 0,       // важно для предотвращения "раздувания"
     marginTop: 4,
     marginHorizontal: 24,
+    // flex: 1 — НЕЛЬЗЯ!
   },
   regionScrollContent: {
-    paddingBottom: 100,
+    paddingBottom: 100, // для безопасного скролла и фиксированной нижней кнопки
   },
   regionItem: {
     flexDirection: 'row',
@@ -17,7 +19,7 @@ export const regionListStyles = StyleSheet.create({
     paddingVertical: 10,
     paddingHorizontal: 16,
     marginBottom: 10,
-    height: 50,
+    height: 50, // фиксированная высота для ровного списка
   },
   regionItemSelected: {
     backgroundColor: '#FFF2DC',
@@ -44,7 +46,7 @@ export const regionListStyles = StyleSheet.create({
     color: '#FF9900',
   },
   regionTextSelected: {
-    color: '#151515',
+    color: '#FF9900',
     fontFamily: 'Inter18Bold',
   },
   regionBottomSpacer: {

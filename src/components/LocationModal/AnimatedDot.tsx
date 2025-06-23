@@ -1,16 +1,20 @@
 import React from 'react';
+import { StyleProp, ViewStyle } from 'react-native';
 import Animated, { FadeIn, FadeOut } from 'react-native-reanimated';
-import { savedAddressListStyles as styles } from '../../styles/LocationModal/SavedAddressList';
 
-type Props = { show: boolean };
+type Props = {
+  show: boolean;
+  style?: StyleProp<ViewStyle>; // <--- добавь этот проп!
+};
 
-export default function AnimatedDot({ show }: Props) {
+export default function AnimatedDot({ show, style }: Props) {
   if (!show) {return null;}
+
   return (
     <Animated.View
       entering={FadeIn}
       exiting={FadeOut}
-      style={styles.radioDot}
+      style={style}
     />
   );
 }

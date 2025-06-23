@@ -1,16 +1,26 @@
-// components/LocationModal/TitleBlock.tsx
 import React from 'react';
-import { View } from 'react-native';
+import { View, StyleProp, ViewStyle, TextStyle } from 'react-native';
 import AppText from '../AppText';
-import { commonStyles } from '../../styles/LocationModal/stylesmodal';
 
-export default function TitleBlock() {
+type TitleBlockProps = {
+  title: string;
+  description: string;
+  style?: StyleProp<ViewStyle>;
+  titleStyle?: StyleProp<TextStyle>;
+  descriptionStyle?: StyleProp<TextStyle>;
+};
+
+export default function TitleBlock({
+  title,
+  description,
+  style,
+  titleStyle,
+  descriptionStyle,
+}: TitleBlockProps) {
   return (
-    <View style={commonStyles.titleBlock}>
-      <AppText style={commonStyles.title}>Выберите город</AppText>
-      <AppText style={commonStyles.description}>
-        Доставим по адресу или будем ждать вас лично в трёх городах Крыма
-      </AppText>
+    <View style={style}>
+      <AppText style={titleStyle}>{title}</AppText>
+      <AppText style={descriptionStyle}>{description}</AppText>
     </View>
   );
 }

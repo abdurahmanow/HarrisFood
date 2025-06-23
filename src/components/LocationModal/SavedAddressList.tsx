@@ -1,23 +1,35 @@
-/* eslint-disable react-native/no-inline-styles */
 import React from 'react';
-import { View, TouchableOpacity, Text, Animated as RNAnimated } from 'react-native';
+import { View, TouchableOpacity, Text, StyleProp, ViewStyle } from 'react-native';
 import { Swipeable } from 'react-native-gesture-handler';
-import { useSavedAddresses } from '../../context/SavedAddressesContext';
-import { savedAddressListStyles as styles } from '../../styles/LocationModal/SavedAddressList';
+import { BottomSheetFlatList } from '@gorhom/bottom-sheet';
 import AnimatedDot from './AnimatedDot';
-import SafeBottomSpacer from '../SafeBottomSpacer';
 
-const DELETE_BTN_WIDTH = 50;
+type Address = {
+  id: string;
+  regionName: string;
+  cityName: string;
+  address?: string;
+};
 
-function RenderRightActions({
-  itemId,
-  isSelected,
-  removeAddress,
-}: {
+type Props = {
+  addresses: Address[];
+  selectedId: string;
+  selectAddress: (id: string) => void;
+  removeAddress: (id: string) => void;
+  styles: { [key: string]: any };
+  ListEmptyComponent?: React.ComponentType<any> | React.ReactElement | null;
+  ListFooterComponent?: React.ComponentType<any> | React.ReactElement | null;
+  ListHeaderComponent?: React.ComponentType<any> | React.ReactElement | null;
+};
+
+type RenderRightActionsProps = {
   itemId: string;
   isSelected: boolean;
   removeAddress: (id: string) => void;
-}) {
+  styles: any;
+};
+
+function RenderRightActions({ itemId, isSelected, removeAddress, styles }: RenderRightActionsProps) {
   if (isSelected) {
     return <View style={styles.hidden} />;
   }
@@ -34,13 +46,24 @@ function RenderRightActions({
   );
 }
 
-export default function SavedAddressList() {
-  const { addresses, selectedId, selectAddress, removeAddress } = useSavedAddresses();
+const DefaultEmptyComponent = ({ style }: { style?: StyleProp<ViewStyle> }) => (
+  <Text style={style}>Сохранённых адресов нету</Text>
+);
 
+export default function SavedAddressList({
+  addresses,
+  selectedId,
+  selectAddress,
+  removeAddress,
+  styles,
+  ListEmptyComponent,
+  ListFooterComponent,
+  ListHeaderComponent,
+}: Props) {
   return (
-    <RNAnimated.FlatList
+    <BottomSheetFlatList<Address>
       data={addresses}
-      keyExtractor={item => item.id}
+      keyExtractor={(item) => item.id}
       contentContainerStyle={styles.listContent}
       renderItem={({ item }) => {
         const isSelected = selectedId === item.id;
@@ -48,16 +71,16 @@ export default function SavedAddressList() {
           <Swipeable
             enabled={!isSelected}
             friction={2}
-            rightThreshold={DELETE_BTN_WIDTH / 2}
+            rightThreshold={50}
             overshootRight={false}
             renderRightActions={() => (
               <RenderRightActions
                 itemId={item.id}
                 isSelected={isSelected}
                 removeAddress={removeAddress}
+                styles={styles}
               />
             )}
-            containerStyle={{ backgroundColor: 'transparent' }}
           >
             <View style={styles.addressItem}>
               <TouchableOpacity
@@ -67,7 +90,7 @@ export default function SavedAddressList() {
                 disabled={isSelected}
               >
                 <View style={styles.radioOuter}>
-                  <AnimatedDot show={isSelected} />
+                  <AnimatedDot show={isSelected} style={styles.radioDot} />
                 </View>
                 <View style={styles.textBlock}>
                   <Text style={styles.regionName}>{item.regionName}</Text>
@@ -82,11 +105,15 @@ export default function SavedAddressList() {
         );
       }}
       ListEmptyComponent={
-        <Text style={styles.emptyText}>Пока нет добавленных адресов</Text>
+        ListEmptyComponent
+          ? ListEmptyComponent
+          : () => <DefaultEmptyComponent style={styles.emptyText} />
       }
-      ListFooterComponent={<SafeBottomSpacer extra={80} />} // ← увеличил extra до 80 для 100% видимости последнего элемента
+      ListHeaderComponent={ListHeaderComponent}
+      ListFooterComponent={ListFooterComponent}
       showsVerticalScrollIndicator={false}
       bounces={false}
+      extraData={selectedId}
     />
   );
 }

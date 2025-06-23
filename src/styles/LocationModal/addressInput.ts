@@ -1,13 +1,19 @@
 import { StyleSheet } from 'react-native';
 
 export const addressInputStyles = StyleSheet.create({
-  flex: {
-    flex: 1,
+  // Стиль для KeyboardAwareContainer, без flex: 1!
+  keyboardAwareContainer: {
     backgroundColor: '#fff',
+    // flex: 1 НЕ НУЖЕН!
   },
-  scrollContent: {
-    flexGrow: 1,
-    justifyContent: 'center',
+  keyboardAwareContent: {
+    // Если нужно центрировать по вертикали:
+    // flexGrow: 1,
+    // justifyContent: 'center',
+  },
+  safeArea: {
+    // flex: 1 НЕ НУЖЕН!
+    backgroundColor: '#fff',
   },
   container: {
     paddingHorizontal: 24,

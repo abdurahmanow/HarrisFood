@@ -1,29 +1,46 @@
 import React from 'react';
-import { View, TouchableOpacity } from 'react-native';
+import { View, TouchableOpacity, StyleProp, ViewStyle, TextStyle } from 'react-native';
 import AppText from '../AppText';
-import { pickupListStyles } from '../../styles/LocationModal/pickupList';
-import AnimatedDot from './AnimatedDot';
 
-interface Props {
-  id: string;
+type Props = {
   city: string;
   region: string;
   street: string;
   selected: boolean;
   onPress: () => void;
-}
+  style?: StyleProp<ViewStyle>;
+  radioOuterStyle?: StyleProp<ViewStyle>;
+  radioInnerStyle?: StyleProp<ViewStyle>;
+  textBlockStyle?: StyleProp<ViewStyle>;
+  cityTextStyle?: StyleProp<TextStyle>;
+  addressTextStyle?: StyleProp<TextStyle>;
+  children?: React.ReactNode;
+};
 
-export default function PickupSelect({ city, region, street, selected, onPress }: Props) {
+export default function PickupSelect({
+  city,
+  region,
+  street,
+  selected,
+  onPress,
+  style,
+  radioOuterStyle,
+  radioInnerStyle,
+  textBlockStyle,
+  cityTextStyle,
+  addressTextStyle,
+  children,
+}: Props) {
   return (
-    <TouchableOpacity style={pickupListStyles.pickupItem} onPress={onPress} activeOpacity={0.85}>
-      <View style={pickupListStyles.pickupRadioOuter}>
-        {/* Вставляем AnimatedDot для красивой анимации выбора */}
-        <AnimatedDot show={selected} />
+    <TouchableOpacity style={style} onPress={onPress} activeOpacity={0.85}>
+      <View style={radioOuterStyle}>
+        {selected && <View style={radioInnerStyle} />}
       </View>
-      <View style={pickupListStyles.pickupTextBlock}>
-        <AppText style={pickupListStyles.pickupCity}>{city}</AppText>
-        <AppText style={pickupListStyles.pickupAddress}>{`${region}, ${street}`}</AppText>
+      <View style={textBlockStyle}>
+        <AppText style={cityTextStyle}>{city}</AppText>
+        <AppText style={addressTextStyle}>{`${region}, ${street}`}</AppText>
       </View>
+      {children}
     </TouchableOpacity>
   );
 }

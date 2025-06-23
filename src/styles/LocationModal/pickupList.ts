@@ -8,7 +8,7 @@ export const pickupListStyles = StyleSheet.create({
     borderRadius: 10,
     paddingVertical: 20,
     paddingHorizontal: 24,
-    marginBottom: 12,
+    marginBottom: 10,
     marginHorizontal: 24,
   },
   pickupRadioOuter: {
@@ -43,13 +43,16 @@ export const pickupListStyles = StyleSheet.create({
     lineHeight: 15,
   },
   regionScrollContent: {
+    paddingTop: 20,
     paddingBottom: 100,
   },
-    radioDot: {
+  radioDot: {
     width: 12,
     height: 12,
     borderRadius: 6,
     backgroundColor: '#FF9900',
-    },
-
+  },
+  bottomSpacer: {
+    height: 100, // стандартный отступ, если надо — поменяй
+  },
 });

@@ -1,35 +1,37 @@
 import { StyleSheet } from 'react-native';
 
-export const tabsStyles = StyleSheet.create({
+export const deliveryTabsStyles = StyleSheet.create({
   tabsContainer: {
     flexDirection: 'row',
+    alignItems: 'center',
     justifyContent: 'space-between',
-    gap: 9,
+    paddingHorizontal: 24,
     marginTop: 15,
-    marginBottom: 0,
-  },
-  tabWrapper: {
-    flex: 1,
   },
   tab: {
-    width: '100%',
-    borderRadius: 5,
-    paddingVertical: 7,
-    paddingHorizontal: 8,
-    backgroundColor: '#F5F5F5',
+    width: '48%',          // Ширина таба, как в макете
+    height: 36,            // Можно 48-54 для комфортного тапа
+    borderRadius: 10,      // Скругление, как в макете
     alignItems: 'center',
     justifyContent: 'center',
+    backgroundColor: '#FAFAFA',
   },
   tabActive: {
-    backgroundColor: '#FFA52F',
+    backgroundColor: '#FF9900',
   },
   tabText: {
-    fontFamily: 'Inter18Bold',
-    fontSize: 16,
-    lineHeight: 22,
+    fontFamily: 'Inter28Bold',
+    fontWeight: 'bold',
+    fontSize: 14,
+    lineHeight: 27,
     color: '#FFA52F',
+    textAlign: 'center',
+    letterSpacing: 0.6,
   },
   tabTextActive: {
     color: '#fff',
+  },
+  leftTab: {
+    marginRight: 9,
   },
 });

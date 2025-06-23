@@ -1,60 +1,106 @@
-/* eslint-disable react-native/no-inline-styles */
-import React from 'react';
-import { View, TouchableOpacity, Text } from 'react-native';
-import { BottomSheetFlatList } from '@gorhom/bottom-sheet';
-import { useCity } from '../../context/CityContext';
-import { cityListStyles } from '../../styles/LocationModal/cityList';
-import locations from '../../data/locations.json';
-import regions from '../../data/regions.json';
+import React, { useMemo } from 'react';
+import {
+  View,
+  Text,
+  TouchableOpacity,
+  FlatList,
+  TextInput,
+  KeyboardAvoidingView,
+  Platform,
+} from 'react-native';
 import Animated, { FadeIn, FadeOut } from 'react-native-reanimated';
+import { cityListStyles } from '../../styles/LocationModal/cityList';
 
-const MAX_HEIGHT = 280;
+type Location = {
+  id: string;
+  name: string;
+  region_id: string;
+};
 
-export default function CityList() {
-  const { regionId, locationId, setLocationId } = useCity();
-  const cities = locations.filter(city => city.region_id === regionId);
-  const regionName = regions.find(r => r.id === regionId)?.name || '';
+type Props = {
+  regionId: string;
+  selectedId: string;
+  onSelect: (id: string) => void;
+  locations: Location[];
+  regionName: string;
+  address: string;
+  setAddress: (v: string) => void;
+};
 
-  if (!regionId) {return null;}
+export default function CityList({
+  regionId,
+  selectedId,
+  onSelect,
+  locations,
+  regionName,
+  address,
+  setAddress,
+}: Props) {
+  const cities = useMemo(() => locations.filter(city => city.region_id === regionId), [regionId, locations]);
+  const needMaxHeight = cities.length > 5;
+
+  if (!regionId) return null;
 
   return (
-    <View style={[
-      cityListStyles.container,
-      cities.length > 6 && { maxHeight: MAX_HEIGHT },
-    ]}>
+    <View style={cityListStyles.container}>
       <Text style={cityListStyles.regionTitle}>{regionName}</Text>
-      <BottomSheetFlatList
-        data={cities}
-        keyExtractor={item => item.id}
-        renderItem={({ item, index }) => {
-          const selected = locationId === item.id;
-          return (
-            <TouchableOpacity
-              style={[
-                cityListStyles.item,
-                index !== cities.length - 1 && { marginBottom: 11 },
-              ]}
-              onPress={() => setLocationId(item.id)}
-              activeOpacity={0.85}
-            >
-              <View style={cityListStyles.radio}>
-                {selected && (
-                  <Animated.View
-                    entering={FadeIn}
-                    exiting={FadeOut}
-                    style={cityListStyles.radioDot}
-                  />
-                )}
-              </View>
-              <Text style={cityListStyles.label}>{item.name}</Text>
-            </TouchableOpacity>
-          );
-        }}
-        showsVerticalScrollIndicator={false}
-        bounces={false}
-        contentContainerStyle={cityListStyles.flatListContent}
-        keyboardShouldPersistTaps="handled"
-      />
+
+      {/* Список городов */}
+      <View style={needMaxHeight ? cityListStyles.flatListWrap : undefined}>
+        <FlatList
+          data={cities}
+          keyExtractor={item => item.id}
+          renderItem={({ item, index }) => {
+            const selected = selectedId === item.id;
+            return (
+              <TouchableOpacity
+                style={[
+                  cityListStyles.item,
+                  index !== cities.length - 1 && cityListStyles.itemMargin,
+                ]}
+                onPress={() => onSelect(item.id)}
+                activeOpacity={0.85}
+              >
+                <View style={cityListStyles.radio}>
+                  {selected && (
+                    <Animated.View
+                      entering={FadeIn}
+                      exiting={FadeOut}
+                      style={cityListStyles.radioDot}
+                    />
+                  )}
+                </View>
+                <Text style={cityListStyles.label}>{item.name}</Text>
+              </TouchableOpacity>
+            );
+          }}
+          showsVerticalScrollIndicator={false}
+          bounces={false}
+          contentContainerStyle={cityListStyles.flatListContent}
+          keyboardShouldPersistTaps="handled"
+        />
+      </View>
+
+      {/* Поле ввода адреса с KAV */}
+      <KeyboardAvoidingView
+        behavior={Platform.OS === 'ios' ? 'padding' : undefined}
+        keyboardVerticalOffset={Platform.OS === 'ios' ? 0 : -500}
+      >
+        <View style={cityListStyles.inputWrapper}>
+          <Text style={cityListStyles.inputLabel}>
+            Улица, дом <Text style={cityListStyles.inputStar}>*</Text>
+          </Text>
+          <TextInput
+            value={address}
+            onChangeText={setAddress}
+            style={cityListStyles.input}
+            placeholder="Например: Ленина, 10"
+            placeholderTextColor="#A9A9A9"
+            returnKeyType="done"
+            autoCapitalize="sentences"
+          />
+        </View>
+      </KeyboardAvoidingView>
     </View>
   );
 }

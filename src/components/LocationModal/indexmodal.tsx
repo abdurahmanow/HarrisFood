@@ -1,68 +1,151 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useMemo } from 'react';
+import { View, Modal } from 'react-native';
 import BottomSheet from '@gorhom/bottom-sheet';
 import { BottomSheetMethods } from '@gorhom/bottom-sheet/lib/typescript/types';
-import { View } from 'react-native';
 
 import TitleBlock from './TitleBlock';
-import DeliveryTabs from './DeliveryTabs';
-import SavedAddressList from './SavedAddressList';
-import BottomActionArea from './BottomActionArea';
-import AddAddressFlow from './AddAddressFlow';
+import DeliveryTabsAnimated from './DeliveryTabs';
+import AddAddressButton from './AddAddressButton';
 import PickupList from './PickupList';
-import { commonStyles } from '../../styles/LocationModal/stylesmodal';
-import { useCity } from '../../context/CityContext';
+import SavedAddressList from './SavedAddressList';
+import RegionAndCityPage from './RegionAndCityPage';
+import BottomActionContainer from './BottomActionContainer';
+
 import { useSavedAddresses } from '../../context/SavedAddressesContext';
+import { useCity } from '../../context/CityContext';
+
+import { commonStyles } from '../../styles/LocationModal/stylesmodal';
+import { titleBlockStyles } from '../../styles/LocationModal/titleBlockStyles';
+import { deliveryTabsStyles } from '../../styles/LocationModal/tabsStyles';
+import { pickupListStyles } from '../../styles/LocationModal/pickupList';
+import { savedAddressListStyles } from '../../styles/LocationModal/SavedAddressList';
+
+import pickupLocations from '../../data/pickup_locations.json';
+import regions from '../../data/regions.json';
+import locations from '../../data/locations.json';
 
 const LocationBottomSheet = React.forwardRef<BottomSheetMethods>((props, ref) => {
-  const snapPoints = React.useMemo(() => ['85%'], []);
-  const { mode } = useCity();
-  const { addresses } = useSavedAddresses();
+  const snapPoints = useMemo(() => ['85%'], []);
+  const {
+    mode,
+    setMode,
+    pickupId,
+    setPickupId,
+  } = useCity();
 
-  const [addingNew, setAddingNew] = useState(true);
+  const [regionModalVisible, setRegionModalVisible] = useState(false);
 
-  useEffect(() => {
-    if (!addresses || addresses.length === 0) {
-      setAddingNew(true);
-    } else {
-      setAddingNew(false);
-    }
-  }, [addresses]);
+  const {
+    addresses,
+    selectedId,
+    selectAddress,
+    removeAddress,
+    addAddress,
+  } = useSavedAddresses();
 
-  const renderDelivery = () => {
-    if (addingNew) {
-      return (
-        <AddAddressFlow onSuccess={() => setAddingNew(false)} />
-      );
-    }
-    return (
-      <View style={commonStyles.flex1}>
-        <SavedAddressList />
-        <BottomActionArea
-          onPress={() => setAddingNew(true)}
-          isActive={true}
-          buttonLabel="Добавить адрес"
-        />
-      </View>
-    );
+  const handleOpenRegion = () => {
+    setRegionModalVisible(true);
+  };
+
+  const handleCloseRegion = () => {
+    setRegionModalVisible(false);
+  };
+
+  const handleRegionCitySubmit = (
+    regionId: string,
+    cityId: string,
+    address: string,
+  ) => {
+    setRegionModalVisible(false);
+    const regionName = regions.find(r => r.id === regionId)?.name || '';
+    const cityName = locations.find(c => c.id === cityId)?.name || '';
+    addAddress({
+      id: `${regionId}-${cityId}-${Date.now()}`,
+      regionId,
+      regionName,
+      cityId,
+      cityName,
+      address,
+    });
   };
 
   return (
-    <BottomSheet
-      ref={ref}
-      index={-1}
-      snapPoints={snapPoints}
-      enablePanDownToClose
-      backgroundStyle={commonStyles.sheetBackground}
-      handleIndicatorStyle={commonStyles.handle}
-    >
-      <View style={commonStyles.contentWrapper}>
-        <View style={commonStyles.scroll}>
-          <TitleBlock />
-          <DeliveryTabs />
+    <>
+      <BottomSheet
+        ref={ref}
+        index={-1}
+        snapPoints={snapPoints}
+        enablePanDownToClose
+        backgroundStyle={commonStyles.sheetBackground}
+        handleIndicatorStyle={commonStyles.handle}
+      >
+        <View style={commonStyles.contentWrapper}>
+          <TitleBlock
+            title="Выберите город"
+            description="Доставим по адресу или будем ждать вас лично в трёх городах Крыма"
+            style={titleBlockStyles.block}
+            titleStyle={titleBlockStyles.title}
+            descriptionStyle={titleBlockStyles.description}
+          />
+          <DeliveryTabsAnimated
+            value={mode}
+            onChange={setMode}
+            style={deliveryTabsStyles.tabsContainer}
+            tabStyle={deliveryTabsStyles.tab}
+            tabTextStyle={deliveryTabsStyles.tabText}
+          />
+
+          {mode === 'delivery' ? (
+            <>
+              <SavedAddressList
+                addresses={addresses}
+                selectedId={selectedId ?? ''}
+                selectAddress={selectAddress}
+                removeAddress={removeAddress}
+                styles={savedAddressListStyles}
+                ListFooterComponent={<View style={{ height: 140 }} />}
+              />
+
+              <BottomActionContainer>
+                <AddAddressButton
+                  onPress={handleOpenRegion}
+                  isActive
+                  buttonLabel="Добавить адрес"
+                />
+              </BottomActionContainer>
+            </>
+          ) : (
+            <View style={commonStyles.pickupContent}>
+              <PickupList
+                data={pickupLocations}
+                selectedId={pickupId}
+                onSelect={setPickupId}
+                itemStyle={pickupListStyles.pickupItem}
+                radioOuterStyle={pickupListStyles.pickupRadioOuter}
+                radioInnerStyle={pickupListStyles.pickupRadioInner}
+                textBlockStyle={pickupListStyles.pickupTextBlock}
+                cityTextStyle={pickupListStyles.pickupCity}
+                addressTextStyle={pickupListStyles.pickupAddress}
+                listContentStyle={pickupListStyles.regionScrollContent}
+                bottomSpacerStyle={{ height: 130 }}
+              />
+            </View>
+          )}
         </View>
-        {mode === 'delivery' ? renderDelivery() : <PickupList />}
-      </View>
-    </BottomSheet>
+      </BottomSheet>
+
+      <Modal
+        visible={regionModalVisible}
+        animationType="slide"
+        transparent={false}
+        onRequestClose={handleCloseRegion}
+      >
+        <RegionAndCityPage
+          onClose={handleCloseRegion}
+          onSubmit={handleRegionCitySubmit}
+        />
+      </Modal>
+    </>
   );
 });
 

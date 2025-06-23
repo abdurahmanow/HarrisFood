@@ -1,7 +1,7 @@
 import React from 'react';
 import { View, TouchableOpacity, Text, StyleProp, ViewStyle } from 'react-native';
 import { bottomActionAreaStyles as styles } from '../../styles/LocationModal/BottomActionAreaStyles';
-import CheckmarkIcon from './CheckmarkIcon'; // Assuming you have a CheckmarkIcon component
+import CheckmarkIcon from './CheckmarkIcon';
 
 type Props = {
   onPress: () => void;
@@ -15,7 +15,7 @@ type Props = {
   style?: StyleProp<ViewStyle>;
 };
 
-export default function BottomActionArea({
+export default function AddAddressButton({
   onPress,
   isActive = false,
   buttonLabel = 'Добавить адрес',
@@ -24,10 +24,9 @@ export default function BottomActionArea({
   onAgreementToggle,
   agreementText,
   onPolicyPress,
-  style,
 }: Props) {
   return (
-    <View style={[styles.outer, style]}>
+    <View>
       {showAgreement && (
         <View style={styles.agreementWrapper}>
           <TouchableOpacity
@@ -53,7 +52,8 @@ export default function BottomActionArea({
               <Text
                 style={styles.agreementLink}
                 onPress={onPolicyPress}
-                suppressHighlighting>
+                suppressHighlighting
+              >
                 условиями обработки персональных данных
               </Text>
             </Text>

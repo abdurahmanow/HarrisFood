@@ -1,18 +1,17 @@
 import { StyleSheet } from 'react-native';
 
 export const bottomActionAreaStyles = StyleSheet.create({
-  outer: {
+
+    fixedOuter: {
     position: 'absolute',
     left: 0,
     right: 0,
-    bottom: 0,
-    paddingHorizontal: 24,
-    paddingBottom: 24,
-    paddingTop: 16,
     backgroundColor: '#fff',
-    alignItems: 'center',
-    zIndex: 10,
+    borderTopLeftRadius: 20,
+    borderTopRightRadius: 20,
+    // bottom и paddingBottom добавим в компонент через StyleSheet.compose, так как зависит от safe-area
   },
+
   agreementWrapper: {
     flexDirection: 'row',
     alignItems: 'center',
@@ -31,7 +30,7 @@ export const bottomActionAreaStyles = StyleSheet.create({
     alignItems: 'center',
   },
   checkboxChecked: {
-    backgroundColor: '#fff', // не закрашиваем при активе, только бордер
+    backgroundColor: '#fff',
     borderColor: '#FF9900',
   },
   checkmarkIconWrapper: {
