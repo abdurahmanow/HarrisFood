@@ -1,0 +1,197 @@
+[
+  {
+    "id": "none",
+    "title": "Без добавки",
+    "type": "main",
+    "price": 0
+  },
+  {
+    "id": "double_meat",
+    "title": "Двойное мясо",
+    "type": "main",
+    "price": 70,
+    "categories": ["pizza"]
+  },
+  {
+    "id": "double_cheese",
+    "title": "Двойной сыр",
+    "type": "main",
+    "price": 40,
+    "categories": ["pizza"]
+  },
+  {
+    "id": "pepper",
+    "title": "Болгарский перец",
+    "type": "main",
+    "price": 20,
+    "categories": ["pizza"]
+  },
+  {
+    "id": "chili",
+    "title": "Чили",
+    "type": "main",
+    "price": 20,
+    "categories": ["pizza"]
+  },
+  {
+    "id": "olives",
+    "title": "Маслины",
+    "type": "main",
+    "price": 30,
+    "categories": ["pizza"]
+  },
+  {
+    "id": "pineapple",
+    "title": "Ананас",
+    "type": "main",
+    "price": 35,
+    "categories": ["pizza"]
+  },
+  {
+    "id": "tomato",
+    "title": "Помидор",
+    "type": "main",
+    "price": 20,
+    "categories": ["pizza"]
+  },
+  {
+    "id": "corn",
+    "title": "Кукуруза",
+    "type": "main",
+    "price": 15,
+    "categories": ["pizza"]
+  },
+  {
+    "id": "sauce_garlic",
+    "title": "Чесночный соус",
+    "type": "sauce",
+    "price": 25,
+    "categories": ["fastfood"]
+  },
+  {
+    "id": "sauce_tomato",
+    "title": "Томатный соус",
+    "type": "sauce",
+    "price": 25,
+    "categories": ["fastfood"]
+  },
+  {
+    "id": "sauce_cheese",
+    "title": "Сырный соус",
+    "type": "sauce",
+    "price": 30,
+    "categories": ["fastfood"]
+  },
+  {
+    "id": "sauce_parmesan",
+    "title": "Пармезан",
+    "type": "sauce",
+    "price": 40,
+    "categories": ["fastfood"]
+  },
+  {
+    "id": "sauce_bbq",
+    "title": "Барбекю",
+    "type": "sauce",
+    "price": 35,
+    "categories": ["fastfood"]
+  },
+  {
+    "id": "sauce_sour_sweet",
+    "title": "Кисло-сладкий соус",
+    "type": "sauce",
+    "price": 25,
+    "categories": ["fastfood"]
+  },
+  {
+    "id": "sauce_mustard",
+    "title": "Горчичный соус",
+    "type": "sauce",
+    "price": 25,
+    "categories": ["fastfood"]
+  },
+  {
+    "id": "syrup_none",
+    "title": "Без добавки",
+    "type": "syrup",
+    "price": 0,
+    "categories": ["tea_coffee"]
+  },
+  {
+    "id": "syrup_sweet_caramel",
+    "title": "Сладкая карамель",
+    "type": "syrup",
+    "price": 25,
+    "categories": ["tea_coffee"]
+  },
+  {
+    "id": "syrup_salty_caramel",
+    "title": "Солёная карамель",
+    "type": "syrup",
+    "price": 25,
+    "categories": ["tea_coffee"]
+  },
+  {
+    "id": "syrup_nut",
+    "title": "Орех",
+    "type": "syrup",
+    "price": 25,
+    "categories": ["tea_coffee"]
+  },
+  {
+    "id": "syrup_coconut",
+    "title": "Кокос",
+    "type": "syrup",
+    "price": 25,
+    "categories": ["tea_coffee"]
+  },
+  {
+    "id": "syrup_vanilla",
+    "title": "Ванилин",
+    "type": "syrup",
+    "price": 25,
+    "categories": ["tea_coffee"]
+  },
+  {
+    "id": "syrup_gingerbread",
+    "title": "Имбирный пряник",
+    "type": "syrup",
+    "price": 25,
+    "categories": ["tea_coffee"]
+  },
+  {
+    "id": "syrup_raspberry",
+    "title": "Малина",
+    "type": "syrup",
+    "price": 25,
+    "categories": ["tea_coffee"]
+  },
+  {
+    "id": "syrup_strawberry",
+    "title": "Клубника",
+    "type": "syrup",
+    "price": 25,
+    "categories": ["tea_coffee"]
+  },
+  {
+    "id": "syrup_banana",
+    "title": "Банан",
+    "type": "syrup",
+    "price": 25,
+    "categories": ["tea_coffee"]
+  },
+  {
+    "id": "syrup_iris",
+    "title": "Ирис",
+    "type": "syrup",
+    "price": 25,
+    "categories": ["tea_coffee"]
+  },
+  {
+    "id": "syrup_almond",
+    "title": "Миндаль",
+    "type": "syrup",
+    "price": 25,
+    "categories": ["tea_coffee"]
+  }
+]

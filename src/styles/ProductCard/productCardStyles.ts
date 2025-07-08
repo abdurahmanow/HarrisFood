@@ -1,0 +1,101 @@
+import { StyleSheet } from 'react-native';
+
+export const productCardStyles = StyleSheet.create({
+  card: {
+    backgroundColor: '#fff',
+    borderRadius: 12,
+    shadowColor: '#171717',
+    shadowOpacity: 0.05,
+    shadowOffset: { width: 0, height: 2 },
+    shadowRadius: 8,
+    elevation: 1,
+    paddingBottom: 12,
+    marginBottom: 0, // внешний отступ задаём FlatList
+  },
+  image: {
+    width: '100%',
+    height: 120, // Если нужно адаптивно, можно height: 'auto' и aspectRatio
+    borderRadius: 5,
+    marginBottom: 12,
+    backgroundColor: '#F0F0F0',
+  },
+  title: {
+    fontFamily: 'Inter18Bold',
+    fontSize: 15,
+    lineHeight: 22,
+    color: '#1A1A1A',
+    marginBottom: 4,
+    paddingHorizontal: 10,
+  },
+  description: {
+    fontFamily: 'Inter18Regular',
+    fontSize: 10,
+    lineHeight: 13,
+    color: '#A9A9A9',
+    marginBottom: 12,
+    paddingHorizontal: 10,
+  },
+  priceRow: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    marginBottom: 10,
+    paddingHorizontal: 10,
+  },
+  price: {
+    fontFamily: 'Inter18Bold',
+    fontWeight: '600',
+    fontSize: 16,
+    color: '#FF9900',
+  },
+  qtyBlock: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    borderRadius: 5,
+    borderWidth: 1,
+    borderColor: '#D2D2D2',
+    width: 57,
+    height: 22,
+    justifyContent: 'space-between',
+    backgroundColor: '#fff',
+    paddingHorizontal: 8,
+  },
+  qtyBtn: {
+    width: 15,
+    height: 25,
+    borderRadius: 5,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  qtyBtnText: {
+    fontSize: 12,
+    fontFamily: 'Inter18Bold',
+    color: '#1A1A1A',
+  },
+  qtyBtnDisabled: {
+    color: '#D2D2D2',
+  },
+  qtyText: {
+    fontFamily: 'Inter18Regular',
+    fontSize: 12,
+    width: 15,
+    textAlign: 'center',
+    color: '#1A1A1A',
+  },
+  addBtn: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    backgroundColor: '#FF9900',
+    borderRadius: 8,
+    marginTop: 4,
+    marginHorizontal: 10,
+    paddingVertical: 10,
+    justifyContent: 'center',
+  },
+  addBtnText: {
+    color: '#fff',
+    fontFamily: 'Inter18Bold',
+    fontWeight: '600',
+    fontSize: 12,
+  },
+});

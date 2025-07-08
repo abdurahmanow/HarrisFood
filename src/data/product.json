@@ -1,0 +1,111 @@
+[
+  {
+    "id": "pizza_pepperoni",
+    "category": "pizza",
+    "title": "Пицца Пепперони",
+    "image": "Пицца Пепперони.png",
+    "description": "Тонкое тесто, фирменный соус, сыр, пепперони.",
+    "sizes": [
+      {
+        "title": "Маленькая",
+        "weight": 400,
+        "unit": "г",
+        "price": 390,
+        "minQty": 1
+      },
+      {
+        "title": "Большая",
+        "weight": 800,
+        "unit": "г",
+        "price": 670,
+        "minQty": 1
+      }
+    ],
+    "variants": null,
+    "additives": ["double_cheese", "chili", "olives", "pepper", "pineapple", "tomato", "corn", "sauce_bbq", "sauce_cheese"],
+    "currency": "₽"
+  },
+
+  {
+    "id": "cheburek_meat",
+    "category": "cheburek_yantyk",
+    "title": "Чебурек с мясом",
+    "image": "Чебурек с мясом.png",
+    "description": "Классический чебурек с сочной мясной начинкой.",
+    "weight": 150,
+    "unit": "г",
+    "price": 135,
+    "minQty": 1,
+    "variants": [
+      {
+        "id": "cheese",
+        "title": "С сыром",
+        "price": 25
+      },
+      {
+        "id": "spicy",
+        "title": "Острый",
+        "price": 20
+      }
+    ],
+    "additives": null,
+    "currency": "₽"
+  },
+
+  {
+    "id": "meat_mangal_lamb",
+    "category": "mangal",
+    "title": "Шашлык из баранины",
+    "image": "Шашлык из баранины.png",
+    "description": "Шашлык из мяса молодого барашка на мангале.",
+    "price_per": 230,
+    "per_unit": 100,
+    "unit": "г",
+    "minQty": 250,
+    "variants": null,
+    "additives": ["sauce_bbq", "sauce_garlic", "sauce_mustard"],
+    "currency": "₽"
+  },
+
+  {
+    "id": "americano",
+    "category": "tea_coffee",
+    "title": "Американо",
+    "image": "Американо.png",
+    "description": "Классический черный кофе.",
+    "sizes": [
+      {
+        "title": "Стандарт",
+        "volume": 250,
+        "unit": "мл",
+        "price": 120,
+        "minQty": 1
+      },
+      {
+        "title": "Большой",
+        "volume": 400,
+        "unit": "мл",
+        "price": 170,
+        "minQty": 1
+      }
+    ],
+    "variants": null,
+    "additives": ["syrup_none", "syrup_sweet_caramel", "syrup_vanilla", "syrup_gingerbread"],
+    "currency": "₽"
+  },
+
+  {
+    "id": "tea_milk_oolong",
+    "category": "tea_coffee",
+    "title": "Молочный улун",
+    "image": "Молочный улун.png",
+    "description": "Ароматный китайский чай.",
+    "volume": 500,
+    "unit": "мл",
+    "price": 170,
+    "minQty": 1,
+    "variants": null,
+    "additives": ["syrup_none", "syrup_almond", "syrup_strawberry"],
+    "currency": "₽"
+  }
+]

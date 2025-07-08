@@ -1,0 +1,10 @@
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- Белый фон -->
+    <item android:drawable="@color/launch_bg_light" />
+    <!-- Логотип по центру -->
+    <item>
+        <bitmap
+            android:gravity="center"
+            android:src="@drawable/logo_harris" />
+    </item>
+</layer-list>

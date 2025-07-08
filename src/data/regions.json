@@ -1,0 +1,94 @@
+[
+  {
+    "id": "feodosiya",
+    "name": "Крым, район Феодосии",
+    "categoriesOrder": [
+      "soups",
+      "hot_dishes",
+      "starters",
+      "salads",
+      "desserts",
+      "cheburek_yantyk",
+      "mangal",
+      "pizza",
+      "drinks",
+      "tea_coffee"
+    ],
+    "showOnHome": ["hot_dishes", "mangal", "pizza", "salads"]
+  },
+  {
+    "id": "sudak",
+    "name": "Крым, район Судака",
+    "categoriesOrder": [
+      "soups",
+      "hot_dishes",
+      "starters",
+      "salads",
+      "mangal",
+      "pizza",
+      "drinks"
+    ],
+    "showOnHome": ["hot_dishes", "mangal", "pizza"]
+  },
+  {
+    "id": "kirovskiy",
+    "name": "Крым, Кировский район",
+    "categoriesOrder": [
+      "soups",
+      "hot_dishes",
+      "starters",
+      "salads",
+      "desserts",
+      "cheburek_yantyk",
+      "mangal",
+      "rolls",
+      "pizza",
+      "drinks",
+      "tea_coffee"
+    ],
+    "showOnHome": ["hot_dishes", "rolls", "pizza"]
+  },
+  {
+    "id": "belogorskiy",
+    "name": "Крым, Белогорский район",
+    "categoriesOrder": [
+      "soups",
+      "hot_dishes",
+      "salads",
+      "desserts",
+      "pizza",
+      "drinks"
+    ],
+    "showOnHome": ["hot_dishes", "pizza"]
+  },
+  {
+    "id": "sakskiy",
+    "name": "Крым, Сакский район",
+    "categoriesOrder": [
+      "soups",
+      "hot_dishes",
+      "starters",
+      "salads",
+      "desserts",
+      "cheburek_yantyk",
+      "mangal",
+      "pizza",
+      "drinks",
+      "tea_coffee"
+    ],
+    "showOnHome": ["hot_dishes", "mangal", "pizza", "salads"]
+  },
+  {
+    "id": "evpatoriya",
+    "name": "Крым, г. Евпатория",
+    "categoriesOrder": [
+      "hot_dishes",
+      "starters",
+      "salads",
+      "desserts",
+      "pizza",
+      "drinks"
+    ],
+    "showOnHome": ["hot_dishes", "pizza"]
+  }
+]

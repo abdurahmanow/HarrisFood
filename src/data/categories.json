@@ -1,0 +1,74 @@
+[
+  {
+    "id": "soups",
+    "title": "Супы",
+    "image": "default_menu.png",
+    "description": "Вкусные и сытные супы."
+  },
+  {
+    "id": "hot_dishes",
+    "title": "Горячие блюда",
+    "image": "default_menu.png",
+    "description": "Основные горячие блюда."
+  },
+  {
+    "id": "starters",
+    "title": "Закуски",
+    "image": "default_menu.png",
+    "description": "Аппетитные закуски."
+  },
+  {
+    "id": "salads",
+    "title": "Салаты",
+    "image": "default_menu.png",
+    "description": "Свежие и полезные салаты."
+  },
+  {
+    "id": "desserts",
+    "title": "Десерты",
+    "image": "default_menu.png",
+    "description": "Домашние десерты."
+  },
+  {
+    "id": "cheburek_yantyk",
+    "title": "Чебурек & Янтыкъ",
+    "image": "default_menu.png",
+    "description": "Крымская классика — чебуреки и янтыкъ."
+  },
+  {
+    "id": "mangal",
+    "title": "Мангал",
+    "image": "default_menu.png",
+    "description": "Блюда на мангале."
+  },
+  {
+    "id": "rolls",
+    "title": "Роллы",
+    "image": "default_menu.png",
+    "description": "Японские и авторские роллы."
+  },
+  {
+    "id": "fastfood",
+    "title": "ФасФуд",
+    "image": "default_menu.png",
+    "description": "Бургеры, картошка, наггетсы и прочий фастфуд."
+  },
+  {
+    "id": "pizza",
+    "title": "Пицца",
+    "image": "default_menu.png",
+    "description": "Итальянская и авторская пицца."
+  },
+  {
+    "id": "drinks",
+    "title": "Напитки",
+    "image": "default_menu.png",
+    "description": "Безалкогольные напитки."
+  },
+  {
+    "id": "tea_coffee",
+    "title": "Чай & Кофе",
+    "image": "default_menu.png",
+    "description": "Чай, кофе, какао и авторские напитки."
+  }
+]

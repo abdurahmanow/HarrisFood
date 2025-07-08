@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="launch_bg_light">#FFFFFF</color>
+    <color name="launch_bg_dark">#1A1A1A</color>
+    <!-- Можно добавить другие цвета, если нужно -->
+</resources>

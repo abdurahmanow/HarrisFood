@@ -1,0 +1,36 @@
+[
+  {
+    "id": "simferopol",
+    "name": "Симферополь",
+    "categoriesOrder": [
+      "soups",
+      "hot_dishes",
+      "starters",
+      "salads",
+      "desserts",
+      "cheburek_yantyk",
+      "mangal",
+      "rolls",
+      "fastfood",
+      "pizza",
+      "drinks",
+      "tea_coffee"
+    ]
+  },
+  {
+    "id": "ekaterinburg",
+    "name": "Екатеринбург",
+    "categoriesOrder": [
+      "soups",
+      "hot_dishes",
+      "starters",
+      "salads",
+      "desserts",
+      "cheburek_yantyk",
+      "mangal",
+      "pizza",
+      "drinks",
+      "tea_coffee"
+    ]
+  }
+]
