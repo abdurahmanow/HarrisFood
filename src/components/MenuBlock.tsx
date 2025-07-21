@@ -1,46 +1,45 @@
-// MenuBlock.tsx
+// components/MenuBlock.tsx
+
 import React from 'react';
-import { View, Text, Image, FlatList, Dimensions } from 'react-native';
+import { View, Text, Image, FlatList, Dimensions, TouchableOpacity } from 'react-native';
 import styles from '../styles/MenuBlockStyles';
 import { getCategoryImage } from '../utils/getCategoryImage';
 
 export type RawMenuCategory = {
   id: string;
   title: string;
-  image: string;
-  showOnHome?: boolean;
-  [key: string]: any;
+  description?: string;
+  // image не нужен!
 };
 
 export type MenuItem = {
   id: string;
   title: string;
-  image: string;
 };
 
 export function toMenuItem(raw: RawMenuCategory | undefined): MenuItem | null {
-  return raw && raw.id && raw.title && raw.image
-    ? { id: raw.id, title: raw.title, image: raw.image }
+  return raw && raw.id && raw.title
+    ? { id: raw.id, title: raw.title }
     : null;
 }
 
 type Props = {
   items: MenuItem[];
   columns?: number;
+  onPressItem?: (item: MenuItem) => void;
 };
 
-const MenuBlock: React.FC<Props> = ({ items, columns = 4 }) => {
+const MenuBlock: React.FC<Props> = ({ items, columns = 4, onPressItem }) => {
   const sidePadding = 20;
   const screenWidth = Dimensions.get('window').width;
   const itemSize = (screenWidth - sidePadding * 1.8) / columns;
 
-  // Добавляем пустые элементы, если последний ряд не полный
   const fullItems = React.useMemo(() => {
     const copy = [...items];
     const lastRowCount = items.length % columns;
     if (lastRowCount !== 0) {
       for (let i = 0; i < columns - lastRowCount; i++) {
-        copy.push({ id: `empty-${i}`, title: '', image: '' });
+        copy.push({ id: `empty-${i}`, title: '' });
       }
     }
     return copy;
@@ -48,10 +47,14 @@ const MenuBlock: React.FC<Props> = ({ items, columns = 4 }) => {
 
   const renderItem = ({ item }: { item: MenuItem }) =>
     item.title ? (
-      <View style={[styles.menuItem, { width: itemSize }]}>
-        <Image source={getCategoryImage(item.image)} style={styles.menuImage} />
+      <TouchableOpacity
+        style={[styles.menuItem, { width: itemSize }]}
+        activeOpacity={0.7}
+        onPress={() => onPressItem?.(item)}
+      >
+        <Image source={getCategoryImage(item.id)} style={styles.menuImage} />
         <Text style={styles.menuText}>{item.title}</Text>
-      </View>
+      </TouchableOpacity>
     ) : (
       <View style={[styles.menuItem, { width: itemSize }]} />
     );

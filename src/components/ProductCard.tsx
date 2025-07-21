@@ -1,61 +1,112 @@
 import React, { useState } from 'react';
 import { View, Text, Image, TouchableOpacity } from 'react-native';
 import { productCardStyles as styles } from '../styles/ProductCard/productCardStyles';
+import { Product } from '../types/product';
 
-type Product = {
-  id: string;
-  title: string;
-  description: string;
-  price: number;
-  image: any;
-  unit: string;
-  unit_size: string;
-  minQty?: number;
-  maxQty?: number;
-};
+function formatWeight(value: number, unit: string = 'г'): string {
+  if (unit === 'г' || unit === 'гр' || unit === 'грамм' || unit === 'граммов') {
+    if (value < 1000) {
+      return `${value} г`;
+    } else {
+      const kg = value / 1000;
+      return `${kg % 1 === 0 ? kg.toFixed(0) : kg.toFixed(2).replace(/\.?0+$/, '')} кг`;
+    }
+  }
+  return `${value} ${unit}`;
+}
 
 type Props = {
   product: Product;
   width: number;
+  onPress?: () => void;
 };
 
-export default function ProductCard({ product, width }: Props) {
+export default function ProductCard({ product, width, onPress }: Props) {
   const {
     title,
-    price,
     image,
-    unit,
-    unit_size,
+    currency = '₽',
+    price,
+    price_per,
+    per_unit,
+    qtyUnitLabel = 'г',
+    qtyStep = 1,
     minQty = 1,
-    maxQty = 99,
+    maxQty = 9999,
   } = product;
+
   const [qty, setQty] = useState(minQty);
+  const [imgError, setImgError] = useState(false);
 
-  const onInc = () => setQty(qty < maxQty ? qty + 1 : qty);
-  const onDec = () => setQty(qty > minQty ? qty - 1 : qty);
+  const isWeight = !!price_per && !!per_unit;
+  let displayPrice: number;
+  let qtyDisplay: string;
 
-  const totalPrice = price * qty;
+  if (isWeight) {
+    displayPrice = Math.round(((qty / per_unit) * price_per) * 100) / 100;
+    qtyDisplay = formatWeight(qty, qtyUnitLabel);
+  } else {
+    displayPrice = Number(price) * qty;
+    qtyDisplay = qty.toString();
+  }
+  const showPrice = isNaN(displayPrice) ? '—' : displayPrice;
+
+  // Динамика ширины qtyBlock
+  const qtyBlockMinWidth = isWeight ? 56 : 40;
 
   return (
-    <View style={[styles.card, { width }]}>
-      <Image source={image} style={[styles.image, { width }]} resizeMode="cover" />
-      <Text style={styles.title}>{title}</Text>
-      <Text style={styles.description}>Цена за {unit_size}</Text>
-      <View style={styles.priceRow}>
-        <Text style={styles.price}>{totalPrice} {unit}</Text>
-        <View style={styles.qtyBlock}>
-          <TouchableOpacity style={styles.qtyBtn} onPress={onDec} disabled={qty === minQty}>
-            <Text style={[styles.qtyBtnText, qty === minQty && styles.qtyBtnDisabled]}>–</Text>
-          </TouchableOpacity>
-          <Text style={styles.qtyText}>{qty}</Text>
-          <TouchableOpacity style={styles.qtyBtn} onPress={onInc} disabled={qty === maxQty}>
-            <Text style={[styles.qtyBtnText, qty === maxQty && styles.qtyBtnDisabled]}>+</Text>
-          </TouchableOpacity>
+    <TouchableOpacity onPress={onPress} activeOpacity={0.9}>
+      <View style={[styles.card, { width }]}>
+        {imgError || !image ? (
+          <View style={[styles.noImage, { width }]}>
+            <Text style={styles.noImageText}>Нет фото</Text>
+          </View>
+        ) : (
+          <Image
+            source={typeof image === 'string' ? { uri: image } : image}
+            style={[styles.image, { width }]}
+            resizeMode="cover"
+            onError={() => setImgError(true)}
+          />
+        )}
+
+        <Text style={styles.title} numberOfLines={2} ellipsizeMode="tail">
+          {title}
+        </Text>
+
+        <View style={styles.priceRow}>
+          <Text style={styles.price}>
+            {showPrice} {currency}
+          </Text>
+          <View style={[styles.qtyBlock, { minWidth: qtyBlockMinWidth }]}>
+            <TouchableOpacity
+              style={styles.qtyBtn}
+              onPress={() => setQty(Math.max(qty - qtyStep, minQty))}
+              disabled={qty <= minQty}
+              activeOpacity={0.7}
+            >
+              <Text style={[styles.qtyBtnText, qty <= minQty && styles.qtyBtnDisabled]}>–</Text>
+            </TouchableOpacity>
+            <Text style={styles.qtyText} numberOfLines={1} adjustsFontSizeToFit>
+              {qtyDisplay}
+            </Text>
+            <TouchableOpacity
+              style={styles.qtyBtn}
+              onPress={() => setQty(Math.min(qty + qtyStep, maxQty))}
+              disabled={qty + qtyStep > maxQty}
+              activeOpacity={0.7}
+            >
+              <Text style={[styles.qtyBtnText, qty + qtyStep > maxQty && styles.qtyBtnDisabled]}>+</Text>
+            </TouchableOpacity>
+          </View>
         </View>
+
+        <TouchableOpacity style={styles.addBtn} activeOpacity={0.7}>
+          <Text style={styles.addBtnText} numberOfLines={1} adjustsFontSizeToFit>
+            Добавить в заказ
+          </Text>
+        </TouchableOpacity>
       </View>
-      <TouchableOpacity style={styles.addBtn} activeOpacity={0.7}>
-        <Text style={styles.addBtnText}>Добавить в заказ</Text>
-      </TouchableOpacity>
-    </View>
+    </TouchableOpacity>
   );
 }

@@ -1,21 +1,33 @@
 import React from 'react';
-import { View, TouchableOpacity, Text, StyleSheet, Platform } from 'react-native';
+import { View, TouchableOpacity, StyleSheet, Platform } from 'react-native';
 
 import HomeIcon from '../assets/ico/home.svg';
+import HomeIconActive from '../assets/ico/home.activ.svg';
+
 import MenuIcon from '../assets/ico/menu.svg';
+import MenuIconActive from '../assets/ico/menu.activ.svg';
+
+import CartIcon from '../assets/ico/cart.svg';
+import CartIconActive from '../assets/ico/cart.activ.svg';
+
 import ProfileIcon from '../assets/ico/profile.svg';
+import ProfileIconActive from '../assets/ico/profile.activ.svg';
 
-const icons: any = { Home: HomeIcon, Menu: MenuIcon, Profile: ProfileIcon, Cart: ProfileIcon }; // Используем ProfileIcon для Cart, замените на нужный иконку
+const icons: any = {
+  Home: { default: HomeIcon, active: HomeIconActive },
+  Menu: { default: MenuIcon, active: MenuIconActive },
+  Cart: { default: CartIcon, active: CartIconActive },
+  Profile: { default: ProfileIcon, active: ProfileIconActive },
+};
 
-export default function CustomTabBar({ state, descriptors, navigation }: any) {
+export default function CustomTabBar({ state, navigation }: any) {
   return (
     <View style={styles.container}>
       {state.routes.map((route: any, index: number) => {
-        const { options } = descriptors[route.key];
-        const label = options.tabBarLabel ?? options.title ?? route.name;
         const isFocused = state.index === index;
-        const IconComponent = icons[route.name];
-        const onPress = () => { if (!isFocused) {navigation.navigate(route.name);} };
+        const iconSet = icons[route.name];
+        const IconComponent = isFocused ? iconSet.active : iconSet.default;
+        const onPress = () => { if (!isFocused) { navigation.navigate(route.name); } };
         return (
           <TouchableOpacity
             key={route.key}
@@ -24,11 +36,8 @@ export default function CustomTabBar({ state, descriptors, navigation }: any) {
             activeOpacity={0.75}
           >
             {IconComponent && (
-              <IconComponent width={18} height={18} fill={isFocused ? '#FF9900' : '#A8A8A8'} />
+              <IconComponent width={26} height={26} />
             )}
-            <Text style={[styles.label, isFocused && styles.labelActive]}>
-              {label}
-            </Text>
           </TouchableOpacity>
         );
       })}
@@ -41,21 +50,12 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     backgroundColor: '#fff',
     paddingTop: 8,
-    paddingBottom: Platform.OS === 'ios' ? 12 : 6, // можно 0 если хочешь вообще без отступа
+    paddingBottom: Platform.OS === 'ios' ? 12 : 6,
   },
   tab: {
     flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
-    gap: 3,
-  },
-  label: {
-    fontFamily: 'Inter18Bold',
-    fontSize: 12,
-    color: '#A8A8A8',
-    marginTop: 5,
-  },
-  labelActive: {
-    color: '#FF9900',
+    // gap: 3, // Не нужен, если нет текста
   },
 });

@@ -5,9 +5,12 @@ import PickupSelect from './PickupSelect';
 
 type Pickup = {
   id: string;
+  name: string;
   city: string;
   region: string;
   street: string;
+  phone?: string;
+  work_time?: string;
 };
 
 type Props = {
@@ -46,9 +49,11 @@ export default function PickupList({
       showsVerticalScrollIndicator={false}
       renderItem={({ item }) => (
         <PickupSelect
+          name={item.name}
           city={item.city}
           region={item.region}
           street={item.street}
+          work_time={item.work_time}
           selected={selectedId === item.id}
           onPress={() => onSelect(item.id)}
           style={itemStyle}

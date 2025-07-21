@@ -1,17 +1,13 @@
 [
   {
     "id": "harris1",
-    "name": "Harris (Михайловка)",
+    "name": "Harris: Михайловка",
     "region": "Сакский район",
     "city": "с. Михайловка",
     "street": "ул. Средняя, 22а",
     "phone": "+7 (978) 109-23-34",
-    "work_time": "09:00-22:00",
+    "work_time": "24/7",
     "categoriesOrder": [
-      "soups",
-      "hot_dishes",
-      "starters",
-      "salads",
       "desserts",
       "cheburek_yantyk",
       "mangal",
@@ -19,16 +15,16 @@
       "drinks",
       "tea_coffee"
     ],
-    "showOnHome": ["hot_dishes", "salads", "mangal", "pizza"]
+    "showOnHome": ["fastfood", "rolls", "mangal", "pizza"]
   },
   {
     "id": "harris2",
-    "name": "Harris (Старый Крым)",
+    "name": "Harris: Старый Крым",
     "region": "Старокрымский район",
     "city": "г. Старый Крым",
     "street": "ул. Чапаева, 32а",
     "phone": "+7 (978) 109-23-34",
-    "work_time": "09:00-22:00",
+    "work_time": "24/7",
     "categoriesOrder": [
       "soups",
       "hot_dishes",

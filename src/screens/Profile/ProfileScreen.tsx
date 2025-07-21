@@ -1,37 +1,35 @@
 import React from 'react';
-import { View, StyleSheet, FlatList } from 'react-native';
+import { View, Text, StyleSheet } from 'react-native';
 import Header from '../../components/Header';
-import AdditiveCard from '../../components/AdditiveCard';
-import { useProductCardWidth } from '../../helpers/useProductCardWidth';
-
-import additivesJson from '../../data/additives.json';
 
 export default function ProfileScreen() {
-  const cardWidth = useProductCardWidth();
-
   return (
     <View style={styles.container}>
       <Header onLocationPress={() => {}} />
-      <FlatList
-        data={additivesJson}
-        renderItem={({ item }) => <AdditiveCard additive={item} width={cardWidth} />}
-        keyExtractor={item => item.id}
-        numColumns={2}
-        columnWrapperStyle={styles.row}
-        contentContainerStyle={styles.flatListContent}
-      />
+      <View style={styles.content}>
+        <Text style={styles.emoji}>👤</Text>
+        <Text style={styles.title}>Профиль</Text>
+        <Text style={styles.subtitle}>Тут скоро появится ваш личный кабинет.</Text>
+      </View>
     </View>
   );
 }
 
 const styles = StyleSheet.create({
   container: { flex: 1, backgroundColor: '#fff' },
-  row: {
-    justifyContent: 'space-between',
-    marginBottom: 16,
+  content: { flex: 1, alignItems: 'center', justifyContent: 'center' },
+  emoji: { fontSize: 54, marginBottom: 12 },
+  title: {
+    fontFamily: 'Inter24Bold',
+    fontSize: 24,
+    color: '#1A1A1A',
+    marginBottom: 8,
   },
-  flatListContent: {
-    paddingHorizontal: 24,
-    paddingVertical: 24,
+  subtitle: {
+    fontFamily: 'Inter18Regular',
+    fontSize: 15,
+    color: '#A9A9A9',
+    textAlign: 'center',
+    marginHorizontal: 24,
   },
 });

@@ -1,7 +1,6 @@
-import React, { useState, useMemo } from 'react';
+import React, { useState, useMemo, forwardRef } from 'react';
 import { View, Modal } from 'react-native';
 import BottomSheet from '@gorhom/bottom-sheet';
-import { BottomSheetMethods } from '@gorhom/bottom-sheet/lib/typescript/types';
 
 import TitleBlock from './TitleBlock';
 import DeliveryTabsAnimated from './DeliveryTabs';
@@ -20,18 +19,13 @@ import { deliveryTabsStyles } from '../../styles/LocationModal/tabsStyles';
 import { pickupListStyles } from '../../styles/LocationModal/pickupList';
 import { savedAddressListStyles } from '../../styles/LocationModal/SavedAddressList';
 
-import pickupLocations from '../../data/pickup_locations.json';
+import places from '../../data/places.json';
 import regions from '../../data/regions.json';
 import locations from '../../data/locations.json';
 
-const LocationBottomSheet = React.forwardRef<BottomSheetMethods>((props, ref) => {
+const LocationBottomSheet = forwardRef<BottomSheet>((_props, ref) => {
   const snapPoints = useMemo(() => ['85%'], []);
-  const {
-    mode,
-    setMode,
-    pickupId,
-    setPickupId,
-  } = useCity();
+  const { mode, setMode, placeId, setPlaceId } = useCity(); // <-- исправлено
 
   const [regionModalVisible, setRegionModalVisible] = useState(false);
 
@@ -43,19 +37,10 @@ const LocationBottomSheet = React.forwardRef<BottomSheetMethods>((props, ref) =>
     addAddress,
   } = useSavedAddresses();
 
-  const handleOpenRegion = () => {
-    setRegionModalVisible(true);
-  };
+  const handleOpenRegion = () => setRegionModalVisible(true);
+  const handleCloseRegion = () => setRegionModalVisible(false);
 
-  const handleCloseRegion = () => {
-    setRegionModalVisible(false);
-  };
-
-  const handleRegionCitySubmit = (
-    regionId: string,
-    cityId: string,
-    address: string,
-  ) => {
+  const handleRegionCitySubmit = (regionId: string, cityId: string, address: string) => {
     setRegionModalVisible(false);
     const regionName = regions.find(r => r.id === regionId)?.name || '';
     const cityName = locations.find(c => c.id === cityId)?.name || '';
@@ -105,7 +90,6 @@ const LocationBottomSheet = React.forwardRef<BottomSheetMethods>((props, ref) =>
                 styles={savedAddressListStyles}
                 ListFooterComponent={<View style={{ height: 140 }} />}
               />
-
               <BottomActionContainer>
                 <AddAddressButton
                   onPress={handleOpenRegion}
@@ -117,9 +101,9 @@ const LocationBottomSheet = React.forwardRef<BottomSheetMethods>((props, ref) =>
           ) : (
             <View style={commonStyles.pickupContent}>
               <PickupList
-                data={pickupLocations}
-                selectedId={pickupId}
-                onSelect={setPickupId}
+                data={places}
+                selectedId={placeId}            // <--- исправлено
+                onSelect={setPlaceId}           // <--- исправлено
                 itemStyle={pickupListStyles.pickupItem}
                 radioOuterStyle={pickupListStyles.pickupRadioOuter}
                 radioInnerStyle={pickupListStyles.pickupRadioInner}
@@ -133,7 +117,6 @@ const LocationBottomSheet = React.forwardRef<BottomSheetMethods>((props, ref) =>
           )}
         </View>
       </BottomSheet>
-
       <Modal
         visible={regionModalVisible}
         animationType="slide"

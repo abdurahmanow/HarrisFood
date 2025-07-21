@@ -2,20 +2,18 @@ import React from 'react';
 import { View, TouchableOpacity } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import Logo from '../assets/ico/harrislogo.svg';
-import LocationIcon from '../assets/ico/Notif.svg';
+import LocationIcon from '../assets/ico/location.svg';
 import { useCity } from '../context/CityContext';
 import { useSavedAddresses } from '../context/SavedAddressesContext';
+import { useLocationBottomSheet } from '../context/LocationBottomSheetProvider';
 import AppText from './AppText';
 import { styles } from '../styles/HeaderStyles';
 
-type Props = {
-  onLocationPress: () => void;
-};
-
-export default function Header({ onLocationPress }: Props) {
+export default function Header() {
   const insets = useSafeAreaInsets();
-  const { mode, pickup } = useCity();
+  const { mode, place } = useCity(); // <-- теперь берем place, а не placeId!
   const { selectedAddress } = useSavedAddresses();
+  const { openLocationBottomSheet } = useLocationBottomSheet();
 
   let city = '';
   let street = '';
@@ -24,8 +22,8 @@ export default function Header({ onLocationPress }: Props) {
     city = selectedAddress?.cityName || 'Город';
     street = selectedAddress?.address || 'Выберите адрес';
   } else {
-    city = pickup?.city || 'Город';
-    street = pickup?.street || 'Выберите заведение';
+    city = place?.city || 'Город';
+    street = place?.street || 'Выберите заведение';
   }
 
   return (
@@ -34,19 +32,20 @@ export default function Header({ onLocationPress }: Props) {
       <TouchableOpacity
         activeOpacity={0.8}
         style={styles.addressContainer}
-        onPress={onLocationPress}
+        onPress={openLocationBottomSheet}
       >
         <View style={styles.deliveryTextBlock}>
           <AppText style={styles.deliveryTypeText} numberOfLines={1}>
-            {mode === 'delivery'
-              ? `Доставка | ${city}`
-              : `Самовывоз | ${city}`}
+            {mode === 'delivery' ? `Доставка | ${city}` : `Самовывоз | ${city}`}
           </AppText>
           <AppText style={styles.addressText} numberOfLines={1}>
             {street}
           </AppText>
         </View>
-        <LocationIcon width={35} height={35} style={styles.icon} />
+        {/* !!! -- ОБЕРНИ SVG в контейнер -- */}
+        <View style={styles.iconContainer}>
+          <LocationIcon width={18} height={18} />
+        </View>
       </TouchableOpacity>
     </View>
   );

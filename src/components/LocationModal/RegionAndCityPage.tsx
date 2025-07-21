@@ -12,7 +12,7 @@ import locations from '../../data/locations.json';
 
 import RegionSelect from './RegionSelect';
 import AddAddressButton from './AddAddressButton';
-import CityList from './CityList';
+import CityDropdown from './CityList'; // Новый компонент с двумя полями!
 import BottomActionContainer from './BottomActionContainer';
 import { regionListPageStyles as styles } from '../../styles/LocationModal/regionListPageStyles';
 
@@ -25,7 +25,8 @@ export default function RegionAndCityPage({ onClose, onSubmit }: Props) {
   const [step, setStep] = useState<'region' | 'city'>('region');
   const [regionId, setRegionId] = useState('');
   const [cityId, setCityId] = useState('');
-  const [address, setAddress] = useState('');
+  const [street, setStreet] = useState('');
+  const [house, setHouse] = useState('');
   const [agreement, setAgreement] = useState(false);
 
   const regionName = regions.find(r => r.id === regionId)?.name || '';
@@ -37,8 +38,9 @@ export default function RegionAndCityPage({ onClose, onSubmit }: Props) {
   };
 
   const handleSubmit = () => {
-    if (regionId && cityId && address && agreement) {
-      onSubmit(regionId, cityId, address);
+    if (regionId && cityId && street && house && agreement) {
+      const fullAddress = `${street}, ${house}`;
+      onSubmit(regionId, cityId, fullAddress);
     }
   };
 
@@ -73,14 +75,16 @@ export default function RegionAndCityPage({ onClose, onSubmit }: Props) {
           )}
         />
       ) : (
-        <CityList
+        <CityDropdown
           regionId={regionId}
           selectedId={cityId}
           onSelect={setCityId}
           locations={locations}
           regionName={regionName}
-          address={address}
-          setAddress={setAddress}
+          street={street}
+          setStreet={setStreet}
+          house={house}
+          setHouse={setHouse}
         />
       )}
 
@@ -110,7 +114,7 @@ export default function RegionAndCityPage({ onClose, onSubmit }: Props) {
         <BottomActionContainer>
           <AddAddressButton
             onPress={handleSubmit}
-            isActive={!!cityId && !!address && agreement}
+            isActive={!!cityId && !!street && !!house && agreement}
             showAgreement
             agreementChecked={agreement}
             onAgreementToggle={() => setAgreement(!agreement)}

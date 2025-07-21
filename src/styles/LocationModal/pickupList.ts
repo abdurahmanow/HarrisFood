@@ -33,6 +33,7 @@ export const pickupListStyles = StyleSheet.create({
   pickupCity: {
     fontSize: 14,
     fontFamily: 'Inter18Regular',
+    fontWeight: '700',
     color: '#FF9900',
     marginBottom: 6,
   },

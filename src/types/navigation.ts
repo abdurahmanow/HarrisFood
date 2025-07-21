@@ -4,4 +4,5 @@ export type TabParamList = {
   Menu: undefined;
   Cart: undefined;
   Profile: undefined;
+  CategoryProducts: { categoryId: string; categoryTitle: string }; // <-- обязательно!
 };

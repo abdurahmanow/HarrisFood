@@ -13,7 +13,7 @@ import { styles } from '../styles/SliderBannerStyles';
 
 const screenWidth = Dimensions.get('window').width;
 const SLIDE_WIDTH = screenWidth - 48;
-const SLIDE_HEIGHT = 142;
+const SLIDE_HEIGHT = 220;
 
 type Slide = {
   id: string;
@@ -21,9 +21,9 @@ type Slide = {
 };
 
 const slidesOriginal: Slide[] = [
-  { id: '1', image: require('../assets/img/Banner.png') },
-  { id: '2', image: require('../assets/img/Banner.png') },
-  { id: '3', image: require('../assets/img/Banner.png') },
+  { id: '1', image: require('../assets/img/Banner10.png') },
+  { id: '2', image: require('../assets/img/Banner11.png') },
+  { id: '3', image: require('../assets/img/Banner12.png') },
 ];
 
 // Добавляем копию первого в конец для бесшовного цикла

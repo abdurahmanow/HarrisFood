@@ -3,9 +3,11 @@ import { View, TouchableOpacity, StyleProp, ViewStyle, TextStyle } from 'react-n
 import AppText from '../AppText';
 
 type Props = {
+  name: string;
   city: string;
   region: string;
   street: string;
+  work_time?: string;
   selected: boolean;
   onPress: () => void;
   style?: StyleProp<ViewStyle>;
@@ -14,13 +16,14 @@ type Props = {
   textBlockStyle?: StyleProp<ViewStyle>;
   cityTextStyle?: StyleProp<TextStyle>;
   addressTextStyle?: StyleProp<TextStyle>;
-  children?: React.ReactNode;
 };
 
 export default function PickupSelect({
+  name,
   city,
   region,
   street,
+  work_time,
   selected,
   onPress,
   style,
@@ -29,18 +32,32 @@ export default function PickupSelect({
   textBlockStyle,
   cityTextStyle,
   addressTextStyle,
-  children,
 }: Props) {
+  let workTimeDisplay = '';
+  if (work_time) {
+    workTimeDisplay = work_time === '24/7'
+      ? 'Круглосуточно'
+      : work_time;
+  }
+
   return (
     <TouchableOpacity style={style} onPress={onPress} activeOpacity={0.85}>
       <View style={radioOuterStyle}>
         {selected && <View style={radioInnerStyle} />}
       </View>
       <View style={textBlockStyle}>
-        <AppText style={cityTextStyle}>{city}</AppText>
+        <AppText style={cityTextStyle}>{name || city}</AppText>
         <AppText style={addressTextStyle}>{`${region}, ${street}`}</AppText>
+        {work_time ? (
+          <AppText style={{
+            color: '#A9A9A9',
+            fontFamily: 'Inter18Regular',
+            fontSize: 13,
+          }}>
+            {`График: ${workTimeDisplay}`}
+          </AppText>
+        ) : null}
       </View>
-      {children}
     </TouchableOpacity>
   );
 }

@@ -44,8 +44,12 @@ export const styles = StyleSheet.create({
     color: '#101010',
     textAlign: 'right',
   },
-  icon: {
-    width: 35,
-    height: 35,
+  iconContainer: {
+    width: 34,
+    height: 34,
+    backgroundColor: 'rgba(255, 153, 0, 0.10)',
+    borderRadius: 4,
+    alignItems: 'center',
+    justifyContent: 'center',
   },
 });

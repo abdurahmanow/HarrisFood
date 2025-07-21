@@ -1,11 +1,12 @@
 import React from 'react';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import CustomTabBar from './CustomTabBar';
-
 import HomeScreen from '../screens/Home/HomeScreen';
-import MenuScreen from '../screens/Menu/MenuScreen';
 import ProfileScreen from '../screens/Profile/ProfileScreen';
 import CartScreen from '../screens/Cart/CartScreen';
+
+// Импортируем MenuStack вместо MenuScreen!
+import MenuStack from './MenuStack';
 
 const Tab = createBottomTabNavigator();
 
@@ -16,7 +17,7 @@ export default function TabNavigator() {
       screenOptions={{
         headerShown: false,
         tabBarStyle: {
-          backgroundColor: 'transparent',
+          backgroundColor: '#fff',
           borderTopWidth: 0,
           elevation: 0,
           position: 'absolute',
@@ -30,7 +31,7 @@ export default function TabNavigator() {
       />
       <Tab.Screen
         name="Menu"
-        component={MenuScreen}
+        component={MenuStack} // ← вот тут теперь MenuStack!
         options={{ tabBarLabel: 'Меню' }}
       />
       <Tab.Screen

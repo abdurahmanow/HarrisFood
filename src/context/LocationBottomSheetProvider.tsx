@@ -1,24 +1,30 @@
-import React, { createContext, useContext, useRef } from 'react';
-import type { BottomSheetMethods } from '@gorhom/bottom-sheet/lib/typescript/types';
+// src/context/LocationBottomSheetProvider.tsx
+import React, { createContext, useRef, useContext } from 'react';
+import BottomSheet from '@gorhom/bottom-sheet';
+import LocationBottomSheet from '../components/LocationModal/indexmodal';
 
-type BottomSheetRef = React.RefObject<BottomSheetMethods | null>;
+type BottomSheetContextType = {
+  openLocationBottomSheet: () => void;
+};
 
-const BottomSheetContext = createContext<{ ref: BottomSheetRef }>({
-  ref: { current: null },
+const BottomSheetContext = createContext<BottomSheetContextType>({
+  openLocationBottomSheet: () => {},
 });
 
 export const useLocationBottomSheet = () => useContext(BottomSheetContext);
 
-export default function LocationBottomSheetProvider({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
-  const ref = useRef<BottomSheetMethods | null>(null);
+export default function LocationBottomSheetProvider({ children }: { children: React.ReactNode }) {
+  const ref = useRef<BottomSheet>(null);
+
+  const openLocationBottomSheet = () => {
+    ref.current?.expand();
+  };
 
   return (
-    <BottomSheetContext.Provider value={{ ref }}>
+    <BottomSheetContext.Provider value={{ openLocationBottomSheet }}>
       {children}
+      {/* Только один BottomSheet! */}
+      <LocationBottomSheet ref={ref} />
     </BottomSheetContext.Provider>
   );
 }

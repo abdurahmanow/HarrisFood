@@ -1,83 +1,35 @@
 import React from 'react';
-import { View, StyleSheet, FlatList } from 'react-native';
+import { View, Text, StyleSheet } from 'react-native';
 import Header from '../../components/Header';
-import ProductCard from '../../components/ProductCard';
-import { useProductCardWidth } from '../../helpers/useProductCardWidth';
-
-const products = [
-  {
-    id: '1',
-    title: 'Говяжья печенка',
-    description: 'Цена за 100 г',
-    price: 150,
-    image: require('../../assets/img/products/liver.png'),
-    unit: '₽',
-    unit_size: '100 г',
-    minQty: 1,
-    maxQty: 99,
-  },
-  {
-    id: '2',
-    title: 'Перепелка',
-    description: 'Цена за 100 г',
-    price: 200,
-    image: require('../../assets/img/products/liver.png'),
-    unit: '₽',
-    unit_size: '100 г',
-    minQty: 1,
-    maxQty: 99,
-  },
-  {
-    id: '3',
-    title: 'Люля-кебаб',
-    description: 'Цена за 100 г',
-    price: 150,
-    image: require('../../assets/img/products/liver.png'),
-    unit: '₽',
-    unit_size: '100 г',
-    minQty: 1,
-    maxQty: 99,
-  },
-  {
-    id: '4',
-    title: 'Стейк лосося',
-    description: 'Цена за 100 г',
-    price: 275,
-    image: require('../../assets/img/products/liver.png'),
-    unit: '₽',
-    unit_size: '100 г',
-    minQty: 1,
-    maxQty: 99,
-  },
-];
 
 export default function CartScreen() {
-  const cardWidth = useProductCardWidth();
-
   return (
     <View style={styles.container}>
       <Header onLocationPress={() => {}} />
-      <FlatList
-        data={products}
-        renderItem={({ item }) => <ProductCard product={item} width={cardWidth} />}
-        keyExtractor={item => item.id}
-        numColumns={2}
-        columnWrapperStyle={styles.row}
-        contentContainerStyle={styles.flatListContent}
-        showsVerticalScrollIndicator={false}
-      />
+      <View style={styles.content}>
+        <Text style={styles.emoji}>🛒</Text>
+        <Text style={styles.title}>Корзина пуста</Text>
+        <Text style={styles.subtitle}>Добавьте товары из меню, чтобы оформить заказ.</Text>
+      </View>
     </View>
   );
 }
 
 const styles = StyleSheet.create({
   container: { flex: 1, backgroundColor: '#fff' },
-  row: {
-    justifyContent: 'space-between',
-    marginBottom: 16,
+  content: { flex: 1, alignItems: 'center', justifyContent: 'center' },
+  emoji: { fontSize: 54, marginBottom: 12 },
+  title: {
+    fontFamily: 'Inter24Bold',
+    fontSize: 24,
+    color: '#1A1A1A',
+    marginBottom: 8,
   },
-  flatListContent: {
-    paddingHorizontal: 24,
-    paddingVertical: 24,
+  subtitle: {
+    fontFamily: 'Inter18Regular',
+    fontSize: 15,
+    color: '#A9A9A9',
+    textAlign: 'center',
+    marginHorizontal: 24,
   },
 });

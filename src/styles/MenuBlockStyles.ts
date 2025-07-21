@@ -9,7 +9,7 @@ const itemSize = (screenWidth - sidePadding * 2) / columns;
 const styles = StyleSheet.create({
   flatListContent: {
     paddingTop: 10,
-    paddingBottom: 24,
+    paddingBottom: 0,
     paddingHorizontal: sidePadding,
   },
   columnWrapper: {
