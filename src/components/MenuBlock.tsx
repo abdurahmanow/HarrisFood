@@ -1,7 +1,12 @@
-// components/MenuBlock.tsx
-
 import React from 'react';
-import { View, Text, Image, FlatList, Dimensions, TouchableOpacity } from 'react-native';
+import {
+  View,
+  Text,
+  Image,
+  FlatList,
+  Dimensions,
+  TouchableOpacity,
+} from 'react-native';
 import styles from '../styles/MenuBlockStyles';
 import { getCategoryImage } from '../utils/getCategoryImage';
 
@@ -9,7 +14,6 @@ export type RawMenuCategory = {
   id: string;
   title: string;
   description?: string;
-  // image не нужен!
 };
 
 export type MenuItem = {
@@ -39,14 +43,25 @@ const MenuBlock: React.FC<Props> = ({ items, columns = 4, onPressItem }) => {
     const lastRowCount = items.length % columns;
     if (lastRowCount !== 0) {
       for (let i = 0; i < columns - lastRowCount; i++) {
-        copy.push({ id: `empty-${i}`, title: '' });
+        copy.push({ id: `empty-${i}`, title: '__empty__' }); // безопасный placeholder
       }
     }
     return copy;
   }, [items, columns]);
 
-  const renderItem = ({ item }: { item: MenuItem }) =>
-    item.title ? (
+  const renderItem = ({ item }: { item: MenuItem }) => {
+    const isPlaceholder = item.title === '__empty__';
+
+    if (isPlaceholder) {
+      return (
+        <View
+          style={[styles.menuItem, { width: itemSize, opacity: 0 }]} // невидимый
+          pointerEvents="none"
+        />
+      );
+    }
+
+    return (
       <TouchableOpacity
         style={[styles.menuItem, { width: itemSize }]}
         activeOpacity={0.7}
@@ -55,15 +70,14 @@ const MenuBlock: React.FC<Props> = ({ items, columns = 4, onPressItem }) => {
         <Image source={getCategoryImage(item.id)} style={styles.menuImage} />
         <Text style={styles.menuText}>{item.title}</Text>
       </TouchableOpacity>
-    ) : (
-      <View style={[styles.menuItem, { width: itemSize }]} />
     );
+  };
 
   return (
     <FlatList
       data={fullItems}
       renderItem={renderItem}
-      keyExtractor={item => item.id}
+      keyExtractor={(item) => item.id}
       numColumns={columns}
       contentContainerStyle={styles.flatListContent}
       columnWrapperStyle={styles.columnWrapper}

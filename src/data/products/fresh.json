@@ -1,0 +1,314 @@
+[
+  {
+    "id": "fresh_hod_nogi",
+    "category": "fresh",
+    "title": "Ход ноги",
+    "image": "fresh_hod_nogi.png",
+    "description": "Состав: Свекла, апельсин, лайм, яблоко",
+    "price": 175,
+    "options": [
+      {
+        "title": "300 мл",
+        "unit": "мл",
+        "value": 300,
+        "price": 175
+      },
+      {
+        "title": "500 мл",
+        "unit": "мл",
+        "value": 500,
+        "price": 250
+      }
+    ],
+    "addons": [],
+    "minQty": 1,
+    "maxQty": 5,
+    "currency": "₽"
+  },
+  {
+    "id": "fresh_tashdemir",
+    "category": "fresh",
+    "title": "Ташдемир",
+    "image": "fresh_tashdemir.png",
+    "description": "Состав: Гранат, яблоко, свекла",
+    "price": 230,
+    "options": [
+      {
+        "title": "300 мл",
+        "unit": "мл",
+        "value": 300,
+        "price": 230
+      },
+      {
+        "title": "500 мл",
+        "unit": "мл",
+        "value": 500,
+        "price": 345
+      }
+    ],
+    "addons": [],
+    "minQty": 1,
+    "maxQty": 5,
+    "currency": "₽"
+  },
+  {
+    "id": "fresh_ne_hodi_golodnyy",
+    "category": "fresh",
+    "title": "Не ходи голодный",
+    "image": "fresh_ne_hodi_golodnyy.png",
+    "description": "Состав: Апельсин, изюм, корица, морковь",
+    "price": 190,
+    "options": [
+      {
+        "title": "300 мл",
+        "unit": "мл",
+        "value": 300,
+        "price": 190
+      },
+      {
+        "title": "500 мл",
+        "unit": "мл",
+        "value": 500,
+        "price": 290
+      }
+    ],
+    "addons": [],
+    "minQty": 1,
+    "maxQty": 5,
+    "currency": "₽"
+  },
+  {
+    "id": "fresh_mushinskiy",
+    "category": "fresh",
+    "title": "Мушинский",
+    "image": "fresh_mushinskiy.png",
+    "description": "Состав: Яблоко, лимон, петрушка",
+    "price": 100,
+    "options": [
+      {
+        "title": "300 мл",
+        "unit": "мл",
+        "value": 300,
+        "price": 100
+      },
+      {
+        "title": "500 мл",
+        "unit": "мл",
+        "value": 500,
+        "price": 150
+      }
+    ],
+    "addons": [],
+    "minQty": 1,
+    "maxQty": 5,
+    "currency": "₽"
+  },
+  {
+    "id": "fresh_apelsinovyy",
+    "category": "fresh",
+    "title": "Апельсиновый",
+    "image": "fresh_apelsinovyy.png",
+    "description": "",
+    "price": 190,
+    "options": [
+      {
+        "title": "300 мл",
+        "unit": "мл",
+        "value": 300,
+        "price": 190
+      },
+      {
+        "title": "500 мл",
+        "unit": "мл",
+        "value": 500,
+        "price": 285
+      }
+    ],
+    "addons": [],
+    "minQty": 1,
+    "maxQty": 5,
+    "currency": "₽"
+  },
+  {
+    "id": "fresh_granatovyy",
+    "category": "fresh",
+    "title": "Гранатовый",
+    "image": "fresh_granatovyy.png",
+    "description": "",
+    "price": 350,
+    "options": [
+      {
+        "title": "300 мл",
+        "unit": "мл",
+        "value": 300,
+        "price": 350
+      },
+      {
+        "title": "500 мл",
+        "unit": "мл",
+        "value": 500,
+        "price": 470
+      }
+    ],
+    "addons": [],
+    "minQty": 1,
+    "maxQty": 5,
+    "currency": "₽"
+  },
+  {
+    "id": "fresh_morkovnyy",
+    "category": "fresh",
+    "title": "Морковный",
+    "image": "fresh_morkovnyy.png",
+    "description": "",
+    "price": 200,
+    "options": [
+      {
+        "title": "300 мл",
+        "unit": "мл",
+        "value": 300,
+        "price": 200
+      },
+      {
+        "title": "500 мл",
+        "unit": "мл",
+        "value": 500,
+        "price": 280
+      }
+    ],
+    "addons": [],
+    "minQty": 1,
+    "maxQty": 5,
+    "currency": "₽"
+  },
+  {
+    "id": "fresh_arbuz",
+    "category": "fresh",
+    "title": "Арбуз",
+    "image": "fresh_arbuz.png",
+    "description": "",
+    "price": 100,
+    "options": [
+      {
+        "title": "300 мл",
+        "unit": "мл",
+        "value": 300,
+        "price": 100
+      },
+      {
+        "title": "500 мл",
+        "unit": "мл",
+        "value": 500,
+        "price": 150
+      }
+    ],
+    "addons": [],
+    "minQty": 1,
+    "maxQty": 5,
+    "currency": "₽"
+  },
+  {
+    "id": "fresh_dynya",
+    "category": "fresh",
+    "title": "Дыня",
+    "image": "fresh_dynya.png",
+    "description": "",
+    "price": 120,
+    "options": [
+      {
+        "title": "300 мл",
+        "unit": "мл",
+        "value": 300,
+        "price": 120
+      },
+      {
+        "title": "500 мл",
+        "unit": "мл",
+        "value": 500,
+        "price": 175
+      }
+    ],
+    "addons": [],
+    "minQty": 1,
+    "maxQty": 5,
+    "currency": "₽"
+  },
+  {
+    "id": "fresh_granat_apelsin",
+    "category": "fresh",
+    "title": "Гранат-Апельсин",
+    "image": "fresh_granat_apelsin.png",
+    "description": "",
+    "price": 250,
+    "options": [
+      {
+        "title": "300 мл",
+        "unit": "мл",
+        "value": 300,
+        "price": 250
+      },
+      {
+        "title": "500 мл",
+        "unit": "мл",
+        "value": 500,
+        "price": 390
+      }
+    ],
+    "addons": [],
+    "minQty": 1,
+    "maxQty": 5,
+    "currency": "₽"
+  },
+  {
+    "id": "fresh_greypfrut_apelsin",
+    "category": "fresh",
+    "title": "Грейпфрут-Апельсин",
+    "image": "fresh_greypfrut_apelsin.png",
+    "description": "",
+    "price": 250,
+    "options": [
+      {
+        "title": "300 мл",
+        "unit": "мл",
+        "value": 300,
+        "price": 250
+      },
+      {
+        "title": "500 мл",
+        "unit": "мл",
+        "value": 500,
+        "price": 345
+      }
+    ],
+    "addons": [],
+    "minQty": 1,
+    "maxQty": 5,
+    "currency": "₽"
+  },
+  {
+    "id": "fresh_greypfrut_granat",
+    "category": "fresh",
+    "title": "Грейпфрут-Гранат",
+    "image": "fresh_greypfrut_granat.png",
+    "description": "",
+    "price": 300,
+    "options": [
+      {
+        "title": "300 мл",
+        "unit": "мл",
+        "value": 300,
+        "price": 300
+      },
+      {
+        "title": "500 мл",
+        "unit": "мл",
+        "value": 500,
+        "price": 430
+      }
+    ],
+    "addons": [],
+    "minQty": 1,
+    "maxQty": 5,
+    "currency": "₽"
+  }
+]

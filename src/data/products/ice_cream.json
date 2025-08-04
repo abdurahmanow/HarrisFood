@@ -1,0 +1,563 @@
+[
+  {
+    "id": "ice_cream_lesnye_yagody",
+    "category": "ice_cream",
+    "title": "Лесные ягоды",
+    "image": "ice_cream_lesnye_yagody.png",
+    "description": "",
+    "price": 80,
+    "options": [
+      {
+        "title": "1 шарик",
+        "unit": "шарик",
+        "value": 1,
+        "price": 80
+      },
+      {
+        "title": "2 шарика",
+        "unit": "шарика",
+        "value": 2,
+        "price": 130
+      },
+      {
+        "title": "3 шарика",
+        "unit": "шарика",
+        "value": 3,
+        "price": 170
+      }
+    ],
+    "variants": [],
+    "addons": [],
+    "minQty": 1,
+    "maxQty": 10,
+    "currency": "₽"
+  },
+  {
+    "id": "ice_cream_kivi",
+    "category": "ice_cream",
+    "title": "Киви",
+    "image": "ice_cream_kivi.png",
+    "description": "",
+    "price": 80,
+    "options": [
+      {
+        "title": "1 шарик",
+        "unit": "шарик",
+        "value": 1,
+        "price": 80
+      },
+      {
+        "title": "2 шарика",
+        "unit": "шарика",
+        "value": 2,
+        "price": 130
+      },
+      {
+        "title": "3 шарика",
+        "unit": "шарика",
+        "value": 3,
+        "price": 170
+      }
+    ],
+    "variants": [],
+    "addons": [],
+    "minQty": 1,
+    "maxQty": 10,
+    "currency": "₽"
+  },
+  {
+    "id": "ice_cream_mango_marakuyya",
+    "category": "ice_cream",
+    "title": "Манго-маракуйя",
+    "image": "ice_cream_mango_marakuyya.png",
+    "description": "",
+    "price": 80,
+    "options": [
+      {
+        "title": "1 шарик",
+        "unit": "шарик",
+        "value": 1,
+        "price": 80
+      },
+      {
+        "title": "2 шарика",
+        "unit": "шарика",
+        "value": 2,
+        "price": 130
+      },
+      {
+        "title": "3 шарика",
+        "unit": "шарика",
+        "value": 3,
+        "price": 170
+      }
+    ],
+    "variants": [],
+    "addons": [],
+    "minQty": 1,
+    "maxQty": 10,
+    "currency": "₽"
+  },
+  {
+    "id": "ice_cream_banan",
+    "category": "ice_cream",
+    "title": "Банан",
+    "image": "ice_cream_banan.png",
+    "description": "",
+    "price": 80,
+    "options": [
+      {
+        "title": "1 шарик",
+        "unit": "шарик",
+        "value": 1,
+        "price": 80
+      },
+      {
+        "title": "2 шарика",
+        "unit": "шарика",
+        "value": 2,
+        "price": 130
+      },
+      {
+        "title": "3 шарика",
+        "unit": "шарика",
+        "value": 3,
+        "price": 170
+      }
+    ],
+    "variants": [],
+    "addons": [],
+    "minQty": 1,
+    "maxQty": 10,
+    "currency": "₽"
+  },
+  {
+    "id": "ice_cream_vanilnyy",
+    "category": "ice_cream",
+    "title": "Ванильный",
+    "image": "ice_cream_vanilnyy.png",
+    "description": "",
+    "price": 80,
+    "options": [
+      {
+        "title": "1 шарик",
+        "unit": "шарик",
+        "value": 1,
+        "price": 80
+      },
+      {
+        "title": "2 шарика",
+        "unit": "шарика",
+        "value": 2,
+        "price": 130
+      },
+      {
+        "title": "3 шарика",
+        "unit": "шарика",
+        "value": 3,
+        "price": 170
+      }
+    ],
+    "variants": [],
+    "addons": [],
+    "minQty": 1,
+    "maxQty": 10,
+    "currency": "₽"
+  },
+  {
+    "id": "ice_cream_klubnichno_bananovyy",
+    "category": "ice_cream",
+    "title": "Клубнично-банановый",
+    "image": "ice_cream_klubnichno_bananovyy.png",
+    "description": "",
+    "price": 80,
+    "options": [
+      {
+        "title": "1 шарик",
+        "unit": "шарик",
+        "value": 1,
+        "price": 80
+      },
+      {
+        "title": "2 шарика",
+        "unit": "шарика",
+        "value": 2,
+        "price": 130
+      },
+      {
+        "title": "3 шарика",
+        "unit": "шарика",
+        "value": 3,
+        "price": 170
+      }
+    ],
+    "variants": [],
+    "addons": [],
+    "minQty": 1,
+    "maxQty": 10,
+    "currency": "₽"
+  },
+  {
+    "id": "ice_cream_strachatella",
+    "category": "ice_cream",
+    "title": "Страчателла",
+    "image": "ice_cream_strachatella.png",
+    "description": "",
+    "price": 80,
+    "options": [
+      {
+        "title": "1 шарик",
+        "unit": "шарик",
+        "value": 1,
+        "price": 80
+      },
+      {
+        "title": "2 шарика",
+        "unit": "шарика",
+        "value": 2,
+        "price": 130
+      },
+      {
+        "title": "3 шарика",
+        "unit": "шарика",
+        "value": 3,
+        "price": 170
+      }
+    ],
+    "variants": [],
+    "addons": [],
+    "minQty": 1,
+    "maxQty": 10,
+    "currency": "₽"
+  },
+  {
+    "id": "ice_cream_tutti_frutti",
+    "category": "ice_cream",
+    "title": "Тутти-фрутти",
+    "image": "ice_cream_tutti_frutti.png",
+    "description": "",
+    "price": 80,
+    "options": [
+      {
+        "title": "1 шарик",
+        "unit": "шарик",
+        "value": 1,
+        "price": 80
+      },
+      {
+        "title": "2 шарика",
+        "unit": "шарика",
+        "value": 2,
+        "price": 130
+      },
+      {
+        "title": "3 шарика",
+        "unit": "шарика",
+        "value": 3,
+        "price": 170
+      }
+    ],
+    "variants": [],
+    "addons": [],
+    "minQty": 1,
+    "maxQty": 10,
+    "currency": "₽"
+  },
+  {
+    "id": "ice_cream_slivochnoe",
+    "category": "ice_cream",
+    "title": "Сливочное",
+    "image": "ice_cream_slivochnoe.png",
+    "description": "",
+    "price": 80,
+    "options": [
+      {
+        "title": "1 шарик",
+        "unit": "шарик",
+        "value": 1,
+        "price": 80
+      },
+      {
+        "title": "2 шарика",
+        "unit": "шарика",
+        "value": 2,
+        "price": 130
+      },
+      {
+        "title": "3 шарика",
+        "unit": "шарика",
+        "value": 3,
+        "price": 170
+      }
+    ],
+    "variants": [],
+    "addons": [],
+    "minQty": 1,
+    "maxQty": 10,
+    "currency": "₽"
+  },
+  {
+    "id": "ice_cream_karamelnyy",
+    "category": "ice_cream",
+    "title": "Карамельный",
+    "image": "ice_cream_karamelnyy.png",
+    "description": "",
+    "price": 80,
+    "options": [
+      {
+        "title": "1 шарик",
+        "unit": "шарик",
+        "value": 1,
+        "price": 80
+      },
+      {
+        "title": "2 шарика",
+        "unit": "шарика",
+        "value": 2,
+        "price": 130
+      },
+      {
+        "title": "3 шарика",
+        "unit": "шарика",
+        "value": 3,
+        "price": 170
+      }
+    ],
+    "variants": [],
+    "addons": [],
+    "minQty": 1,
+    "maxQty": 10,
+    "currency": "₽"
+  },
+  {
+    "id": "ice_cream_tiramisu",
+    "category": "ice_cream",
+    "title": "Тирамису",
+    "image": "ice_cream_tiramisu.png",
+    "description": "",
+    "price": 80,
+    "options": [
+      {
+        "title": "1 шарик",
+        "unit": "шарик",
+        "value": 1,
+        "price": 80
+      },
+      {
+        "title": "2 шарика",
+        "unit": "шарика",
+        "value": 2,
+        "price": 130
+      },
+      {
+        "title": "3 шарика",
+        "unit": "шарика",
+        "value": 3,
+        "price": 170
+      }
+    ],
+    "variants": [],
+    "addons": [],
+    "minQty": 1,
+    "maxQty": 10,
+    "currency": "₽"
+  },
+  {
+    "id": "ice_cream_vishnya",
+    "category": "ice_cream",
+    "title": "Вишня",
+    "image": "ice_cream_vishnya.png",
+    "description": "",
+    "price": 80,
+    "options": [
+      {
+        "title": "1 шарик",
+        "unit": "шарик",
+        "value": 1,
+        "price": 80
+      },
+      {
+        "title": "2 шарика",
+        "unit": "шарика",
+        "value": 2,
+        "price": 130
+      },
+      {
+        "title": "3 шарика",
+        "unit": "шарика",
+        "value": 3,
+        "price": 170
+      }
+    ],
+    "variants": [],
+    "addons": [],
+    "minQty": 1,
+    "maxQty": 10,
+    "currency": "₽"
+  },
+  {
+    "id": "ice_cream_shokolad_topping",
+    "category": "ice_cream",
+    "title": "Шоколад топпинг",
+    "image": "ice_cream_shokolad_topping.png",
+    "description": "",
+    "price": 80,
+    "options": [
+      {
+        "title": "1 шарик",
+        "unit": "шарик",
+        "value": 1,
+        "price": 80
+      },
+      {
+        "title": "2 шарика",
+        "unit": "шарика",
+        "value": 2,
+        "price": 130
+      },
+      {
+        "title": "3 шарика",
+        "unit": "шарика",
+        "value": 3,
+        "price": 170
+      }
+    ],
+    "variants": [],
+    "addons": [],
+    "minQty": 1,
+    "maxQty": 10,
+    "currency": "₽"
+  },
+  {
+    "id": "ice_cream_babl_gam",
+    "category": "ice_cream",
+    "title": "Бабл гам",
+    "image": "ice_cream_babl_gam.png",
+    "description": "",
+    "price": 80,
+    "options": [
+      {
+        "title": "1 шарик",
+        "unit": "шарик",
+        "value": 1,
+        "price": 80
+      },
+      {
+        "title": "2 шарика",
+        "unit": "шарика",
+        "value": 2,
+        "price": 130
+      },
+      {
+        "title": "3 шарика",
+        "unit": "шарика",
+        "value": 3,
+        "price": 170
+      }
+    ],
+    "variants": [],
+    "addons": [],
+    "minQty": 1,
+    "maxQty": 10,
+    "currency": "₽"
+  },
+  {
+    "id": "ice_cream_arbuz",
+    "category": "ice_cream",
+    "title": "Арбуз",
+    "image": "ice_cream_arbuz.png",
+    "description": "",
+    "price": 80,
+    "options": [
+      {
+        "title": "1 шарик",
+        "unit": "шарик",
+        "value": 1,
+        "price": 80
+      },
+      {
+        "title": "2 шарика",
+        "unit": "шарика",
+        "value": 2,
+        "price": 130
+      },
+      {
+        "title": "3 шарика",
+        "unit": "шарика",
+        "value": 3,
+        "price": 170
+      }
+    ],
+    "variants": [],
+    "addons": [],
+    "minQty": 1,
+    "maxQty": 10,
+    "currency": "₽"
+  },
+  {
+    "id": "ice_cream_raduga_vkusov",
+    "category": "ice_cream",
+    "title": "Радуга вкусов",
+    "image": "ice_cream_raduga_vkusov.png",
+    "description": "",
+    "price": 80,
+    "options": [
+      {
+        "title": "1 шарик",
+        "unit": "шарик",
+        "value": 1,
+        "price": 80
+      },
+      {
+        "title": "2 шарика",
+        "unit": "шарика",
+        "value": 2,
+        "price": 130
+      },
+      {
+        "title": "3 шарика",
+        "unit": "шарика",
+        "value": 3,
+        "price": 170
+      }
+    ],
+    "variants": [],
+    "addons": [],
+    "minQty": 1,
+    "maxQty": 10,
+    "currency": "₽"
+  },
+  {
+    "id": "ice_cream_goluboe_nebo",
+    "category": "ice_cream",
+    "title": "Голубое небо",
+    "image": "ice_cream_goluboe_nebo.png",
+    "description": "",
+    "price": 80,
+    "options": [
+      {
+        "title": "1 шарик",
+        "unit": "шарик",
+        "value": 1,
+        "price": 80
+      },
+      {
+        "title": "2 шарика",
+        "unit": "шарика",
+        "value": 2,
+        "price": 130
+      },
+      {
+        "title": "3 шарика",
+        "unit": "шарика",
+        "value": 3,
+        "price": 170
+      }
+    ],
+    "variants": [],
+    "addons": [],
+    "minQty": 1,
+    "maxQty": 10,
+    "currency": "₽"
+  }
+]

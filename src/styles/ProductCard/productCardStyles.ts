@@ -14,7 +14,7 @@ export const productCardStyles = StyleSheet.create({
   },
   image: {
     width: '100%',
-    height: 120,
+    height: 130,
     borderRadius: 5,
     marginBottom: 12,
     backgroundColor: '#F0F0F0',

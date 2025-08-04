@@ -2,61 +2,98 @@
   {
     "id": "soups",
     "title": "Супы",
-    "description": "Вкусные и сытные супы."
+    "description": "Горячие супы на каждый день."
   },
   {
     "id": "hot_dishes",
     "title": "Горячие блюда",
-    "description": "Основные горячие блюда."
-  },
-  {
-    "id": "starters",
-    "title": "Закуски",
-    "description": "Аппетитные закуски."
+    "description": "Сытные блюда на основное."
   },
   {
     "id": "salads",
     "title": "Салаты",
-    "description": "Свежие и полезные салаты."
+    "description": "Свежие овощные и мясные салаты."
   },
   {
-    "id": "desserts",
-    "title": "Десерты",
-    "description": "Домашние десерты."
+    "id": "starters",
+    "title": "Нарезки",
+    "description": "Идеальны к началу трапезы."
   },
   {
     "id": "cheburek_yantyk",
     "title": "Чебурек & Янтыкъ",
-    "description": "Крымская классика — чебуреки и янтыкъ."
-  },
-  {
-    "id": "mangal",
-    "title": "Мангал",
-    "description": "Блюда на мангале."
+    "description": "Традиционные крымские угощения."
   },
   {
     "id": "rolls",
     "title": "Роллы",
-    "description": "Японские и авторские роллы."
-  },
-  {
-    "id": "fastfood",
-    "title": "ФасФуд",
-    "description": "Бургеры, картошка, наггетсы и прочий фастфуд."
+    "description": "Классические и фирменные роллы."
   },
   {
     "id": "pizza",
     "title": "Пицца",
-    "description": "Итальянская и авторская пицца."
+    "description": "Пицца на любой вкус."
   },
   {
-    "id": "drinks",
-    "title": "Напитки",
-    "description": "Безалкогольные напитки."
+    "id": "burgers",
+    "title": "Бургеры",
+    "description": "Сочные бургеры и сэндвичи."
+  },
+  {
+    "id": "fastfood",
+    "title": "ФасФуд",
+    "description": "Картошка, наггетсы и другие снеки."
+  },
+  {
+    "id": "snacks",
+    "title": "Снеки",
+    "description": "Хрустящие и солёные закуски."
+  },
+  {
+    "id": "big_menu",
+    "title": "Биг Меню",
+    "description": "Большие блюда для настоящего аппетита."
+  },
+  {
+    "id": "mangal",
+    "title": "Мангал",
+    "description": "Блюда на углях и гриле."
+  },
+  {
+    "id": "sets",
+    "title": "Сеты",
+    "description": "Наборы для компании."
+  },
+  {
+    "id": "desserts",
+    "title": "Десерты",
+    "description": "Сладкое завершение обеда."
   },
   {
     "id": "tea_coffee",
     "title": "Чай & Кофе",
-    "description": "Чай, кофе, какао и авторские напитки."
+    "description": "Горячие напитки на любой вкус."
+  },
+  {
+    "id": "cold_drinks",
+    "title": "Холодные напитки",
+    "description": "Освежающие айс-чаи и кофейные коктейли."
+  },
+  {
+    "id": "fresh",
+    "title": "Фреши",
+    "description": "Натуральные свежевыжатые соки."
+  },
+  {
+    "id": "drinks",
+    "title": "Напитки",
+    "description": "Айран, кола, соки и вода."
+  },
+  {
+    "id": "ice_cream",
+    "title": "Мороженое",
+    "description": "Вкусное мороженое на любой вкус."
   }
 ]
+
+

@@ -1,0 +1,50 @@
+[
+  {
+    "id": "burger_beef",
+    "category": "fastfood",
+    "title": "Бургер Говяжий",
+    "image": "burger_beef.png",
+    "description": "1х стейк говядины (мангал), помидор, огурец, лук, салатный лист, соусы",
+    "options": [{ "id": "single", "title": "250г", "price": 270 }],
+    "addons": [],
+    "minQty": 1,
+    "maxQty": 10,
+    "currency": "₽"
+  },
+  {
+    "id": "burger_chicken",
+    "category": "fastfood",
+    "title": "Бургер Куриный",
+    "image": "burger_chicken.png",
+    "description": "1х стейк курицы (мангал), помидор, огурец, лук, салатный лист, соусы",
+    "options": [{ "id": "single", "title": "250г", "price": 230 }],
+    "addons": [],
+    "minQty": 1,
+    "maxQty": 10,
+    "currency": "₽"
+  },
+  {
+    "id": "double_cheeseburger",
+    "category": "fastfood",
+    "title": "Дабл Чизбургер",
+    "image": "double_cheeseburger.png",
+    "description": "х2 котлета говядины,помидор, огурец, лук, х2 сыр (чеддер) х2 салатный лист, соусы",
+    "options": [{ "id": "double", "title": "400г", "price": 360 }],
+    "addons": [],
+    "minQty": 1,
+    "maxQty": 10,
+    "currency": "₽"
+  },
+  {
+    "id": "burger_cutlet",
+    "category": "fastfood",
+    "title": "Бургер Котлета",
+    "image": "burger_cutlet.png",
+    "description": "1х котлета говядины, сыр чеддер, помидор, огурец, лук, салатный лист, соусы",
+    "options": [{ "id": "single", "title": "250г", "price": 250 }],
+    "addons": [],
+    "minQty": 1,
+    "maxQty": 10,
+    "currency": "₽"
+  }
+]

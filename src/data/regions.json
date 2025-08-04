@@ -65,12 +65,6 @@
     "id": "sakskiy",
     "name": "Крым, Сакский район",
     "categoriesOrder": [
-      "soups",
-      "hot_dishes",
-      "starters",
-      "salads",
-      "desserts",
-      "cheburek_yantyk",
       "mangal",
       "pizza",
       "drinks",
@@ -82,12 +76,11 @@
     "id": "evpatoriya",
     "name": "Крым, г. Евпатория",
     "categoriesOrder": [
-      "hot_dishes",
-      "starters",
-      "salads",
-      "desserts",
+      "mangal",
+      "fast_food",
       "pizza",
-      "drinks"
+      "drinks",
+      "tea_coffee"
     ],
     "showOnHome": ["hot_dishes", "pizza"]
   }

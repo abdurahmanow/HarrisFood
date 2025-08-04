@@ -11,9 +11,9 @@ export function parseRawProduct(raw: any): Product {
   // Фото
   let image: any = null;
   if (raw.image) {
-    image = productImages[raw.image] || require('../assets/img/products/image.png');
+    image = productImages[raw.image] || require('../assets/img/products/defolt.png');
   } else {
-    image = require('../assets/img/products/image.png');
+    image = require('../assets/img/products/defolt.png');
   }
 
   // Размеры/опции

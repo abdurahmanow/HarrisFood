@@ -1,0 +1,44 @@
+[
+      {
+    "id": "yantyk",
+    "category": "cheburek_yantyk",
+    "title": "Янтыкъ",
+    "image": "yantyk.png",
+    "description": "",
+    "price": 175,
+    "options": [],
+    "variants": [
+      { "id": "meat", "title": "Мясо", "price": 175 },
+      { "id": "cheese", "title": "Сыр", "price": 175 },
+      { "id": "assorti", "title": "Ассорти", "price": 200 },
+      { "id": "miks", "title": "Микс", "price": 225 },
+      { "id": "melon", "title": "Брынза + Зелень (хит сезона)", "price": 175 },
+      { "id": "chocolate","title": "Шоколадный (хит сезона)","price": 250}
+    ],
+    "addons": [],
+    "minQty": 1,
+    "maxQty": 10,
+    "currency": "₽"
+  },
+  {
+    "id": "cheburek",
+    "category": "cheburek_yantyk",
+    "title": "Чебурек",
+    "image": "cheburek.png",
+    "description": "",
+    "price": 150,
+    "options": [],
+    "variants": [
+      { "id": "meat", "title": "Мясо", "price": 150 },
+      { "id": "cheese", "title": "Сыр", "price": 120 },
+      { "id": "meat_cheese", "title": "Мясо + сыр", "price": 175 },
+      {"id": "mix", "title": "Микс: Мясо + сыр + грибы + помидоры", "price": 200},
+      { "id": "brynza", "title": "Брынза + Зелень", "price": 150 },
+      { "id": "fruit", "title": "Фруктовый (хит сезона)", "price": 250 }
+    ],
+    "addons": [],
+    "minQty": 1,
+    "maxQty": 10,
+    "currency": "₽"
+  }
+]

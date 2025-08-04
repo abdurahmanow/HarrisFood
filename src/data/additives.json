@@ -1,11 +1,5 @@
 [
   {
-    "id": "none",
-    "title": "Без добавки",
-    "type": "main",
-    "price": 0
-  },
-  {
     "id": "double_meat",
     "title": "Двойное мясо",
     "type": "main",
@@ -57,6 +51,13 @@
   {
     "id": "corn",
     "title": "Кукуруза",
+    "type": "main",
+    "price": 15,
+    "categories": ["pizza"]
+  },
+  {
+    "id": "cheese_crust",
+    "title": "Сырный борт",
     "type": "main",
     "price": 15,
     "categories": ["pizza"]

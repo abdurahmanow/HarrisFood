@@ -22,34 +22,33 @@ export default function AllMenuScreen() {
   const { mode, regionId, placeId } = useCity();
   const navigation = useNavigation<NativeStackNavigationProp<RootStackParamList>>();
 
-  const currentRegion = regions.find(r => r.id === regionId);
-  const currentPlace = places.find(p => p.id === placeId);
+  const currentRegion = React.useMemo(() => regions.find(r => r.id === regionId), [regionId]);
+  const currentPlace = React.useMemo(() => places.find(p => p.id === placeId), [placeId]);
 
-  const categoriesOrder =
-    mode === 'pickup'
-      ? currentPlace?.categoriesOrder
-      : currentRegion?.categoriesOrder;
+  const categoriesOrder = mode === 'pickup'
+    ? currentPlace?.categoriesOrder
+    : currentRegion?.categoriesOrder;
 
-  let menuItems;
-  if (categoriesOrder && Array.isArray(categoriesOrder)) {
-    menuItems = categoriesOrder
-      .map(catId => menuCategories.find(cat => cat.id === catId))
-      .filter(cat => !!cat)
-      .map(cat => ({
+  const menuItems = React.useMemo(() => {
+    if (categoriesOrder && Array.isArray(categoriesOrder)) {
+      return categoriesOrder
+        .map(catId => menuCategories.find(cat => cat.id === catId))
+        .filter(cat => !!cat)
+        .map(cat => ({
+          id: cat!.id,
+          title: cat!.title,
+          image: cat!.id,
+          description: cat!.description,
+        }));
+    } else {
+      return menuCategories.map(cat => ({
         id: cat.id,
         title: cat.title,
         image: cat.id,
         description: cat.description,
       }));
-  } else {
-    // fallback: все категории без сортировки
-    menuItems = menuCategories.map(cat => ({
-      id: cat.id,
-      title: cat.title,
-      image: cat.id,
-      description: cat.description,
-    }));
-  }
+    }
+  }, [categoriesOrder]);
 
   return (
     <View style={styles.container}>

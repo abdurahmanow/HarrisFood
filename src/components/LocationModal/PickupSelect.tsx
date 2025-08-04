@@ -1,6 +1,13 @@
 import React from 'react';
-import { View, TouchableOpacity, StyleProp, ViewStyle, TextStyle } from 'react-native';
+import {
+  View,
+  TouchableOpacity,
+  StyleProp,
+  ViewStyle,
+  TextStyle,
+} from 'react-native';
 import AppText from '../AppText';
+import { pickupSelectStyles as styles } from '../../styles/LocationModal/pickupSelectStyles';
 
 type Props = {
   name: string;
@@ -33,12 +40,8 @@ export default function PickupSelect({
   cityTextStyle,
   addressTextStyle,
 }: Props) {
-  let workTimeDisplay = '';
-  if (work_time) {
-    workTimeDisplay = work_time === '24/7'
-      ? 'Круглосуточно'
-      : work_time;
-  }
+  const workTimeDisplay =
+    work_time === '24/7' ? 'Круглосуточно' : work_time || '';
 
   return (
     <TouchableOpacity style={style} onPress={onPress} activeOpacity={0.85}>
@@ -47,16 +50,18 @@ export default function PickupSelect({
       </View>
       <View style={textBlockStyle}>
         <AppText style={cityTextStyle}>{name || city}</AppText>
-        <AppText style={addressTextStyle}>{`${region}, ${street}`}</AppText>
-        {work_time ? (
-          <AppText style={{
-            color: '#A9A9A9',
-            fontFamily: 'Inter18Regular',
-            fontSize: 13,
-          }}>
+
+        {/* ✅ объединённая строка, а не вложенные Text */}
+        <AppText style={addressTextStyle}>
+          {`${region}, ${street}`}
+        </AppText>
+
+        {/* ✅ одно выражение внутри одного AppText */}
+        {work_time && (
+          <AppText style={styles.workTimeText}>
             {`График: ${workTimeDisplay}`}
           </AppText>
-        ) : null}
+        )}
       </View>
     </TouchableOpacity>
   );

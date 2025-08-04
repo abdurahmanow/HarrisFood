@@ -3,7 +3,8 @@ import { View, FlatList, StyleSheet, Dimensions, Text } from 'react-native';
 import { useRoute, RouteProp, useNavigation } from '@react-navigation/native';
 import type { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import { RootStackParamList } from '../../navigation/RootStack';
-import productsDataRaw from '../../data/product.json';
+
+import { categoryProductsMap } from '../../data/products/categoryFilesMap';
 import categories from '../../data/categories.json';
 import { parseProducts } from '../../adapters/productsAdapter';
 import ProductCard from '../../components/ProductCard';
@@ -17,16 +18,17 @@ const CARD_WIDTH = (Dimensions.get('window').width - CARD_GAP * 3) / 2;
 export default function CategoryProductsScreen() {
   const route = useRoute<RouteProp<RootStackParamList, 'CategoryProducts'>>();
   const { categoryId } = route.params;
-  const navigation = useNavigation<NativeStackNavigationProp<RootStackParamList>>();
+  const navigation =
+    useNavigation<NativeStackNavigationProp<RootStackParamList>>();
 
-  const allProducts: Product[] = React.useMemo(
-    () => parseProducts(productsDataRaw).filter(p => !!p && !!p.id && !!p.category),
-    []
+  const rawProducts = React.useMemo(
+    () => categoryProductsMap[categoryId] || [],
+    [categoryId],
   );
 
-  const products = React.useMemo(
-    () => allProducts.filter(p => p.category === categoryId),
-    [allProducts, categoryId]
+  const products: Product[] = React.useMemo(
+    () => parseProducts(rawProducts).filter(p => !!p.id),
+    [rawProducts],
   );
 
   const currentCategoryTitle =
@@ -53,16 +55,25 @@ export default function CategoryProductsScreen() {
           <ProductCard
             product={item}
             width={CARD_WIDTH}
-            onPress={() => navigation.navigate('Product', {
-              productId: item.id,
-              qty: 1
-            })}
+            onPress={() =>
+              navigation.navigate('Product', {
+                productId: item.id,
+                qty: 1,
+              })
+            }
           />
         )}
         showsVerticalScrollIndicator={false}
         ListEmptyComponent={
           <View style={{ padding: 32 }}>
-            <Text style={{ textAlign: 'center', fontFamily: 'Inter18Regular', fontSize: 16, color: '#888' }}>
+            <Text
+              style={{
+                textAlign: 'center',
+                fontFamily: 'Inter18Regular',
+                fontSize: 16,
+                color: '#888',
+              }}
+            >
               Нет товаров в этой категории
             </Text>
           </View>

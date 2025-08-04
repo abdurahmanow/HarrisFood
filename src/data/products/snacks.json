@@ -1,0 +1,80 @@
+[
+
+  {
+    "id": "nuggets_chicken",
+    "category": "fastfood",
+    "title": "Наггетсы куриные",
+    "image": "nuggets_chicken.png",
+    "description": "",
+    "options": [
+      { "id": "S", "title": "Размер S", "price": 170 },
+      { "id": "M", "title": "Размер M", "price": 290 }
+    ],
+    "addons": [],
+    "minQty": 1,
+    "maxQty": 10,
+    "currency": "₽"
+  },
+  {
+    "id": "fries",
+    "category": "fastfood",
+    "title": "Картошка фри",
+    "image": "fries.png",
+    "description": "",
+    "options": [
+      { "id": "S", "title": "Размер S", "price": 150 },
+      { "id": "M", "title": "Размер M", "price": 210 }
+    ],
+    "addons": [],
+    "minQty": 1,
+    "maxQty": 10,
+    "currency": "₽"
+  },
+  {
+    "id": "fries_rustic",
+    "category": "fastfood",
+    "title": "Картошка по-деревенски",
+    "image": "fries_rustic.png",
+    "description": "",
+    "options": [
+      { "id": "S", "title": "Размер S", "price": 160 },
+      { "id": "M", "title": "Размер M", "price": 210 }
+    ],
+    "addons": [],
+    "minQty": 1,
+    "maxQty": 10,
+    "currency": "₽"
+  },
+  {
+    "id": "wings",
+    "category": "fastfood",
+    "title": "Крылышки",
+    "image": "wings.png",
+    "description": "",
+    "options": [
+      { "id": "3", "title": "3 шт", "price": 140 },
+      { "id": "6", "title": "6 шт", "price": 250 },
+      { "id": "9", "title": "9 шт", "price": 330 },
+      { "id": "15", "title": "15 шт", "price": 480 }
+    ],
+    "addons": [],
+    "minQty": 1,
+    "maxQty": 10,
+    "currency": "₽"
+  },
+  {
+    "id": "cheese_sticks",
+    "category": "fastfood",
+    "title": "Сырные палочки",
+    "image": "cheese_sticks.png",
+    "description": "",
+    "options": [
+      { "id": "3", "title": "3 шт", "price": 120 },
+      { "id": "7", "title": "7 шт", "price": 240 }
+    ],
+    "addons": [],
+    "minQty": 1,
+    "maxQty": 10,
+    "currency": "₽"
+  }
+]

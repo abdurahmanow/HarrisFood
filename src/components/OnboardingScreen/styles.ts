@@ -27,7 +27,7 @@ export default StyleSheet.create({
   },
   title: {
     fontFamily: 'Inter18Bold',
-    fontSize: 20,
+    fontSize: 19,
     fontWeight: '600',
     marginTop: 6,
     color: '#1A1A1A',

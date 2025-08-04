@@ -1,0 +1,62 @@
+[
+      {
+    "id": "fruit_plate",
+    "category":["starters", "new"],
+    "title": "Фруктовая нарезка",
+    "image": "fruit_plate.png",
+    "description": "",
+    "price": 250,
+    "options": [],
+    "variants": [],
+    "addons": [],
+    "minQty": 1,
+    "maxQty": 10,
+    "currency": "₽",
+    "isNew": true
+  },
+  {
+    "id": "vegetable_plate",
+    "category": ["starters", "new"],
+    "title": "Овощная нарезка",
+    "image": "vegetable_plate.png",
+    "description": "",
+    "price": 200,
+    "options": [],
+    "variants": [],
+    "addons": [],
+    "minQty": 1,
+    "maxQty": 10,
+    "currency": "₽",
+    "isNew": true
+  },
+  {
+    "id": "cheese_plate",
+    "category": "starters",
+    "title": "Сырная нарезка",
+    "image": "cheese_plate.png",
+    "description": "",
+    "price": 250,
+    "options": [],
+    "variants": [],
+    "addons": [],
+    "minQty": 1,
+    "maxQty": 10,
+    "currency": "₽",
+    "isNew": true
+  },
+  {
+    "id": "meat_plate",
+    "category": "starters",
+    "title": "Мясная нарезка",
+    "image": "meat_plate.png",
+    "description": "",
+    "price": 400,
+    "options": [],
+    "variants": [],
+    "addons": [],
+    "minQty": 1,
+    "maxQty": 10,
+    "currency": "₽",
+    "isNew": true
+  }
+]

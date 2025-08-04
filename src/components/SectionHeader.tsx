@@ -1,5 +1,12 @@
 import React from 'react';
-import { View, Text, TouchableOpacity, StyleSheet, ViewStyle, TextStyle } from 'react-native';
+import {
+  View,
+  Text,
+  TouchableOpacity,
+  StyleSheet,
+  ViewStyle,
+  TextStyle,
+} from 'react-native';
 
 type SectionHeaderProps = {
   title: string;
@@ -29,12 +36,12 @@ const SectionHeader: React.FC<SectionHeaderProps> = ({
   <View style={[styles.wrapper, style]}>
     <View>
       <View style={styles.row}>
-        <Text style={[styles.title, titleStyle]}>
-          {title}
+        <View style={{ flexDirection: 'row', flexWrap: 'wrap' }}>
+          <Text style={[styles.title, titleStyle]}>{title}</Text>
           {!!category && (
             <Text style={[styles.category, categoryStyle]}>: {category}</Text>
           )}
-        </Text>
+        </View>
         {(rightText || rightElement) && (
           <TouchableOpacity
             onPress={onPressRight}

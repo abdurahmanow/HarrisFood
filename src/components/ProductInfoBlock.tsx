@@ -5,8 +5,10 @@ import { formatWeight } from '../utils/formatWeight';
 
 type SizeOption = { id: string; label: string; price: number };
 type VariantOption = { id: string; label: string; price?: number };
+type AdditiveOption = { id: string; count: number };
+
 type Props = {
-  image: string | number;
+  image: any; // require(...) уже подставлен через адаптер
   title: string;
   description?: string;
   sizes?: SizeOption[];
@@ -21,6 +23,12 @@ type Props = {
   qtyUnitLabel?: string;
   qtyStep?: number;
   initialQty?: number;
+  onAddToCart?: (
+    qty: number,
+    sizeId?: string,
+    variantId?: string,
+    selectedAdditives?: AdditiveOption[]
+  ) => void;
 };
 
 const QTY_TEXT_WIDTH_WEIGHT = 50;
@@ -43,6 +51,7 @@ export default function ProductInfoBlock({
   qtyUnitLabel = 'г',
   qtyStep = 1,
   initialQty,
+  onAddToCart,
 }: Props) {
   const [qty, setQty] = useState(
     initialQty && initialQty >= minQty && initialQty <= maxQty ? initialQty : minQty
@@ -53,9 +62,9 @@ export default function ProductInfoBlock({
   const [selectedSize, setSelectedSize] = useState(
     sizes.length ? sizes[0].id : undefined
   );
+
   const { width: screenWidth } = useWindowDimensions();
 
-  // Логика цены: если есть размер/вариант — берём цену из них (приоритет вариант > размер)
   let totalPrice = 0;
   let baseUnitPrice = price ?? 0;
   if (variants.length) {
@@ -67,7 +76,6 @@ export default function ProductInfoBlock({
     baseUnitPrice = currentSize?.price ?? baseUnitPrice;
   }
   if (!!price_per && !!per_unit) {
-    // Весовой
     totalPrice = Math.round((qty / per_unit!) * price_per!);
   } else {
     totalPrice = baseUnitPrice * qty;
@@ -80,6 +88,12 @@ export default function ProductInfoBlock({
 
   const displayQtyStr = isWeight ? formatWeight(qty, qtyUnitLabel) : qty;
 
+  const handleAdd = () => {
+    if (onAddToCart) {
+      onAddToCart(qty, selectedSize, selectedVariant, []);
+    }
+  };
+
   return (
     <View style={styles.inner}>
       {onBack && (
@@ -88,17 +102,18 @@ export default function ProductInfoBlock({
           <Text style={styles.backText}>Вернуться назад</Text>
         </TouchableOpacity>
       )}
+
       <View style={styles.imageWrap}>
         <Image
-          source={typeof image === 'string' ? { uri: image } : image}
+          source={image}
           style={styles.image}
           resizeMode="cover"
         />
       </View>
+
       <Text style={styles.title}>{title}</Text>
       {!!description && <Text style={styles.description}>{description}</Text>}
 
-      {/* Варианты */}
       {variants.length > 0 && (
         <View style={{ marginBottom: 10 }}>
           <Text style={styles.sectionTitle}>Вариант:</Text>
@@ -129,7 +144,6 @@ export default function ProductInfoBlock({
         </View>
       )}
 
-      {/* Размеры */}
       {sizes.length > 0 && (
         <View style={{ marginBottom: 10 }}>
           <Text style={styles.sectionTitle}>Размер:</Text>
@@ -171,6 +185,7 @@ export default function ProductInfoBlock({
             { minWidth: isWeight ? 100 : 120, maxWidth: addBtnWidth, width: addBtnWidth }
           ]}
           activeOpacity={0.85}
+          onPress={handleAdd}
         >
           <Text
             style={[
@@ -183,6 +198,7 @@ export default function ProductInfoBlock({
             Добавить в заказ
           </Text>
         </TouchableOpacity>
+
         <View style={[
           styles.qtyBlock,
           {
@@ -190,7 +206,7 @@ export default function ProductInfoBlock({
             maxWidth: qtyBlockWidth,
             width: qtyBlockWidth,
             marginLeft: GAP_BETWEEN,
-          }
+          },
         ]}>
           <TouchableOpacity
             style={styles.qtyBtn}
@@ -207,6 +223,7 @@ export default function ProductInfoBlock({
               –
             </Text>
           </TouchableOpacity>
+
           <Text
             style={[
               styles.qtyText,
@@ -219,6 +236,7 @@ export default function ProductInfoBlock({
           >
             {displayQtyStr}
           </Text>
+
           <TouchableOpacity
             style={styles.qtyBtn}
             onPress={() => setQty(Math.min(qty + (qtyStep || 1), maxQty))}

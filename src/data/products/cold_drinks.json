@@ -1,0 +1,146 @@
+[
+      {
+    "id": "ice_latte",
+    "category": "tea_coffee",
+    "title": "ICE Латте",
+    "image": "ice_latte.png",
+    "description": "",
+    "price": 130,
+    "options": [
+      { "title": "300 мл", "unit": "мл", "value": 300, "price": 130 },
+      { "title": "500 мл", "unit": "мл", "value": 500, "price": 180 }
+    ],
+    "addons": [],
+    "minQty": 1,
+    "maxQty": 5,
+    "currency": "₽"
+  },
+  {
+    "id": "ice_americano",
+    "category": "tea_coffee",
+    "title": "ICE Американо",
+    "image": "ice_americano.png",
+    "description": "",
+    "price": 120,
+    "options": [
+      { "title": "300 мл", "unit": "мл", "value": 300, "price": 120 },
+      { "title": "500 мл", "unit": "мл", "value": 500, "price": 170 }
+    ],
+    "addons": [],
+    "minQty": 1,
+    "maxQty": 5,
+    "currency": "₽"
+  },
+    {
+    "id": "freezy",
+    "category": "drinks",
+    "title": "Холодный коктейль Freezy",
+    "image": "freezy.png",
+    "description": "",
+    "price": 150,
+    "options": [
+      { "title": "300 мл", "unit": "мл", "value": 300, "price": 150 },
+      { "title": "500 мл", "unit": "мл", "value": 500, "price": 200 }
+    ],
+    "addons": [],
+    "minQty": 1,
+    "maxQty": 5,
+    "currency": "₽"
+  },
+  {
+    "id": "mojito",
+    "category": "drinks",
+    "title": "Холодный коктейль Мохито",
+    "image": "mojito.png",
+    "description": "",
+    "price": 150,
+    "options": [
+      { "title": "300 мл", "unit": "мл", "value": 300, "price": 150 },
+      { "title": "500 мл", "unit": "мл", "value": 500, "price": 200 }
+    ],
+    "addons": [],
+    "minQty": 1,
+    "maxQty": 5,
+    "currency": "₽"
+  },
+  {
+    "id": "mojito_strawberry",
+    "category": "drinks",
+    "title": "Холодный коктейль Мохито - Клубника",
+    "image": "mojito_strawberry.png",
+    "description": "",
+    "price": 150,
+    "options": [
+      { "title": "300 мл", "unit": "мл", "value": 300, "price": 150 },
+      { "title": "500 мл", "unit": "мл", "value": 500, "price": 200 }
+    ],
+    "addons": [],
+    "minQty": 1,
+    "maxQty": 5,
+    "currency": "₽"
+  },
+  {
+    "id": "mojito_ocean",
+    "category": "drinks",
+    "title": "Холодный коктейль Мохито - Ocean",
+    "image": "mojito_ocean.png",
+    "description": "",
+    "price": 150,
+    "options": [
+      { "title": "300 мл", "unit": "мл", "value": 300, "price": 150 },
+      { "title": "500 мл", "unit": "мл", "value": 500, "price": 200 }
+    ],
+    "addons": [],
+    "minQty": 1,
+    "maxQty": 5,
+    "currency": "₽"
+  },
+  {
+    "id": "orange_fresh",
+    "category": "drinks",
+    "title": "Апельсиновый фреш",
+    "image": "orange_fresh.png",
+    "description": "",
+    "price": 190,
+    "options": [
+      { "title": "300 мл", "unit": "мл", "value": 300, "price": 190 },
+      { "title": "500 мл", "unit": "мл", "value": 500, "price": 260 }
+    ],
+    "addons": [],
+    "minQty": 1,
+    "maxQty": 5,
+    "currency": "₽"
+  },
+  {
+    "id": "orange_lemonade",
+    "category": "drinks",
+    "title": "Апельсиновый лимонад",
+    "image": "orange_lemonade.png",
+    "description": "",
+    "price": 100,
+    "options": [
+      { "title": "300 мл", "unit": "мл", "value": 300, "price": 100 },
+      { "title": "500 мл", "unit": "мл", "value": 500, "price": 140 }
+    ],
+    "addons": [],
+    "minQty": 1,
+    "maxQty": 5,
+    "currency": "₽"
+  },
+  {
+    "id": "milkshake",
+    "category": "drinks",
+    "title": "Молочный коктейль",
+    "image": "milkshake.png",
+    "description": "",
+    "price": 150,
+    "options": [
+      { "title": "300 мл", "unit": "мл", "value": 300, "price": 150 },
+      { "title": "500 мл", "unit": "мл", "value": 500, "price": 200 }
+    ],
+    "addons": [],
+    "minQty": 1,
+    "maxQty": 5,
+    "currency": "₽"
+  }
+]

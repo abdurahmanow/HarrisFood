@@ -1,4 +1,4 @@
-import React, { useMemo } from 'react';
+import React, { useMemo, useState } from 'react';
 import { View, ScrollView, FlatList, Dimensions } from 'react-native';
 import { useNavigation, useRoute, RouteProp } from '@react-navigation/native';
 import {
@@ -7,56 +7,57 @@ import {
   PanGestureHandlerStateChangeEvent,
 } from 'react-native-gesture-handler';
 
-import productsDataRaw from '../../data/product.json';
+import { categoryProductsMap } from '../../data/products/categoryFilesMap';
 import additivesDataRaw from '../../data/additives.json';
 import { parseProducts } from '../../adapters/productsAdapter';
 import type { RootStackParamList } from '../../navigation/RootStack';
 import type { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import { Product as ProductType } from '../../types/product';
+import type { Addition } from '../../types/cart';
 
 import Header from '../../components/Header';
 import SectionHeader from '../../components/SectionHeader';
 import AdditiveCard from '../../components/AdditiveCard';
 import ProductInfoBlock from '../../components/ProductInfoBlock';
 import ProductNotFoundBlock from '../../components/ProductNotFoundBlock';
+import { useCart } from '../../context/CartContext';
 
 const CARD_GAP = 16;
 const CARD_WIDTH = (Dimensions.get('window').width - CARD_GAP * 3) / 2;
 
 export default function ProductScreen() {
-  // Используем только RootStackParamList
   const navigation = useNavigation<NativeStackNavigationProp<RootStackParamList>>();
   const route = useRoute<RouteProp<RootStackParamList, 'Product'>>();
   const { productId, qty: routeQty } = route.params;
 
-  const allProducts: ProductType[] = useMemo(
-    () => parseProducts(productsDataRaw),
-    []
-  );
+  const { addToCart } = useCart();
+
+  // 🔄 Ищем продукт среди всех категорий
+  const allProducts: ProductType[] = useMemo(() => {
+    const rawProducts = Object.values(categoryProductsMap).flat();
+    return parseProducts(rawProducts);
+  }, []);
+
   const product = allProducts.find((p) => p.id === productId);
 
-  // sizes
-  const sizeOptions = product?.sizes
-    ? product.sizes.map((opt) => ({
-        id: opt.id,
-        label: opt.title,
-        price: opt.price,
-      }))
-    : [];
+  const sizeOptions = product?.sizes?.map((opt) => ({
+    id: opt.id,
+    label: opt.title,
+    price: opt.price,
+  })) ?? [];
 
-  // variants
-  const variantOptions = product?.variants
-    ? product.variants.map((opt) => ({
-        id: opt.id,
-        label: opt.title,
-        price: opt.price,
-      }))
-    : [];
+  const variantOptions = product?.variants?.map((opt) => ({
+    id: opt.id,
+    label: opt.title,
+    price: opt.price,
+  })) ?? [];
 
   const allAdditives = useMemo(() => additivesDataRaw, []);
   const additivesList = Array.isArray(product?.addons)
     ? allAdditives.filter((a) => product.addons!.includes(a.id))
     : [];
+
+  const [selectedAdditives, setSelectedAdditives] = useState<{ [id: string]: number }>({});
 
   const handleGesture = ({ nativeEvent }: PanGestureHandlerStateChangeEvent) => {
     if (
@@ -65,6 +66,43 @@ export default function ProductScreen() {
     ) {
       navigation.goBack();
     }
+  };
+
+  const handleAddToCart = (
+    qty: number,
+    sizeId?: string,
+    variantId?: string,
+    _?: any
+  ) => {
+    const selected = Object.entries(selectedAdditives)
+      .filter(([_, count]) => count > 0)
+      .map(([id, count]) => {
+        const found = allAdditives.find((x) => x.id === id);
+        return found
+          ? {
+              id: found.id,
+              title: found.title,
+              count,
+              price: found.price,
+            }
+          : null;
+      })
+      .filter(Boolean) as Addition[];
+
+    if (!product) return;
+
+    addToCart({
+      id: product.id,
+      title: product.title,
+      price: product.price,
+      qty,
+      size: sizeId,
+      variant: variantId,
+      additions: selected,
+      image: product.image,
+    });
+
+    navigation.goBack();
   };
 
   if (!product) {
@@ -97,6 +135,7 @@ export default function ProductScreen() {
             currency={product.currency}
             onBack={() => navigation.goBack()}
             initialQty={routeQty}
+            onAddToCart={handleAddToCart}
           />
 
           {additivesList.length > 0 && (
@@ -119,10 +158,20 @@ export default function ProductScreen() {
                   marginBottom: CARD_GAP,
                 }}
                 contentContainerStyle={{ paddingHorizontal: CARD_GAP }}
-                renderItem={({ item }) => (
-                  <AdditiveCard additive={item} width={CARD_WIDTH} />
-                )}
                 scrollEnabled={false}
+                renderItem={({ item }) => (
+                  <AdditiveCard
+                    additive={item}
+                    width={CARD_WIDTH}
+                    qty={selectedAdditives[item.id] || 0}
+                    onChange={(newQty) =>
+                      setSelectedAdditives((prev) => ({
+                        ...prev,
+                        [item.id]: newQty,
+                      }))
+                    }
+                  />
+                )}
               />
             </View>
           )}

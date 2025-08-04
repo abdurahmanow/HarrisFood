@@ -8,12 +8,11 @@ const itemSize = (screenWidth - sidePadding * 2) / columns;
 
 const styles = StyleSheet.create({
   flatListContent: {
-    paddingTop: 10,
-    paddingBottom: 0,
+
     paddingHorizontal: sidePadding,
   },
   columnWrapper: {
-    marginBottom: 16, // как в фигме между строками!
+    marginBottom: 10,
   },
   menuItem: {
     width: itemSize,
@@ -23,13 +22,16 @@ const styles = StyleSheet.create({
   menuImage: {
     width: 64,
     height: 64,
-    borderRadius: 32,
+    borderTopLeftRadius: 12,
+    borderTopRightRadius: 20,
+    borderBottomRightRadius: 12,
+    borderBottomLeftRadius: 20,
   },
   menuText: {
-    marginTop: 6,
+    marginTop: 4,
     fontFamily: 'Inter18Bold',
-    fontSize: 12,
-    lineHeight: 16,
+    fontSize: 11,
+    lineHeight: 12,
     fontWeight: '600',
     color: '#1A1A1A',
     textAlign: 'center',

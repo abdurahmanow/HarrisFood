@@ -1,0 +1,30 @@
+[
+        {
+    "id": "han_set",
+    "category": "sets",
+    "title": "Хан сет",
+    "image": "han_set.png",
+    "description": "",
+    "price": 250,
+    "options": [],
+    "variants": [],
+    "addons": [],
+    "minQty": 1,
+    "maxQty": 10,
+    "currency": "₽"
+  },
+    {
+    "id": "hariss_set",
+    "category": "sets",
+    "title": "Харис сет",
+    "image": "hariss_set.png",
+    "description": "",
+    "price": 250,
+    "options": [],
+    "variants": [],
+    "addons": [],
+    "minQty": 1,
+    "maxQty": 10,
+    "currency": "₽"
+  }
+]

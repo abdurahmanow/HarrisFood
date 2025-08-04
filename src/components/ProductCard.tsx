@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { View, Text, Image, TouchableOpacity } from 'react-native';
 import { productCardStyles as styles } from '../styles/ProductCard/productCardStyles';
 import { Product } from '../types/product';
+import { useCart } from '../context/CartContext'; // ✅ добавили
 
 function formatWeight(value: number, unit: string = 'г'): string {
   if (unit === 'г' || unit === 'гр' || unit === 'грамм' || unit === 'граммов') {
@@ -23,6 +24,7 @@ type Props = {
 
 export default function ProductCard({ product, width, onPress }: Props) {
   const {
+    id,
     title,
     image,
     currency = '₽',
@@ -37,6 +39,7 @@ export default function ProductCard({ product, width, onPress }: Props) {
 
   const [qty, setQty] = useState(minQty);
   const [imgError, setImgError] = useState(false);
+  const { addToCart } = useCart(); // ✅
 
   const isWeight = !!price_per && !!per_unit;
   let displayPrice: number;
@@ -49,10 +52,19 @@ export default function ProductCard({ product, width, onPress }: Props) {
     displayPrice = Number(price) * qty;
     qtyDisplay = qty.toString();
   }
-  const showPrice = isNaN(displayPrice) ? '—' : displayPrice;
 
-  // Динамика ширины qtyBlock
+  const showPrice = isNaN(displayPrice) ? '—' : displayPrice;
   const qtyBlockMinWidth = isWeight ? 56 : 40;
+
+  const handleAddToCart = () => {
+    addToCart({
+      id,
+      title,
+      price: isWeight ? (displayPrice / qty) : price, // Цена за единицу
+      qty,
+      image,
+    });
+  };
 
   return (
     <TouchableOpacity onPress={onPress} activeOpacity={0.9}>
@@ -78,6 +90,7 @@ export default function ProductCard({ product, width, onPress }: Props) {
           <Text style={styles.price}>
             {showPrice} {currency}
           </Text>
+
           <View style={[styles.qtyBlock, { minWidth: qtyBlockMinWidth }]}>
             <TouchableOpacity
               style={styles.qtyBtn}
@@ -87,9 +100,11 @@ export default function ProductCard({ product, width, onPress }: Props) {
             >
               <Text style={[styles.qtyBtnText, qty <= minQty && styles.qtyBtnDisabled]}>–</Text>
             </TouchableOpacity>
+
             <Text style={styles.qtyText} numberOfLines={1} adjustsFontSizeToFit>
               {qtyDisplay}
             </Text>
+
             <TouchableOpacity
               style={styles.qtyBtn}
               onPress={() => setQty(Math.min(qty + qtyStep, maxQty))}
@@ -101,7 +116,7 @@ export default function ProductCard({ product, width, onPress }: Props) {
           </View>
         </View>
 
-        <TouchableOpacity style={styles.addBtn} activeOpacity={0.7}>
+        <TouchableOpacity style={styles.addBtn} activeOpacity={0.7} onPress={handleAddToCart}>
           <Text style={styles.addBtnText} numberOfLines={1} adjustsFontSizeToFit>
             Добавить в заказ
           </Text>

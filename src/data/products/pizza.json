@@ -1,0 +1,497 @@
+[
+  {
+    "id": "pizza_margarita",
+    "category": "pizza",
+    "title": "Маргарита",
+    "image": "pizza_margarita.png",
+    "description": "Тесто, грибы, соус, помидоры, сыр",
+    "options": [
+      {
+        "id": "20",
+        "title": "20 см",
+        "price": 290
+      },
+      {
+        "id": "30",
+        "title": "30 см",
+        "price": 450
+      },
+      {
+        "id": "40",
+        "title": "40 см",
+        "price": 590
+      },
+      {
+        "id": "50",
+        "title": "50 см",
+        "price": 850
+      }
+    ],
+    "addons": ["double_meat", "double_cheese", "pepper", "chili", "olives", "pineapple", "tomato", "corn", "cheese_crust"],
+    "minQty": 1,
+    "maxQty": 5,
+    "currency": "₽"
+  },
+  {
+    "id": "pizza_kuritsa_mangal",
+    "category": "pizza",
+    "title": "Курица (мангал)",
+    "image": "pizza_kuritsa_mangal.png",
+    "description": "Соусы, грибы, курица (мангал), сыр моцарелла, сыр классический, зелень",
+    "options": [
+      {
+        "id": "20",
+        "title": "20 см",
+        "price": 350
+      },
+      {
+        "id": "30",
+        "title": "30 см",
+        "price": 550
+      },
+      {
+        "id": "40",
+        "title": "40 см",
+        "price": 750
+      },
+      {
+        "id": "50",
+        "title": "50 см",
+        "price": 990
+      }
+    ],
+    "addons": ["double_meat", "double_cheese", "pepper", "chili", "olives", "pineapple", "tomato", "corn", "cheese_crust"],
+    "minQty": 1,
+    "maxQty": 5,
+    "currency": "₽"
+  },
+  {
+    "id": "pizza_zhulen",
+    "category": "pizza",
+    "title": "Жульен",
+    "image": "pizza_zhulen.png",
+    "description": "Соус сливочный, грибы, курица, сыр, зелень",
+    "options": [
+      {
+        "id": "20",
+        "title": "20 см",
+        "price": 350
+      },
+      {
+        "id": "30",
+        "title": "30 см",
+        "price": 550
+      },
+      {
+        "id": "40",
+        "title": "40 см",
+        "price": 750
+      },
+      {
+        "id": "50",
+        "title": "50 см",
+        "price": 990
+      }
+    ],
+    "addons": ["double_meat", "double_cheese", "pepper", "chili", "olives", "pineapple", "tomato", "corn", "cheese_crust"],
+    "minQty": 1,
+    "maxQty": 5,
+    "currency": "₽"
+  },
+  {
+    "id": "pizza_govyadina_mangal",
+    "category": "pizza",
+    "title": "Говядина (мангал)",
+    "image": "pizza_govyadina_mangal.png",
+    "description": "Соусы, грибы, говядина (мангал), сыр моцарелла, сыр классический, зелень",
+    "options": [
+      {
+        "id": "20",
+        "title": "20 см",
+        "price": 450
+      },
+      {
+        "id": "30",
+        "title": "30 см",
+        "price": 590
+      },
+      {
+        "id": "40",
+        "title": "40 см",
+        "price": 790
+      },
+      {
+        "id": "50",
+        "title": "50 см",
+        "price": 1150
+      }
+    ],
+    "addons": ["double_meat", "double_cheese", "pepper", "chili", "olives", "pineapple", "tomato", "corn", "cheese_crust"],
+    "minQty": 1,
+    "maxQty": 5,
+    "currency": "₽"
+  },
+  {
+    "id": "pizza_gavayskaya",
+    "category": "pizza",
+    "title": "Гавайская",
+    "image": "pizza_gavayskaya.png",
+    "description": "Грибы, ветчина, сырный борт, ананас, сливочный соус, сыр",
+    "options": [
+      {
+        "id": "20",
+        "title": "20 см",
+        "price": 440
+      },
+      {
+        "id": "30",
+        "title": "30 см",
+        "price": 690
+      },
+      {
+        "id": "40",
+        "title": "40 см",
+        "price": 890
+      },
+      {
+        "id": "50",
+        "title": "50 см",
+        "price": 1190
+      }
+    ],
+    "addons": ["double_meat", "double_cheese", "pepper", "chili", "olives", "pineapple", "tomato", "corn", "cheese_crust"],
+    "minQty": 1,
+    "maxQty": 5,
+    "currency": "₽"
+  },
+  {
+    "id": "pizza_tsezar",
+    "category": "pizza",
+    "title": "Цезарь",
+    "image": "pizza_tsezar.png",
+    "description": "Сливочный соус, грибы, курица, айсберг, помидоры, сыр, зелень",
+    "options": [
+      {
+        "id": "20",
+        "title": "20 см",
+        "price": 440
+      },
+      {
+        "id": "30",
+        "title": "30 см",
+        "price": 690
+      },
+      {
+        "id": "40",
+        "title": "40 см",
+        "price": 890
+      },
+      {
+        "id": "50",
+        "title": "50 см",
+        "price": 1190
+      }
+    ],
+    "addons": ["double_meat", "double_cheese", "pepper", "chili", "olives", "pineapple", "tomato", "corn", "cheese_crust"],
+    "minQty": 1,
+    "maxQty": 5,
+    "currency": "₽"
+  },
+  {
+    "id": "pizza_kopchennaya_kuritsa",
+    "category": "pizza",
+    "title": "Копченная курица",
+    "image": "pizza_kopchennaya_kuritsa.png",
+    "description": "Соусы, грибы, курица копченая, сыр моцарелла, сыр классический, зелень",
+    "options": [
+      {
+        "id": "20",
+        "title": "20 см",
+        "price": 390
+      },
+      {
+        "id": "30",
+        "title": "30 см",
+        "price": 550
+      },
+      {
+        "id": "40",
+        "title": "40 см",
+        "price": 790
+      },
+      {
+        "id": "50",
+        "title": "50 см",
+        "price": 990
+      }
+    ],
+    "addons": ["double_meat", "double_cheese", "pepper", "chili", "olives", "pineapple", "tomato", "corn", "cheese_crust"],
+    "minQty": 1,
+    "maxQty": 5,
+    "currency": "₽"
+  },
+  {
+    "id": "pizza_ohotnichya",
+    "category": "pizza",
+    "title": "Охотничья",
+    "image": "pizza_ohotnichya.png",
+    "description": "Соусы, грибы, курица копченая, сыр моцарелла, сыр классический, зелень",
+    "options": [
+      {
+        "id": "20",
+        "title": "20 см",
+        "price": 390
+      },
+      {
+        "id": "30",
+        "title": "30 см",
+        "price": 550
+      },
+      {
+        "id": "40",
+        "title": "40 см",
+        "price": 790
+      },
+      {
+        "id": "50",
+        "title": "50 см",
+        "price": 990
+      }
+    ],
+    "addons": ["double_meat", "double_cheese", "pepper", "chili", "olives", "pineapple", "tomato", "corn", "cheese_crust"],
+    "minQty": 1,
+    "maxQty": 5,
+    "currency": "₽"
+  },
+  {
+    "id": "pizza_pepperoni",
+    "category": "pizza",
+    "title": "Пепперони",
+    "image": "pizza_pepperoni.png",
+    "description": "Соус красный, грибы, пепперони, сыр",
+    "options": [
+      {
+        "id": "20",
+        "title": "20 см",
+        "price": 390
+      },
+      {
+        "id": "30",
+        "title": "30 см",
+        "price": 550
+      },
+      {
+        "id": "40",
+        "title": "40 см",
+        "price": 790
+      },
+      {
+        "id": "50",
+        "title": "50 см",
+        "price": 990
+      }
+    ],
+    "addons": ["double_meat", "double_cheese", "pepper", "chili", "olives", "pineapple", "tomato", "corn", "cheese_crust"],
+    "minQty": 1,
+    "maxQty": 5,
+    "currency": "₽"
+  },
+  {
+    "id": "pizza_kopchennoe_myaso",
+    "category": "pizza",
+    "title": "Копченное мясо",
+    "image": "pizza_kopchennoe_myaso.png",
+    "description": "Соусы, грибы, копченая говядина, сыр моцарелла, сыр классический, зелень",
+    "options": [
+      {
+        "id": "20",
+        "title": "20 см",
+        "price": 390
+      },
+      {
+        "id": "30",
+        "title": "30 см",
+        "price": 550
+      },
+      {
+        "id": "40",
+        "title": "40 см",
+        "price": 790
+      },
+      {
+        "id": "50",
+        "title": "50 см",
+        "price": 990
+      }
+    ],
+    "addons": ["double_meat", "double_cheese", "pepper", "chili", "olives", "pineapple", "tomato", "corn", "cheese_crust"],
+    "minQty": 1,
+    "maxQty": 5,
+    "currency": "₽"
+  },
+  {
+    "id": "pizza_vetchina",
+    "category": "pizza",
+    "title": "Ветчина",
+    "image": "pizza_vetchina.png",
+    "description": "Соусы, грибы, копченая говядина, сыр моцарелла, сыр классический, зелень",
+    "options": [
+      {
+        "id": "20",
+        "title": "20 см",
+        "price": 390
+      },
+      {
+        "id": "30",
+        "title": "30 см",
+        "price": 550
+      },
+      {
+        "id": "40",
+        "title": "40 см",
+        "price": 790
+      },
+      {
+        "id": "50",
+        "title": "50 см",
+        "price": 990
+      }
+    ],
+    "addons": ["double_meat", "double_cheese", "pepper", "chili", "olives", "pineapple", "tomato", "corn", "cheese_crust"],
+    "minQty": 1,
+    "maxQty": 5,
+    "currency": "₽"
+  },
+  {
+    "id": "pizza_4_syra",
+    "category": "pizza",
+    "title": "4 сыра",
+    "image": "pizza_4_syra.png",
+    "description": "Соусы, сыр чеддер, сыр креметте, сыр моцарелла, сыр классический, зелень",
+    "options": [
+      {
+        "id": "20",
+        "title": "20 см",
+        "price": 350
+      },
+      {
+        "id": "30",
+        "title": "30 см",
+        "price": 450
+      },
+      {
+        "id": "40",
+        "title": "40 см",
+        "price": 690
+      },
+      {
+        "id": "50",
+        "title": "50 см",
+        "price": 990
+      }
+    ],
+    "addons": ["double_meat", "double_cheese", "pepper", "chili", "olives", "pineapple", "tomato", "corn", "cheese_crust"],
+    "minQty": 1,
+    "maxQty": 5,
+    "currency": "₽"
+  },
+  {
+    "id": "pizza_4_myasa",
+    "category": "pizza",
+    "title": "4 мяса",
+    "image": "pizza_4_myasa.png",
+    "description": "Соусы, куриный шашлык, говяжий шашлык, куриная ветчина, говядина копченая, моцарелла и классический сыр",
+    "options": [
+      {
+        "id": "20",
+        "title": "20 см",
+        "price": 450
+      },
+      {
+        "id": "30",
+        "title": "30 см",
+        "price": 690
+      },
+      {
+        "id": "40",
+        "title": "40 см",
+        "price": 890
+      },
+      {
+        "id": "50",
+        "title": "50 см",
+        "price": 1250
+      }
+    ],
+    "addons": ["double_meat", "double_cheese", "pepper", "chili", "olives", "pineapple", "tomato", "corn", "cheese_crust"],
+    "minQty": 1,
+    "maxQty": 5,
+    "currency": "₽"
+  },
+  {
+    "id": "pizza_assorti",
+    "category": "pizza",
+    "title": "Ассорти",
+    "image": "pizza_assorti.png",
+    "description": "Соусы, грибы, куриный шашлык, говяжий шашлык, сыр моцарелла, сыр классический, зелень",
+    "options": [
+      {
+        "id": "20",
+        "title": "20 см",
+        "price": 450
+      },
+      {
+        "id": "30",
+        "title": "30 см",
+        "price": 650
+      },
+      {
+        "id": "40",
+        "title": "40 см",
+        "price": 850
+      },
+      {
+        "id": "50",
+        "title": "50 см",
+        "price": 1190
+      }
+    ],
+    "addons": ["double_meat", "double_cheese", "pepper", "chili", "olives", "pineapple", "tomato", "corn", "cheese_crust"],
+    "minQty": 1,
+    "maxQty": 5,
+    "currency": "₽"
+  },
+  {
+    "id": "pizza_morskaya",
+    "category": "pizza",
+    "title": "Морская",
+    "image": "pizza_morskaya.png",
+    "description": "Тесто, соус, креветка, краб, лосось, сыр",
+    "options": [
+      {
+        "id": "20",
+        "title": "20 см",
+        "price": 390
+      },
+      {
+        "id": "30",
+        "title": "30 см",
+        "price": 690
+      },
+      {
+        "id": "40",
+        "title": "40 см",
+        "price": 890
+      },
+      {
+        "id": "50",
+        "title": "50 см",
+        "price": 1090
+      }
+    ],
+    "addons": ["double_meat", "double_cheese", "pepper", "chili", "olives", "pineapple", "tomato", "corn", "cheese_crust"],
+    "minQty": 1,
+    "maxQty": 5,
+    "currency": "₽"
+  }
+]

@@ -1,0 +1,128 @@
+[
+{
+    "id": "sprite",
+    "category": "drinks",
+    "title": "Спрайт",
+    "image": "sprite.png",
+    "description": "",
+    "price": 120,
+    "options": [
+      { "title": "0.5 л", "unit": "л", "value": 0.5, "price": 120 },
+      { "title": "1 л", "unit": "л", "value": 1, "price": 190 },
+      { "title": "2 л", "unit": "л", "value": 2, "price": 260 }
+    ],
+    "addons": [],
+    "minQty": 1,
+    "maxQty": 10,
+    "currency": "₽"
+  },
+  {
+    "id": "fanta",
+    "category": "drinks",
+    "title": "Фанта",
+    "image": "fanta.png",
+    "description": "",
+    "price": 120,
+    "options": [
+      { "title": "0.5 л", "unit": "л", "value": 0.5, "price": 120 },
+      { "title": "1 л", "unit": "л", "value": 1, "price": 190 },
+      { "title": "2 л", "unit": "л", "value": 2, "price": 260 }
+    ],
+    "addons": [],
+    "minQty": 1,
+    "maxQty": 10,
+    "currency": "₽"
+  },
+  {
+    "id": "coca_cola",
+    "category": "drinks",
+    "title": "Кока Кола",
+    "image": "coca_cola.png",
+    "description": "",
+    "price": 120,
+    "options": [
+      { "title": "0.5 л", "unit": "л", "value": 0.5, "price": 120 },
+      { "title": "1 л", "unit": "л", "value": 1, "price": 190 },
+      { "title": "2 л", "unit": "л", "value": 2, "price": 260 }
+    ],
+    "addons": [],
+    "minQty": 1,
+    "maxQty": 10,
+    "currency": "₽"
+  },
+  {
+    "id": "energy_drink",
+    "category": "drinks",
+    "title": "Энергетик",
+    "image": "energy_drink.png",
+    "description": "",
+    "price": 120,
+    "options": [
+      { "title": "0.5 л Tornado", "unit": "л", "value": 0.5, "price": 120 },
+      { "title": "0.5 л Flash", "unit": "л", "value": 0.5, "price": 120 }
+    ],
+    "addons": [],
+    "minQty": 1,
+    "maxQty": 5,
+    "currency": "₽"
+  },
+  {
+    "id": "redbull",
+    "category": "drinks",
+    "title": "Ред Булл",
+    "image": "redbull.png",
+    "description": "",
+    "price": 220,
+    "options": [
+      { "title": "0.25 л", "unit": "л", "value": 0.25, "price": 220 },
+      { "title": "0.5 л", "unit": "л", "value": 0.5, "price": 340 }
+    ],
+    "addons": [],
+    "minQty": 1,
+    "maxQty": 5,
+    "currency": "₽"
+  },
+  {
+    "id": "juice",
+    "category": "drinks",
+    "title": "Сок",
+    "image": "juice.png",
+    "description": "",
+    "price": 35,
+    "options": [
+      { "title": "0.35 л", "unit": "л", "value": 0.35, "price": 35 },
+      { "title": "1 л", "unit": "л", "value": 1, "price": 85 },
+      { "title": "2 л", "unit": "л", "value": 2, "price": 160 }
+    ],
+    "addons": [],
+    "minQty": 1,
+    "maxQty": 10,
+    "currency": "₽"
+  },
+  {
+    "id": "ayran",
+    "category": "drinks",
+    "title": "Айран",
+    "image": "ayran.png",
+    "description": "",
+    "price": 80,
+    "options": [],
+    "addons": [],
+    "minQty": 1,
+    "maxQty": 10,
+    "currency": "₽"
+  },
+  {
+    "id": "volchok",
+    "category": "drinks",
+    "title": "Волчок",
+    "image": "volchok.png",
+    "description": "",
+    "price": 120,
+    "options": [{ "title": "0.5 л", "unit": "л", "value": 0.5, "price": 120 }],
+    "addons": [],
+    "minQty": 1,
+    "maxQty": 10,
+    "currency": "₽"
+  }
+]

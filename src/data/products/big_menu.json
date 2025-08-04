@@ -1,0 +1,83 @@
+[
+      {
+    "id": "xxl_shawarma",
+    "category": "fastfood",
+    "title": "XXL шаурма",
+    "image": "xxl_shawarma.png",
+    "description": "Мясо, соусы, лаваш, помидор, огурец, пекинка, корейская морковка, сыр чеддер",
+    "options": [
+      { "id": "single", "title": "XXL шаурма", "price": 190 },
+      { "id": "single1", "title": "XXL шаурма", "price": 290 },
+      { "id": "single2", "title": "XXL шаурма", "price": 390 },
+      { "id": "single3", "title": "XXL шаурма", "price": 490 }
+    ],
+    "addons": [
+      "double_cheese",
+      "pepper",
+      "chili",
+      "olives",
+      "pineapple",
+      "tomato",
+      "corn",
+      "sauce_garlic",
+      "sauce_tomato",
+      "sauce_cheese",
+      "sauce_parmesan"
+    ],
+    "minQty": 1,
+    "maxQty": 10,
+    "currency": "₽",
+    "isRecommended": true
+  },
+  {
+    "id": "royal_doner",
+    "category": "fastfood",
+    "title": "Королевский донер",
+    "image": "royal_doner.png",
+    "description": "",
+    "options": [{ "id": "single", "title": "Королевский донер", "price": 490 }],
+    "addons": [
+      "double_cheese",
+      "pepper",
+      "chili",
+      "olives",
+      "pineapple",
+      "tomato",
+      "corn",
+      "sauce_garlic",
+      "sauce_tomato",
+      "sauce_cheese",
+      "sauce_parmesan"
+    ],
+    "minQty": 1,
+    "maxQty": 10,
+    "currency": "₽",
+    "isRecommended": true
+  },
+  {
+    "id": "sandwich_nurika",
+    "category": "fastfood",
+    "title": "Сендвич нурика",
+    "image": "sandwich_nurika.png",
+    "description": "",
+    "options": [{ "id": "single", "title": "Сендвич нурика", "price": 490 }],
+    "addons": [],
+    "minQty": 1,
+    "maxQty": 10,
+    "currency": "₽",
+    "isRecommended": true
+  },
+  {
+    "id": "triple_cheeseburger",
+    "category": "fastfood",
+    "title": "Трипл Чизбургер",
+    "image": "triple_cheeseburger.png",
+    "description": "",
+    "options": [{ "id": "single", "title": "Трипл Чизбургер", "price": 570 }],
+    "addons": [],
+    "minQty": 1,
+    "maxQty": 10,
+    "currency": "₽",
+    "isRecommended": true
+  }
+]

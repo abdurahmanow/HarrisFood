@@ -35,7 +35,7 @@ export const styles = StyleSheet.create({
   },
   imageWrap: {
     width: imageSize,
-    height: imageSize,
+    height: imageSize * 0.8,
     borderRadius: 8,
     overflow: 'hidden',
     alignSelf: 'center',

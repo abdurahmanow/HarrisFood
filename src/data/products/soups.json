@@ -1,0 +1,93 @@
+[
+{
+    "id": "shurpa",
+    "category": "soups",
+    "title": "Шурпа",
+    "image": "shurpa.png",
+    "description": "",
+    "price": 250,
+    "options": [],
+    "addons": [],
+    "minQty": 1,
+    "maxQty": 5,
+    "currency": "₽"
+  },
+  {
+    "id": "lagman",
+    "category": "soups",
+    "title": "Лагман",
+    "image": "lagman.png",
+    "description": "",
+    "price": 300,
+    "options": [],
+    "addons": [],
+    "minQty": 1,
+    "maxQty": 5,
+    "currency": "₽"
+  },
+  {
+    "id": "merdzhimek",
+    "category": "soups",
+    "title": "Мерджимек",
+    "image": "merdzhimek.png",
+    "description": "",
+    "price": 150,
+    "options": [],
+    "addons": [],
+    "minQty": 1,
+    "maxQty": 5,
+    "currency": "₽"
+  },
+  {
+    "id": "yufak_ash",
+    "category": "soups",
+    "title": "Юфакъ Аш",
+    "image": "yufak_ash.png",
+    "description": "",
+    "price": 200,
+    "options": [],
+    "addons": [],
+    "minQty": 1,
+    "maxQty": 5,
+    "currency": "₽"
+  },
+  {
+    "id": "kuksi",
+    "category": "soups",
+    "title": "Кукси",
+    "image": "kuksi.png",
+    "description": "",
+    "price": 300,
+    "options": [],
+    "addons": [],
+    "minQty": 1,
+    "maxQty": 5,
+    "currency": "₽"
+  },
+  {
+    "id": "tom_yam",
+    "category": "soups",
+    "title": "Том-ям",
+    "image": "tom_yam.png",
+    "description": "",
+    "price": 450,
+    "options": [],
+    "addons": [],
+    "minQty": 1,
+    "maxQty": 5,
+    "currency": "₽"
+  },
+  {
+    "id": "mushroom_soup",
+    "category": "soups",
+    "title": "Грибной суп",
+    "image": "mushroom_soup.png",
+    "description": "",
+    "price": 500,
+    "options": [],
+    "addons": [],
+    "minQty": 1,
+    "maxQty": 5,
+    "currency": "₽"
+  }
+]

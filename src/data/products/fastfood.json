@@ -1,0 +1,72 @@
+[
+  {
+    "id": "doner",
+    "category": "fastfood",
+    "title": "Донер",
+    "image": "doner.png",
+    "description": "Лепешка, курица или говядина шашлык или говяжья котлета, салат айсберг, огурец, помидор, соус красный, соус чесночный",
+    "options": [
+      { "id": "cutlet", "title": "Котлета говядина", "price": 250 },
+      { "id": "chicken", "title": "Курица (мангал)", "price": 250 },
+      { "id": "beef", "title": "Говядина (мангал)", "price": 250 },
+      { "id": "turkey", "title": "Индейка", "price": 250 },
+      { "id": "lamb", "title": "Баранина", "price": 250 }
+    ],
+    "addons": [],
+    "minQty": 1,
+    "maxQty": 10,
+    "currency": "₽"
+  },
+  {
+    "id": "hotdog",
+    "category": "fastfood",
+    "title": "Хот-дог",
+    "image": "hotdog.png",
+    "description": "",
+    "options": [
+      { "id": "S", "title": "Размер S", "price": 190 },
+      { "id": "M", "title": "Размер M", "price": 250 }
+    ],
+    "addons": [],
+    "minQty": 1,
+    "maxQty": 10,
+    "currency": "₽"
+  },
+  {
+    "id": "shawarma",
+    "category": "fastfood",
+    "title": "Шаверма",
+    "image": "shawarma.png",
+    "description": "Лаваш, курица или говядина шашлык или говяжья котлета, огурец, помидор, корейская морковка, пекинка, соус красный, соус чесночный",
+    "options": [
+      { "id": "cutlet", "title": "Котлета говядина", "price": 250 },
+      { "id": "chicken", "title": "Курица (мангал)", "price": 250 },
+      { "id": "beef", "title": "Говядина (мангал)", "price": 250 },
+      { "id": "turkey", "title": "Индейка", "price": 250 },
+      { "id": "lamb", "title": "Баранина", "price": 250 }
+    ],
+    "addons": [],
+    "minQty": 1,
+    "maxQty": 10,
+    "currency": "₽"
+  },
+  {
+    "id": "sandwich",
+    "category": "fastfood",
+    "title": "Сендвич",
+    "image": "sandwich.png",
+    "description": "Булочка, курица или говядина шашлык, или сёмга, сыр, салат айсберг, огурец, помидор, маринованный лук, соус барбекю",
+    "options": [
+      { "id": "salmon_S", "title": "Сёмга S", "price": 240 },
+      { "id": "chicken_S", "title": "Курица мангал S", "price": 240 },
+      { "id": "beef_S", "title": "Говядина мангал S", "price": 240 },
+      { "id": "salmon_M", "title": "Сёмга M", "price": 300 },
+      { "id": "chicken_M", "title": "Курица мангал M", "price": 300 },
+      { "id": "beef_M", "title": "Говядина мангал M", "price": 300 }
+    ],
+    "addons": [],
+    "minQty": 1,
+    "maxQty": 10,
+    "currency": "₽"
+  }
+]

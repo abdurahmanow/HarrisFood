@@ -1,0 +1,935 @@
+[
+  {
+    "id": "tea_raspberry",
+    "category": "tea_coffee",
+    "title": "Чай Малина",
+    "image": "tea_raspberry.png",
+    "description": "",
+    "price": 100,
+    "options": [
+      { "title": "350 мл", "unit": "мл", "value": 350, "price": 100 },
+      { "title": "1 л", "unit": "л", "value": 1, "price": 290 }
+    ],
+    "addons": [],
+    "minQty": 1,
+    "maxQty": 5,
+    "currency": "₽"
+  },
+  {
+    "id": "tea_ginger",
+    "category": "tea_coffee",
+    "title": "Имбирный чай",
+    "image": "tea_ginger.png",
+    "description": "",
+    "price": 100,
+    "options": [
+      { "title": "350 мл", "unit": "мл", "value": 350, "price": 100 },
+      { "title": "1 л", "unit": "л", "value": 1, "price": 290 }
+    ],
+    "addons": [],
+    "minQty": 1,
+    "maxQty": 5,
+    "currency": "₽"
+  },
+  {
+    "id": "tea_sea_buckthorn",
+    "category": "tea_coffee",
+    "title": "Облепиховый чай",
+    "image": "tea_sea_buckthorn.png",
+    "description": "",
+    "price": 100,
+    "options": [
+      { "title": "350 мл", "unit": "мл", "value": 350, "price": 100 },
+      { "title": "1 л", "unit": "л", "value": 1, "price": 290 }
+    ],
+    "addons": [],
+    "minQty": 1,
+    "maxQty": 5,
+    "currency": "₽"
+  },
+  {
+    "id": "tea_forest_berry",
+    "category": "tea_coffee",
+    "title": "Чай Лесная ягода",
+    "image": "tea_forest_berry.png",
+    "description": "",
+    "price": 100,
+    "options": [
+      { "title": "350 мл", "unit": "мл", "value": 350, "price": 100 },
+      { "title": "1 л", "unit": "л", "value": 1, "price": 290 }
+    ],
+    "addons": [],
+    "minQty": 1,
+    "maxQty": 5,
+    "currency": "₽"
+  },
+  {
+    "id": "tea_apple",
+    "category": "tea_coffee",
+    "title": "Apple tea",
+    "image": "tea_apple.png",
+    "description": "",
+    "price": 300,
+    "options": [{ "title": "1 л", "unit": "л", "value": 1, "price": 300 }],
+    "addons": [],
+    "minQty": 1,
+    "maxQty": 5,
+    "currency": "₽"
+  },
+  {
+    "id": "tea_citrus",
+    "category": "tea_coffee",
+    "title": "Цитрусовый чай",
+    "image": "tea_citrus.png",
+    "description": "",
+    "price": 100,
+    "options": [
+      { "title": "350 мл", "unit": "мл", "value": 350, "price": 100 },
+      { "title": "1 л", "unit": "л", "value": 1, "price": 290 }
+    ],
+    "addons": [],
+    "minQty": 1,
+    "maxQty": 5,
+    "currency": "₽"
+  },
+
+  {
+    "id": "americano",
+    "category": "tea_coffee",
+    "title": "Американо",
+    "image": "americano.png",
+    "description": "",
+    "price": 110,
+    "options": [
+      { "title": "S", "unit": "мл", "value": 200, "price": 110 },
+      { "title": "M", "unit": "мл", "value": 300, "price": 140 }
+    ],
+    "addons": [],
+    "minQty": 1,
+    "maxQty": 5,
+    "currency": "₽"
+  },
+  {
+    "id": "americano_milk",
+    "category": "tea_coffee",
+    "title": "Американо с молоком",
+    "image": "americano_milk.png",
+    "description": "",
+    "price": 120,
+    "options": [
+      { "title": "120 мл", "unit": "мл", "value": 120, "price": 120 },
+      { "title": "180 мл", "unit": "мл", "value": 180, "price": 150 }
+    ],
+    "addons": [],
+    "minQty": 1,
+    "maxQty": 5,
+    "currency": "₽"
+  },
+  {
+    "id": "espresso",
+    "category": "tea_coffee",
+    "title": "Эспрессо",
+    "image": "espresso.png",
+    "description": "",
+    "price": 110,
+    "options": [
+      { "title": "S", "unit": "мл", "value": 60, "price": 110 },
+      { "title": "M", "unit": "мл", "value": 100, "price": 140 }
+    ],
+    "addons": [],
+    "minQty": 1,
+    "maxQty": 5,
+    "currency": "₽"
+  },
+  {
+    "id": "cappuccino",
+    "category": "tea_coffee",
+    "title": "Капучино",
+    "image": "cappuccino.png",
+    "description": "",
+    "price": 140,
+    "options": [
+      { "title": "250 мл", "unit": "мл", "value": 250, "price": 140 },
+      { "title": "350 мл", "unit": "мл", "value": 350, "price": 170 },
+      { "title": "450 мл", "unit": "мл", "value": 450, "price": 210 }
+    ],
+    "addons": [],
+    "minQty": 1,
+    "maxQty": 5,
+    "currency": "₽"
+  },
+  {
+    "id": "latte",
+    "category": "tea_coffee",
+    "title": "Латте",
+    "image": "latte.png",
+    "description": "",
+    "price": 140,
+    "options": [
+      { "title": "250 мл", "unit": "мл", "value": 250, "price": 140 },
+      { "title": "350 мл", "unit": "мл", "value": 350, "price": 170 },
+      { "title": "450 мл", "unit": "мл", "value": 450, "price": 210 }
+    ],
+    "addons": ["syrup_iris", "syrup_vanilla", "syrup_coconut", "syrup_almond"],
+    "minQty": 1,
+    "maxQty": 5,
+    "currency": "₽"
+  },
+  {
+    "id": "hot_chocolate",
+    "category": "tea_coffee",
+    "title": "Горячий шоколад",
+    "image": "hot_chocolate.png",
+    "description": "",
+    "price": 120,
+    "options": [
+      { "title": "250 мл", "unit": "мл", "value": 250, "price": 120 },
+      { "title": "350 мл", "unit": "мл", "value": 350, "price": 150 },
+      { "title": "450 мл", "unit": "мл", "value": 450, "price": 180 }
+    ],
+    "addons": [],
+    "minQty": 1,
+    "maxQty": 5,
+    "currency": "₽"
+  },
+  {
+    "id": "cacao",
+    "category": "tea_coffee",
+    "title": "Какао",
+    "image": "cacao.png",
+    "description": "",
+    "price": 110,
+    "options": [
+      { "title": "250 мл", "unit": "мл", "value": 250, "price": 110 },
+      { "title": "350 мл", "unit": "мл", "value": 350, "price": 140 },
+      { "title": "450 мл", "unit": "мл", "value": 450, "price": 170 }
+    ],
+    "addons": [],
+    "minQty": 1,
+    "maxQty": 5,
+    "currency": "₽"
+  },
+  {
+    "id": "cacao_marshmallow",
+    "category": "tea_coffee",
+    "title": "Какао с зефиром",
+    "image": "cacao_marshmallow.png",
+    "description": "",
+    "price": 130,
+    "options": [
+      { "title": "250 мл", "unit": "мл", "value": 250, "price": 130 },
+      { "title": "350 мл", "unit": "мл", "value": 350, "price": 160 },
+      { "title": "450 мл", "unit": "мл", "value": 450, "price": 190 }
+    ],
+    "addons": [],
+    "minQty": 1,
+    "maxQty": 5,
+    "currency": "₽"
+  },
+  {
+    "id": "cashew_cappuccino",
+    "category": "tea_coffee",
+    "title": "Капучино кешью",
+    "image": "cashew_cappuccino.png",
+    "description": "",
+    "price": 160,
+    "options": [
+      { "title": "250 мл", "unit": "мл", "value": 250, "price": 160 },
+      { "title": "350 мл", "unit": "мл", "value": 350, "price": 190 },
+      { "title": "450 мл", "unit": "мл", "value": 450, "price": 230 }
+    ],
+    "addons": [],
+    "minQty": 1,
+    "maxQty": 5,
+    "currency": "₽"
+  },
+  {
+    "id": "nut_cappuccino",
+    "category": "tea_coffee",
+    "title": "Ореховый капучино",
+    "image": "nut_cappuccino.png",
+    "description": "",
+    "price": 160,
+    "options": [
+      { "title": "250 мл", "unit": "мл", "value": 250, "price": 160 },
+      { "title": "350 мл", "unit": "мл", "value": 350, "price": 190 },
+      { "title": "450 мл", "unit": "мл", "value": 450, "price": 230 }
+    ],
+    "addons": [],
+    "minQty": 1,
+    "maxQty": 5,
+    "currency": "₽"
+  },
+  {
+    "id": "caramel_macchiato",
+    "category": "tea_coffee",
+    "title": "Карамельный макиато",
+    "image": "caramel_macchiato.png",
+    "description": "",
+    "price": 170,
+    "options": [
+      { "title": "250 мл", "unit": "мл", "value": 250, "price": 170 },
+      { "title": "350 мл", "unit": "мл", "value": 350, "price": 200 },
+      { "title": "450 мл", "unit": "мл", "value": 450, "price": 240 }
+    ],
+    "addons": [],
+    "minQty": 1,
+    "maxQty": 5,
+    "currency": "₽"
+  },
+  {
+    "id": "chocolate_macchiato",
+    "category": "tea_coffee",
+    "title": "Шоколадный макиато",
+    "image": "chocolate_macchiato.png",
+    "description": "",
+    "price": 150,
+    "options": [
+      { "title": "250 мл", "unit": "мл", "value": 250, "price": 150 },
+      { "title": "350 мл", "unit": "мл", "value": 350, "price": 180 },
+      { "title": "450 мл", "unit": "мл", "value": 450, "price": 220 }
+    ],
+    "addons": [],
+    "minQty": 1,
+    "maxQty": 5,
+    "currency": "₽"
+  },
+  {
+    "id": "mokka",
+    "category": "tea_coffee",
+    "title": "Мокка",
+    "image": "mokka.png",
+    "description": "",
+    "price": 140,
+    "options": [
+      { "title": "250 мл", "unit": "мл", "value": 250, "price": 140 },
+      { "title": "350 мл", "unit": "мл", "value": 350, "price": 170 },
+      { "title": "450 мл", "unit": "мл", "value": 450, "price": 210 }
+    ],
+    "addons": [],
+    "minQty": 1,
+    "maxQty": 5,
+    "currency": "₽"
+  },
+  {
+    "id": "lavender_raf",
+    "category": "tea_coffee",
+    "title": "Лавандовый раф",
+    "image": "lavender_raf.png",
+    "description": "",
+    "price": 150,
+    "options": [
+      { "title": "250 мл", "unit": "мл", "value": 250, "price": 150 },
+      { "title": "350 мл", "unit": "мл", "value": 350, "price": 180 },
+      { "title": "450 мл", "unit": "мл", "value": 450, "price": 220 }
+    ],
+    "addons": [],
+    "minQty": 1,
+    "maxQty": 5,
+    "currency": "₽"
+  },
+  {
+    "id": "chocolate_raf",
+    "category": "tea_coffee",
+    "title": "Шоколадный раф",
+    "image": "chocolate_raf.png",
+    "description": "",
+    "price": 150,
+    "options": [
+      { "title": "250 мл", "unit": "мл", "value": 250, "price": 150 },
+      { "title": "350 мл", "unit": "мл", "value": 350, "price": 180 },
+      { "title": "450 мл", "unit": "мл", "value": 450, "price": 220 }
+    ],
+    "addons": [],
+    "minQty": 1,
+    "maxQty": 5,
+    "currency": "₽"
+  },
+  {
+    "id": "caramel_raf",
+    "category": "tea_coffee",
+    "title": "Карамельный раф",
+    "image": "caramel_raf.png",
+    "description": "",
+    "price": 150,
+    "options": [
+      { "title": "250 мл", "unit": "мл", "value": 250, "price": 150 },
+      { "title": "350 мл", "unit": "мл", "value": 350, "price": 180 },
+      { "title": "450 мл", "unit": "мл", "value": 450, "price": 220 }
+    ],
+    "addons": [],
+    "minQty": 1,
+    "maxQty": 5,
+    "currency": "₽"
+  },
+  {
+    "id": "latte_snickers",
+    "category": "tea_coffee",
+    "title": "Латте Сникерс",
+    "image": "latte_snickers.png",
+    "description": "",
+    "price": 130,
+    "options": [
+      { "title": "250 мл", "unit": "мл", "value": 250, "price": 130 },
+      { "title": "350 мл", "unit": "мл", "value": 350, "price": 160 },
+      { "title": "450 мл", "unit": "мл", "value": 450, "price": 190 }
+    ],
+    "addons": [],
+    "minQty": 1,
+    "maxQty": 5,
+    "currency": "₽"
+  },
+  {
+    "id": "latte_oreo",
+    "category": "tea_coffee",
+    "title": "Латте Орео",
+    "image": "latte_oreo.png",
+    "description": "",
+    "price": 160,
+    "options": [
+      { "title": "250 мл", "unit": "мл", "value": 250, "price": 160 },
+      { "title": "350 мл", "unit": "мл", "value": 350, "price": 190 },
+      { "title": "450 мл", "unit": "мл", "value": 450, "price": 220 }
+    ],
+    "addons": [],
+    "minQty": 1,
+    "maxQty": 5,
+    "currency": "₽"
+  },
+  {
+    "id": "shmel",
+    "category": "tea_coffee",
+    "title": "Шмель",
+    "image": "shmel.png",
+    "description": "",
+    "price": 150,
+    "options": [
+      { "title": "0.3 л", "unit": "л", "value": 0.3, "price": 150 },
+      { "title": "0.5 л", "unit": "л", "value": 0.5, "price": 210 }
+    ],
+    "addons": [],
+    "minQty": 1,
+    "maxQty": 5,
+    "currency": "₽"
+  },
+  {
+    "id": "flat_white",
+    "category": "tea_coffee",
+    "title": "Флэт Вайт",
+    "image": "flat_white.png",
+    "description": "",
+    "price": 150,
+    "options": [],
+    "addons": [],
+    "minQty": 1,
+    "maxQty": 5,
+    "currency": "₽"
+  },
+  {
+    "id": "frappuccino",
+    "category": "tea_coffee",
+    "title": "Фраппучино",
+    "image": "frappuccino.png",
+    "description": "",
+    "price": 160,
+    "options": [
+      { "title": "0.3 л", "unit": "л", "value": 0.3, "price": 160 },
+      { "title": "0.5 л", "unit": "л", "value": 0.5, "price": 220 }
+    ],
+    "addons": [],
+    "minQty": 1,
+    "maxQty": 5,
+    "currency": "₽"
+  },
+  {
+    "id": "ice_latte",
+    "category": "tea_coffee",
+    "title": "ICE Латте",
+    "image": "ice_latte.png",
+    "description": "",
+    "price": 130,
+    "options": [
+      { "title": "300 мл", "unit": "мл", "value": 300, "price": 130 },
+      { "title": "500 мл", "unit": "мл", "value": 500, "price": 180 }
+    ],
+    "addons": [],
+    "minQty": 1,
+    "maxQty": 5,
+    "currency": "₽"
+  },
+  {
+    "id": "ice_americano",
+    "category": "tea_coffee",
+    "title": "ICE Американо",
+    "image": "ice_americano.png",
+    "description": "",
+    "price": 120,
+    "options": [
+      { "title": "300 мл", "unit": "мл", "value": 300, "price": 120 },
+      { "title": "500 мл", "unit": "мл", "value": 500, "price": 170 }
+    ],
+    "addons": [],
+    "minQty": 1,
+    "maxQty": 5,
+    "currency": "₽"
+  },
+  {
+    "id": "snickers_frappe",
+    "category": "tea_coffee",
+    "title": "Сникерсовый Фраппе",
+    "image": "snickers_frappe.png",
+    "description": "",
+    "price": 180,
+    "options": [
+      { "title": "300 мл", "unit": "мл", "value": 300, "price": 180 },
+      { "title": "500 мл", "unit": "мл", "value": 500, "price": 240 }
+    ],
+    "addons": [],
+    "minQty": 1,
+    "maxQty": 5,
+    "currency": "₽"
+  },
+  {
+    "id": "oreo_frappe",
+    "category": "tea_coffee",
+    "title": "Фраппе орео",
+    "image": "oreo_frappe.png",
+    "description": "",
+    "price": 180,
+    "options": [
+      { "title": "300 мл", "unit": "мл", "value": 300, "price": 180 },
+      { "title": "500 мл", "unit": "мл", "value": 500, "price": 240 }
+    ],
+    "addons": [],
+    "minQty": 1,
+    "maxQty": 5,
+    "currency": "₽"
+  },
+  {
+    "id": "barbara",
+    "category": "drinks",
+    "title": "Барбара",
+    "image": "barbara.png",
+    "description": "",
+    "price": 180,
+    "options": [
+      { "title": "300 мл", "unit": "мл", "value": 300, "price": 180 },
+      { "title": "500 мл", "unit": "мл", "value": 500, "price": 240 }
+    ],
+    "addons": [],
+    "minQty": 1,
+    "maxQty": 5,
+    "currency": "₽"
+  },
+  {
+    "id": "glace",
+    "category": "drinks",
+    "title": "Глясе",
+    "image": "glace.png",
+    "description": "",
+    "price": 115,
+    "options": [],
+    "addons": [],
+    "minQty": 1,
+    "maxQty": 5,
+    "currency": "₽"
+  },
+  {
+    "id": "sand_coffee",
+    "category": "drinks",
+    "title": "Кофе на песке",
+    "image": "sand_coffee.png",
+    "description": "",
+    "price": 95,
+    "options": [],
+    "addons": [],
+    "minQty": 1,
+    "maxQty": 5,
+    "currency": "₽"
+  },
+  {
+    "id": "freezy",
+    "category": "drinks",
+    "title": "Холодный коктейль Freezy",
+    "image": "freezy.png",
+    "description": "",
+    "price": 150,
+    "options": [
+      { "title": "300 мл", "unit": "мл", "value": 300, "price": 150 },
+      { "title": "500 мл", "unit": "мл", "value": 500, "price": 200 }
+    ],
+    "addons": [],
+    "minQty": 1,
+    "maxQty": 5,
+    "currency": "₽"
+  },
+  {
+    "id": "mojito",
+    "category": "drinks",
+    "title": "Холодный коктейль Мохито",
+    "image": "mojito.png",
+    "description": "",
+    "price": 150,
+    "options": [
+      { "title": "300 мл", "unit": "мл", "value": 300, "price": 150 },
+      { "title": "500 мл", "unit": "мл", "value": 500, "price": 200 }
+    ],
+    "addons": [],
+    "minQty": 1,
+    "maxQty": 5,
+    "currency": "₽"
+  },
+  {
+    "id": "mojito_strawberry",
+    "category": "drinks",
+    "title": "Холодный коктейль Мохито - Клубника",
+    "image": "mojito_strawberry.png",
+    "description": "",
+    "price": 150,
+    "options": [
+      { "title": "300 мл", "unit": "мл", "value": 300, "price": 150 },
+      { "title": "500 мл", "unit": "мл", "value": 500, "price": 200 }
+    ],
+    "addons": [],
+    "minQty": 1,
+    "maxQty": 5,
+    "currency": "₽"
+  },
+  {
+    "id": "mojito_ocean",
+    "category": "drinks",
+    "title": "Холодный коктейль Мохито - Ocean",
+    "image": "mojito_ocean.png",
+    "description": "",
+    "price": 150,
+    "options": [
+      { "title": "300 мл", "unit": "мл", "value": 300, "price": 150 },
+      { "title": "500 мл", "unit": "мл", "value": 500, "price": 200 }
+    ],
+    "addons": [],
+    "minQty": 1,
+    "maxQty": 5,
+    "currency": "₽"
+  },
+  {
+    "id": "orange_fresh",
+    "category": "drinks",
+    "title": "Апельсиновый фреш",
+    "image": "orange_fresh.png",
+    "description": "",
+    "price": 190,
+    "options": [
+      { "title": "300 мл", "unit": "мл", "value": 300, "price": 190 },
+      { "title": "500 мл", "unit": "мл", "value": 500, "price": 260 }
+    ],
+    "addons": [],
+    "minQty": 1,
+    "maxQty": 5,
+    "currency": "₽"
+  },
+  {
+    "id": "orange_lemonade",
+    "category": "drinks",
+    "title": "Апельсиновый лимонад",
+    "image": "orange_lemonade.png",
+    "description": "",
+    "price": 100,
+    "options": [
+      { "title": "300 мл", "unit": "мл", "value": 300, "price": 100 },
+      { "title": "500 мл", "unit": "мл", "value": 500, "price": 140 }
+    ],
+    "addons": [],
+    "minQty": 1,
+    "maxQty": 5,
+    "currency": "₽"
+  },
+  {
+    "id": "milkshake",
+    "category": "drinks",
+    "title": "Молочный коктейль",
+    "image": "milkshake.png",
+    "description": "",
+    "price": 150,
+    "options": [
+      { "title": "300 мл", "unit": "мл", "value": 300, "price": 150 },
+      { "title": "500 мл", "unit": "мл", "value": 500, "price": 200 }
+    ],
+    "addons": [],
+    "minQty": 1,
+    "maxQty": 5,
+    "currency": "₽"
+  },
+
+  {
+    "id": "sprite",
+    "category": "drinks",
+    "title": "Спрайт",
+    "image": "sprite.png",
+    "description": "",
+    "price": 120,
+    "options": [
+      { "title": "0.5 л", "unit": "л", "value": 0.5, "price": 120 },
+      { "title": "1 л", "unit": "л", "value": 1, "price": 190 },
+      { "title": "2 л", "unit": "л", "value": 2, "price": 260 }
+    ],
+    "addons": [],
+    "minQty": 1,
+    "maxQty": 10,
+    "currency": "₽"
+  },
+  {
+    "id": "fanta",
+    "category": "drinks",
+    "title": "Фанта",
+    "image": "fanta.png",
+    "description": "",
+    "price": 120,
+    "options": [
+      { "title": "0.5 л", "unit": "л", "value": 0.5, "price": 120 },
+      { "title": "1 л", "unit": "л", "value": 1, "price": 190 },
+      { "title": "2 л", "unit": "л", "value": 2, "price": 260 }
+    ],
+    "addons": [],
+    "minQty": 1,
+    "maxQty": 10,
+    "currency": "₽"
+  },
+  {
+    "id": "coca_cola",
+    "category": "drinks",
+    "title": "Кока Кола",
+    "image": "coca_cola.png",
+    "description": "",
+    "price": 120,
+    "options": [
+      { "title": "0.5 л", "unit": "л", "value": 0.5, "price": 120 },
+      { "title": "1 л", "unit": "л", "value": 1, "price": 190 },
+      { "title": "2 л", "unit": "л", "value": 2, "price": 260 }
+    ],
+    "addons": [],
+    "minQty": 1,
+    "maxQty": 10,
+    "currency": "₽"
+  },
+  {
+    "id": "energy_drink",
+    "category": "drinks",
+    "title": "Энергетик",
+    "image": "energy_drink.png",
+    "description": "",
+    "price": 120,
+    "options": [
+      { "title": "0.5 л Tornado", "unit": "л", "value": 0.5, "price": 120 },
+      { "title": "0.5 л Flash", "unit": "л", "value": 0.5, "price": 120 }
+    ],
+    "addons": [],
+    "minQty": 1,
+    "maxQty": 5,
+    "currency": "₽"
+  },
+  {
+    "id": "redbull",
+    "category": "drinks",
+    "title": "Ред Булл",
+    "image": "redbull.png",
+    "description": "",
+    "price": 220,
+    "options": [
+      { "title": "0.25 л", "unit": "л", "value": 0.25, "price": 220 },
+      { "title": "0.5 л", "unit": "л", "value": 0.5, "price": 340 }
+    ],
+    "addons": [],
+    "minQty": 1,
+    "maxQty": 5,
+    "currency": "₽"
+  },
+  {
+    "id": "juice",
+    "category": "drinks",
+    "title": "Сок",
+    "image": "juice.png",
+    "description": "",
+    "price": 35,
+    "options": [
+      { "title": "0.35 л", "unit": "л", "value": 0.35, "price": 35 },
+      { "title": "1 л", "unit": "л", "value": 1, "price": 85 },
+      { "title": "2 л", "unit": "л", "value": 2, "price": 160 }
+    ],
+    "addons": [],
+    "minQty": 1,
+    "maxQty": 10,
+    "currency": "₽"
+  },
+  {
+    "id": "ayran",
+    "category": "drinks",
+    "title": "Айран",
+    "image": "ayran.png",
+    "description": "",
+    "price": 80,
+    "options": [],
+    "addons": [],
+    "minQty": 1,
+    "maxQty": 10,
+    "currency": "₽"
+  },
+  {
+    "id": "volchok",
+    "category": "drinks",
+    "title": "Волчок",
+    "image": "volchok.png",
+    "description": "",
+    "price": 120,
+    "options": [{ "title": "0.5 л", "unit": "л", "value": 0.5, "price": 120 }],
+    "addons": [],
+    "minQty": 1,
+    "maxQty": 10,
+    "currency": "₽"
+  },
+
+  {
+    "id": "smoothie_strawberry",
+    "category": "drinks",
+    "title": "Смузи Клубника",
+    "image": "smoothie_strawberry.png",
+    "description": "молочно-сливочная основа",
+    "price": 180,
+    "options": [
+      { "title": "300 мл", "unit": "мл", "value": 300, "price": 180 },
+      { "title": "500 мл", "unit": "мл", "value": 500, "price": 240 }
+    ],
+    "addons": [],
+    "minQty": 1,
+    "maxQty": 5,
+    "currency": "₽"
+  },
+  {
+    "id": "smoothie_banana",
+    "category": "drinks",
+    "title": "Смузи Банан",
+    "image": "smoothie_banana.png",
+    "description": "молочно-сливочная основа",
+    "price": 180,
+    "options": [
+      { "title": "300 мл", "unit": "мл", "value": 300, "price": 180 },
+      { "title": "500 мл", "unit": "мл", "value": 500, "price": 240 }
+    ],
+    "addons": [],
+    "minQty": 1,
+    "maxQty": 5,
+    "currency": "₽"
+  },
+  {
+    "id": "smoothie_banana_strawberry",
+    "category": "drinks",
+    "title": "Смузи Банан-клубника",
+    "image": "smoothie_banana_strawberry.png",
+    "description": "молочно-сливочная основа",
+    "price": 180,
+    "options": [
+      { "title": "300 мл", "unit": "мл", "value": 300, "price": 180 },
+      { "title": "500 мл", "unit": "мл", "value": 500, "price": 240 }
+    ],
+    "addons": [],
+    "minQty": 1,
+    "maxQty": 5,
+    "currency": "₽"
+  },
+  {
+    "id": "smoothie_berry",
+    "category": "drinks",
+    "title": "Смузи Лесная ягода",
+    "image": "smoothie_berry.png",
+    "description": "молочно-сливочная основа",
+    "price": 180,
+    "options": [
+      { "title": "300 мл", "unit": "мл", "value": 300, "price": 180 },
+      { "title": "500 мл", "unit": "мл", "value": 500, "price": 240 }
+    ],
+    "addons": [],
+    "minQty": 1,
+    "maxQty": 5,
+    "currency": "₽"
+  },
+  {
+    "id": "smoothie_honey_nut",
+    "category": "drinks",
+    "title": "Смузи Мёд-орехи",
+    "image": "smoothie_honey_nut.png",
+    "description": "молочно-сливочная основа",
+    "price": 180,
+    "options": [
+      { "title": "300 мл", "unit": "мл", "value": 300, "price": 180 },
+      { "title": "500 мл", "unit": "мл", "value": 500, "price": 240 }
+    ],
+    "addons": [],
+    "minQty": 1,
+    "maxQty": 5,
+    "currency": "₽"
+  },
+
+  {
+    "id": "mousse_raspberry",
+    "category": "drinks",
+    "title": "Мусс Малина",
+    "image": "mousse_raspberry.png",
+    "description": "",
+    "price": 130,
+    "options": [
+      { "title": "300 мл", "unit": "мл", "value": 300, "price": 130 },
+      { "title": "500 мл", "unit": "мл", "value": 500, "price": 170 }
+    ],
+    "addons": [],
+    "minQty": 1,
+    "maxQty": 5,
+    "currency": "₽"
+  },
+  {
+    "id": "mousse_banana",
+    "category": "drinks",
+    "title": "Мусс Банан",
+    "image": "mousse_banana.png",
+    "description": "",
+    "price": 130,
+    "options": [
+      { "title": "300 мл", "unit": "мл", "value": 300, "price": 130 },
+      { "title": "500 мл", "unit": "мл", "value": 500, "price": 170 }
+    ],
+    "addons": [],
+    "minQty": 1,
+    "maxQty": 5,
+    "currency": "₽"
+  },
+  {
+    "id": "mousse_berry",
+    "category": "drinks",
+    "title": "Мусс Лесная ягода",
+    "image": "mousse_berry.png",
+    "description": "",
+    "price": 130,
+    "options": [
+      { "title": "300 мл", "unit": "мл", "value": 300, "price": 130 },
+      { "title": "500 мл", "unit": "мл", "value": 500, "price": 170 }
+    ],
+    "addons": [],
+    "minQty": 1,
+    "maxQty": 5,
+    "currency": "₽"
+  },
+  {
+    "id": "mousse_strawberry",
+    "category": "drinks",
+    "title": "Мусс Клубника",
+    "image": "mousse_strawberry.png",
+    "description": "",
+    "price": 130,
+    "options": [
+      { "title": "300 мл", "unit": "мл", "value": 300, "price": 130 },
+      { "title": "500 мл", "unit": "мл", "value": 500, "price": 170 }
+    ],
+    "addons": [],
+    "minQty": 1,
+    "maxQty": 5,
+    "currency": "₽"
+  }
+]

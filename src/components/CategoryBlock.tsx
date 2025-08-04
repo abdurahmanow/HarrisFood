@@ -41,14 +41,14 @@ export default function CategoryBlock({
 
   const filteredProducts = useMemo(() => {
     // спецметки вида isNew/isPopular и т.д.
-    if (["new", "popular", "sets", "offers", "season", "recommended"].includes(category)) {
+    if (['new', 'popular', 'sets', 'offers', 'season', 'recommended'].includes(category)) {
       const key = {
-        new: "isNew",
-        popular: "isPopular",
-        sets: "isSet",
-        offers: "isOffer",
-        season: "isSeason",
-        recommended: "isRecommended",
+        new: 'isNew',
+        popular: 'isPopular',
+        sets: 'isSet',
+        offers: 'isOffer',
+        season: 'isSeason',
+        recommended: 'isRecommended',
       }[category] as keyof Product;
 
       return shuffleArray(allProducts.filter(p => !!p[key])).slice(0, count);

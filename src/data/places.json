@@ -8,12 +8,19 @@
     "phone": "+7 (978) 109-23-34",
     "work_time": "24/7",
     "categoriesOrder": [
-      "desserts",
-      "cheburek_yantyk",
-      "mangal",
+      "rolls",
       "pizza",
-      "drinks",
-      "tea_coffee"
+      "burgers",
+      "fastfood",
+      "snacks",
+      "big_menu",
+      "mangal",
+      "sets",
+      "desserts",
+      "tea_coffee",
+      "cold_drinks",
+      "fresh",
+      "drinks"
     ],
     "showOnHome": ["fastfood", "rolls", "mangal", "pizza"]
   },
@@ -28,16 +35,23 @@
     "categoriesOrder": [
       "soups",
       "hot_dishes",
-      "starters",
       "salads",
-      "desserts",
+      "starters",
       "cheburek_yantyk",
-      "mangal",
       "rolls",
-      "fastfood",
       "pizza",
+      "burgers",
+      "fastfood",
+      "snacks",
+      "big_menu",
+      "mangal",
+      "sets",
+      "desserts",
+      "tea_coffee",
+      "cold_drinks",
+      "fresh",
       "drinks",
-      "tea_coffee"
+      "ice_cream"
     ],
     "showOnHome": ["hot_dishes", "salads", "rolls", "pizza"]
   }
