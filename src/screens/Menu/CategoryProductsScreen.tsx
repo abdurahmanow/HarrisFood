@@ -11,6 +11,8 @@ import ProductCard from '../../components/ProductCard';
 import { Product } from '../../types/product';
 import Header from '../../components/Header';
 import SectionHeader from '../../components/SectionHeader';
+import { useCart } from '../../context/CartContext';
+import uuid from 'react-native-uuid';
 
 const CARD_GAP = 16;
 const CARD_WIDTH = (Dimensions.get('window').width - CARD_GAP * 3) / 2;
@@ -18,8 +20,8 @@ const CARD_WIDTH = (Dimensions.get('window').width - CARD_GAP * 3) / 2;
 export default function CategoryProductsScreen() {
   const route = useRoute<RouteProp<RootStackParamList, 'CategoryProducts'>>();
   const { categoryId } = route.params;
-  const navigation =
-    useNavigation<NativeStackNavigationProp<RootStackParamList>>();
+  const navigation = useNavigation<NativeStackNavigationProp<RootStackParamList>>();
+  const { addToCart } = useCart();
 
   const rawProducts = React.useMemo(
     () => categoryProductsMap[categoryId] || [],
@@ -47,22 +49,42 @@ export default function CategoryProductsScreen() {
 
       <FlatList
         data={products}
-        keyExtractor={item => item.id}
+        keyExtractor={item => `${item.id}|${item.size || ''}|${item.variant || ''}`}
         numColumns={2}
         contentContainerStyle={styles.flatListContent}
         columnWrapperStyle={styles.row}
-        renderItem={({ item }) => (
-          <ProductCard
-            product={item}
-            width={CARD_WIDTH}
-            onPress={() =>
-              navigation.navigate('Product', {
-                productId: item.id,
-                qty: 1,
-              })
-            }
-          />
-        )}
+        renderItem={({ item }) => {
+          const handleAddToCart = () => {
+            const cartItemId = uuid.v4().toString(); // ✅ безопасный ID
+            addToCart({
+              cartItemId,
+              id: item.id,
+              title: item.title,
+              image: item.image,
+              size: item.size,
+              variant: item.variant,
+              price: item.price,
+              qty: 1,
+              additions: [],
+            });
+          };
+
+          return (
+            <ProductCard
+              product={item}
+              width={CARD_WIDTH}
+              onPress={() =>
+                navigation.navigate('Product', {
+                  productId: item.id,
+                  size: item.size || null,
+                  variant: item.variant || null,
+                  qty: 1,
+                })
+              }
+              onAddToCart={handleAddToCart}
+            />
+          );
+        }}
         showsVerticalScrollIndicator={false}
         ListEmptyComponent={
           <View style={{ padding: 32 }}>

@@ -13,13 +13,12 @@ type Props = {
   title?: string;
   subtitle?: string;
   onPress?: () => void;
-  onLocationPress?: () => void; // ← ДОБАВЬ ЭТО
+  onLocationPress?: () => void;
   hideLogo?: boolean;
   hideLocation?: boolean;
   icon?: React.ReactNode;
   containerStyle?: ViewStyle;
 };
-
 
 export default function Header({
   title,
@@ -31,7 +30,7 @@ export default function Header({
   containerStyle,
 }: Props) {
   const insets = useSafeAreaInsets();
-  const { mode, place } = useCity();
+  const { mode, region, location, address, place } = useCity();
   const { selectedAddress } = useSavedAddresses();
   const { openLocationBottomSheet } = useLocationBottomSheet();
 
@@ -39,8 +38,15 @@ export default function Header({
   let street = '';
 
   if (mode === 'delivery') {
-    city = selectedAddress?.cityName || 'Город';
-    street = selectedAddress?.address || 'Выберите адрес';
+    // ✅ сначала проверим selectedAddress (если ты его используешь)
+    if (selectedAddress) {
+      city = selectedAddress.cityName || 'Город';
+      street = selectedAddress.address || 'Выберите адрес';
+    } else {
+      // 🟠 если нет — fallback из CityContext
+      city = location?.name || region?.name || 'Город';
+      street = address || 'Выберите адрес';
+    }
   } else {
     city = place?.city || 'Город';
     street = place?.street || 'Выберите заведение';

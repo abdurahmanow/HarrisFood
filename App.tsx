@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { Platform, LogBox} from 'react-native';
+import { Platform, LogBox, Text } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
@@ -18,12 +18,11 @@ import TabNavigator from './src/navigation/TabNavigator';
 import AllMenuScreen from './src/screens/Menu/MenuScreen';
 import CategoryProductsScreen from './src/screens/Menu/CategoryProductsScreen';
 import ProductScreen from './src/screens/Menu/ProductScreen';
+import OrderScreen from './src/screens/Order/OrderScreen'; // ✅ Добавлен
 
-// Убираем предупреждение (временно закомментируй при отладке!)
 LogBox.ignoreLogs(['Text strings must be rendered within a <Text> component']);
 
 const Stack = createStackNavigator();
-const gestureRootStyle = { flex: 1 };
 
 export default function MainApp() {
   useEffect(() => {
@@ -32,41 +31,40 @@ export default function MainApp() {
         RNBootSplash.default.hide({ fade: true });
       });
     }
+
+    console.log('MainApp loaded ✅'); // добавим лог
   }, []);
 
-  return (
-    <GestureHandlerRootView style={gestureRootStyle}>
-      <SafeAreaProvider>
-        <CartProvider>
-          <SavedAddressesProvider>
-            <CityProvider>
-              <LocationBottomSheetProvider>
-                <PortalProvider>
-                  <BottomSheetModalProvider>
-                    <NavigationContainer>
-                      <Stack.Navigator screenOptions={{ headerShown: false }}>
-                        <Stack.Screen name="Tabs" component={TabNavigator} />
-                        <Stack.Screen
-                          name="AllMenu"
-                          component={AllMenuScreen}
-                        />
-                        <Stack.Screen
-                          name="CategoryProducts"
-                          component={CategoryProductsScreen}
-                        />
-                        <Stack.Screen
-                          name="Product"
-                          component={ProductScreen}
-                        />
-                      </Stack.Navigator>
-                    </NavigationContainer>
-                  </BottomSheetModalProvider>
-                </PortalProvider>
-              </LocationBottomSheetProvider>
-            </CityProvider>
-          </SavedAddressesProvider>
-        </CartProvider>
-      </SafeAreaProvider>
-    </GestureHandlerRootView>
-  );
+  try {
+    return (
+      <GestureHandlerRootView style={{ flex: 1 }}>
+        <SafeAreaProvider>
+          <CartProvider>
+            <SavedAddressesProvider>
+              <CityProvider>
+                <LocationBottomSheetProvider>
+                  <PortalProvider>
+                    <BottomSheetModalProvider>
+                      <NavigationContainer>
+                        <Stack.Navigator screenOptions={{ headerShown: false }}>
+                          <Stack.Screen name="Tabs" component={TabNavigator} />
+                          <Stack.Screen name="AllMenu" component={AllMenuScreen} />
+                          <Stack.Screen name="CategoryProducts" component={CategoryProductsScreen} />
+                          <Stack.Screen name="Product" component={ProductScreen} />
+                          <Stack.Screen name="Order" component={OrderScreen} />
+                        </Stack.Navigator>
+                      </NavigationContainer>
+                    </BottomSheetModalProvider>
+                  </PortalProvider>
+                </LocationBottomSheetProvider>
+              </CityProvider>
+            </SavedAddressesProvider>
+          </CartProvider>
+        </SafeAreaProvider>
+      </GestureHandlerRootView>
+    );
+  } catch (error) {
+    console.error('Ошибка в рендере MainApp:', error);
+    return <Text>Произошла ошибка при запуске</Text>;
+  }
 }

@@ -6,20 +6,22 @@ export type Addition = {
 };
 
 export type CartItem = {
+  cartItemId: string; // ✅ обязательно уникальный ID
   id: string;
   title: string;
-  price: number;
-  qty: number;
+  image?: string;
   size?: string;
   variant?: string;
-  additions?: Addition[];
-  image?: any;
+  price: number;
+  qty: number;
+  additions: Addition[]; // тип уже должен быть определён
 };
+
 
 export type CartContextType = {
   cartItems: CartItem[];
   addToCart: (item: CartItem) => void;
-  removeFromCart: (id: string) => void;
+  removeFromCart: (cartItemId: string) => void;
 };
 
 // 💡 Можно добавить утилиту прямо сюда

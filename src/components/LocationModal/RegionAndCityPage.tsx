@@ -12,7 +12,7 @@ import locations from '../../data/locations.json';
 
 import RegionSelect from './RegionSelect';
 import AddAddressButton from './AddAddressButton';
-import CityDropdown from './CityList'; // Новый компонент с двумя полями!
+import CityDropdown from './CityList';
 import BottomActionContainer from './BottomActionContainer';
 import { regionListPageStyles as styles } from '../../styles/LocationModal/regionListPageStyles';
 
@@ -38,11 +38,21 @@ export default function RegionAndCityPage({ onClose, onSubmit }: Props) {
   };
 
   const handleSubmit = () => {
-    if (regionId && cityId && street && house && agreement) {
+    if (regionId && cityId && street && house && agreement && isStreetValid()) {
       const fullAddress = `${street}, ${house}`;
       onSubmit(regionId, cityId, fullAddress);
     }
   };
+
+  const isStreetValid = () => {
+    const isTooLong = street.length > 56;
+    const isGarbage = street.length > 20 && !street.includes(' ') && !street.includes('-');
+    const hasTripleRepeat = /([А-Яа-яЁё])\1{2,}/i.test(street);
+    return !isTooLong && !isGarbage && !hasTripleRepeat;
+  };
+
+  const isActive =
+    !!cityId && !!street && !!house && agreement && isStreetValid();
 
   return (
     <SafeAreaView style={styles.safeArea}>
@@ -92,10 +102,7 @@ export default function RegionAndCityPage({ onClose, onSubmit }: Props) {
       {step === 'region' ? (
         <BottomActionContainer>
           <TouchableOpacity
-            style={[
-              styles.nextBtn,
-              !regionId && styles.nextBtnDisabled,
-            ]}
+            style={[styles.nextBtn, !regionId && styles.nextBtnDisabled]}
             onPress={handleNextFromRegion}
             disabled={!regionId}
             activeOpacity={0.85}
@@ -114,7 +121,7 @@ export default function RegionAndCityPage({ onClose, onSubmit }: Props) {
         <BottomActionContainer>
           <AddAddressButton
             onPress={handleSubmit}
-            isActive={!!cityId && !!street && !!house && agreement}
+            isActive={isActive}
             showAgreement
             agreementChecked={agreement}
             onAgreementToggle={() => setAgreement(!agreement)}

@@ -5,11 +5,11 @@ import {
   TouchableOpacity,
   Modal,
   StyleSheet,
-  TextInput,
   ScrollView,
 } from 'react-native';
 import Animated, { FadeIn, FadeOut } from 'react-native-reanimated';
 import { cityListStyles as styles } from '../../styles/LocationModal/cityList';
+import AddressInputs from './AddressInput';
 
 type Location = {
   id: string;
@@ -53,22 +53,25 @@ export default function CityDropdown({
   return (
     <View style={styles.container}>
       <Text style={styles.regionTitle}>{regionName}</Text>
+
       {/* Кнопка выбора города */}
       <TouchableOpacity
         style={cityDropdownStyles.dropdownButton}
         activeOpacity={0.85}
         onPress={() => setModalVisible(true)}
       >
-        <Text style={[
-          cityDropdownStyles.dropdownText,
-          !selectedCity && { color: '#A9A9A9' }
-        ]}>
+        <Text
+          style={[
+            cityDropdownStyles.dropdownText,
+            !selectedCity && { color: '#A9A9A9' },
+          ]}
+        >
           {selectedCity ? selectedCity.name : 'Выберите город'}
         </Text>
         <Text style={{ fontSize: 16, color: '#FFA52F', marginLeft: 8 }}>▼</Text>
       </TouchableOpacity>
 
-      {/* Выпадающий список городов — скроллируемый */}
+      {/* Выпадающий список городов */}
       <Modal
         visible={modalVisible}
         transparent
@@ -106,7 +109,15 @@ export default function CityDropdown({
                     {city.name}
                   </Text>
                   {selectedId === city.id && (
-                    <Text style={{ color: '#FFA52F', fontSize: 18, marginLeft: 8 }}>✓</Text>
+                    <Text
+                      style={{
+                        color: '#FFA52F',
+                        fontSize: 18,
+                        marginLeft: 8,
+                      }}
+                    >
+                      ✓
+                    </Text>
                   )}
                 </TouchableOpacity>
               ))}
@@ -115,40 +126,13 @@ export default function CityDropdown({
         </TouchableOpacity>
       </Modal>
 
-      {/* Два отдельных поля ввода: улица и дом */}
-      <View style={styles.inputWrapper}>
-        <Text style={styles.inputLabel}>
-          Улица <Text style={styles.inputStar}>*</Text>
-        </Text>
-        <TextInput
-          value={street}
-          onChangeText={setStreet}
-          style={styles.input}
-          placeholder="Введите улицу"
-          placeholderTextColor="#A9A9A9"
-          returnKeyType="next"
-          autoCapitalize="sentences"
-        />
-      </View>
-      <View style={[styles.inputWrapper, { marginTop: 12 }]}>
-        <Text style={styles.inputLabel}>
-          Дом <Text style={styles.inputStar}>*</Text>
-        </Text>
-        <TextInput
-          value={house}
-          onChangeText={text => {
-            // Оставляем только цифры, максимум 3 символа
-            const onlyNumbers = text.replace(/[^0-9]/g, '').slice(0, 3);
-            setHouse(onlyNumbers);
-          }}
-          style={styles.input}
-          placeholder="№"
-          placeholderTextColor="#A9A9A9"
-          keyboardType="number-pad"
-          returnKeyType="done"
-          maxLength={3}
-        />
-      </View>
+      {/* Поля адреса */}
+      <AddressInputs
+        street={street}
+        setStreet={setStreet}
+        house={house}
+        setHouse={setHouse}
+      />
     </View>
   );
 }

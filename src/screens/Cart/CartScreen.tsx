@@ -7,6 +7,9 @@ import { useCart } from '../../context/CartContext';
 import { useCity } from '../../context/CityContext';
 import { useSavedAddresses } from '../../context/SavedAddressesContext';
 import { CartItem } from '../../types/cart';
+import { useNavigation } from '@react-navigation/native';
+import type { NativeStackNavigationProp } from '@react-navigation/native-stack';
+import type { CartStackParamList } from '../../navigation/CartStack';
 
 const getItemTotal = (item: CartItem) => {
   const additionsTotal =
@@ -18,6 +21,7 @@ export default function CartScreen() {
   const { cartItems, removeFromCart } = useCart();
   const { mode, location, setLocationId } = useCity();
   const { selectedAddress } = useSavedAddresses();
+  const navigation = useNavigation<NativeStackNavigationProp<CartStackParamList>>();
 
   const isCartEmpty = cartItems.length === 0;
 
@@ -31,7 +35,7 @@ export default function CartScreen() {
     if (mode === 'delivery' && selectedAddress?.cityId) {
       setLocationId(selectedAddress.cityId);
     }
- }, [mode, selectedAddress?.cityId, setLocationId]);
+  }, [mode, selectedAddress?.cityId, setLocationId]);
 
   // 📦 Расчёт стоимости доставки
   let deliveryPrice = 0;
@@ -43,7 +47,7 @@ export default function CartScreen() {
   }
 
   const handleSubmitOrder = () => {
-    console.log('Оформляем заказ...');
+    navigation.navigate('Order'); // ✅ переход на Order
   };
 
   return (

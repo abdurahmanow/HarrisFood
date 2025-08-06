@@ -25,16 +25,16 @@ export const CartProvider: React.FC<{ children: React.ReactNode }> = ({ children
   }, [cartItems]);
 
   const addToCart = (item: CartItem) => {
-    setCartItems((prev) => [...prev, item]);
+    setCartItems(prev => [...prev, item]);
   };
 
-  const removeFromCart = (id: string) => {
-    setCartItems((prev) => prev.filter(item => item.id !== id));
+  const removeFromCart = (cartItemId: string) => {
+    setCartItems(prev => prev.filter(item => item.cartItemId !== cartItemId));
   };
 
   return (
     <CartContext.Provider value={{ cartItems, addToCart, removeFromCart }}>
-      {children} {/* ✅ только JSX */}
+      {children}
     </CartContext.Provider>
   );
 };

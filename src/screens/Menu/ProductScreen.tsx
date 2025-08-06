@@ -1,12 +1,22 @@
 import React, { useMemo, useState } from 'react';
-import { View, ScrollView, FlatList, Dimensions } from 'react-native';
-import { useNavigation, useRoute, RouteProp } from '@react-navigation/native';
+import {
+  View,
+  ScrollView,
+  FlatList,
+  Dimensions,
+} from 'react-native';
+import {
+  useNavigation,
+  useRoute,
+  RouteProp,
+} from '@react-navigation/native';
 import {
   PanGestureHandler,
   State,
   PanGestureHandlerStateChangeEvent,
 } from 'react-native-gesture-handler';
 
+import { useCart } from '../../context/CartContext';
 import { categoryProductsMap } from '../../data/products/categoryFilesMap';
 import additivesDataRaw from '../../data/additives.json';
 import { parseProducts } from '../../adapters/productsAdapter';
@@ -20,7 +30,7 @@ import SectionHeader from '../../components/SectionHeader';
 import AdditiveCard from '../../components/AdditiveCard';
 import ProductInfoBlock from '../../components/ProductInfoBlock';
 import ProductNotFoundBlock from '../../components/ProductNotFoundBlock';
-import { useCart } from '../../context/CartContext';
+import uuid from 'react-native-uuid';
 
 const CARD_GAP = 16;
 const CARD_WIDTH = (Dimensions.get('window').width - CARD_GAP * 3) / 2;
@@ -32,7 +42,6 @@ export default function ProductScreen() {
 
   const { addToCart } = useCart();
 
-  // 🔄 Ищем продукт среди всех категорий
   const allProducts: ProductType[] = useMemo(() => {
     const rawProducts = Object.values(categoryProductsMap).flat();
     return parseProducts(rawProducts);
@@ -74,10 +83,12 @@ export default function ProductScreen() {
     variantId?: string,
     _?: any
   ) => {
-    const selected = Object.entries(selectedAdditives)
+    if (!product) return;
+
+    const selected: Addition[] = Object.entries(selectedAdditives)
       .filter(([_, count]) => count > 0)
       .map(([id, count]) => {
-        const found = allAdditives.find((x) => x.id === id);
+        const found = allAdditives.find((a) => a.id === id);
         return found
           ? {
               id: found.id,
@@ -89,9 +100,10 @@ export default function ProductScreen() {
       })
       .filter(Boolean) as Addition[];
 
-    if (!product) return;
+    const cartItemId = uuid.v4() as string; // 👈 уникальный ID
 
     addToCart({
+      cartItemId,
       id: product.id,
       title: product.title,
       price: product.price,

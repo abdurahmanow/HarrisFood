@@ -272,6 +272,7 @@
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = HarrisFood/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "Harris Food";
+				"INFOPLIST_KEY_CFBundleDisplayName[sdk=iphoneos*]" = "Harris Food";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.food-and-drink";
 				IPHONEOS_DEPLOYMENT_TARGET = 15.1;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -308,6 +309,7 @@
 				DEVELOPMENT_TEAM = 5A85D9T5JQ;
 				INFOPLIST_FILE = HarrisFood/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "Harris Food";
+				"INFOPLIST_KEY_CFBundleDisplayName[sdk=iphoneos*]" = "Harris Food";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.food-and-drink";
 				IPHONEOS_DEPLOYMENT_TARGET = 15.1;
 				LD_RUNPATH_SEARCH_PATHS = (

@@ -2,16 +2,14 @@ import React, { useState } from 'react';
 import { View, Text, Image, TouchableOpacity } from 'react-native';
 import { productCardStyles as styles } from '../styles/ProductCard/productCardStyles';
 import { Product } from '../types/product';
-import { useCart } from '../context/CartContext'; // ✅ добавили
+import { useCart } from '../context/CartContext';
+import uuid from 'react-native-uuid';
 
 function formatWeight(value: number, unit: string = 'г'): string {
   if (unit === 'г' || unit === 'гр' || unit === 'грамм' || unit === 'граммов') {
-    if (value < 1000) {
-      return `${value} г`;
-    } else {
-      const kg = value / 1000;
-      return `${kg % 1 === 0 ? kg.toFixed(0) : kg.toFixed(2).replace(/\.?0+$/, '')} кг`;
-    }
+    if (value < 1000) return `${value} г`;
+    const kg = value / 1000;
+    return `${kg % 1 === 0 ? kg.toFixed(0) : kg.toFixed(2).replace(/\.?0+$/, '')} кг`;
   }
   return `${value} ${unit}`;
 }
@@ -20,9 +18,10 @@ type Props = {
   product: Product;
   width: number;
   onPress?: () => void;
+  onAddToCart?: () => void;
 };
 
-export default function ProductCard({ product, width, onPress }: Props) {
+export default function ProductCard({ product, width, onPress, onAddToCart }: Props) {
   const {
     id,
     title,
@@ -35,34 +34,34 @@ export default function ProductCard({ product, width, onPress }: Props) {
     qtyStep = 1,
     minQty = 1,
     maxQty = 9999,
+    size,
+    variant,
   } = product;
 
   const [qty, setQty] = useState(minQty);
   const [imgError, setImgError] = useState(false);
-  const { addToCart } = useCart(); // ✅
+  const { addToCart } = useCart();
 
   const isWeight = !!price_per && !!per_unit;
-  let displayPrice: number;
-  let qtyDisplay: string;
+  const displayPrice = isWeight
+    ? Math.round(((qty / per_unit) * price_per) * 100) / 100
+    : price * qty;
 
-  if (isWeight) {
-    displayPrice = Math.round(((qty / per_unit) * price_per) * 100) / 100;
-    qtyDisplay = formatWeight(qty, qtyUnitLabel);
-  } else {
-    displayPrice = Number(price) * qty;
-    qtyDisplay = qty.toString();
-  }
-
-  const showPrice = isNaN(displayPrice) ? '—' : displayPrice;
+  const qtyDisplay = isWeight ? formatWeight(qty, qtyUnitLabel) : qty.toString();
   const qtyBlockMinWidth = isWeight ? 56 : 40;
 
   const handleAddToCart = () => {
+    const cartItemId = uuid.v4().toString(); // ✅ генерируем уникальный ID
     addToCart({
+      cartItemId,
       id,
       title,
-      price: isWeight ? (displayPrice / qty) : price, // Цена за единицу
+      price: isWeight ? displayPrice / qty : price,
       qty,
       image,
+      size,
+      variant,
+      additions: [],
     });
   };
 
@@ -82,14 +81,10 @@ export default function ProductCard({ product, width, onPress }: Props) {
           />
         )}
 
-        <Text style={styles.title} numberOfLines={2} ellipsizeMode="tail">
-          {title}
-        </Text>
+        <Text style={styles.title} numberOfLines={2}>{title}</Text>
 
         <View style={styles.priceRow}>
-          <Text style={styles.price}>
-            {showPrice} {currency}
-          </Text>
+          <Text style={styles.price}>{displayPrice} {currency}</Text>
 
           <View style={[styles.qtyBlock, { minWidth: qtyBlockMinWidth }]}>
             <TouchableOpacity
@@ -101,9 +96,7 @@ export default function ProductCard({ product, width, onPress }: Props) {
               <Text style={[styles.qtyBtnText, qty <= minQty && styles.qtyBtnDisabled]}>–</Text>
             </TouchableOpacity>
 
-            <Text style={styles.qtyText} numberOfLines={1} adjustsFontSizeToFit>
-              {qtyDisplay}
-            </Text>
+            <Text style={styles.qtyText} numberOfLines={1} adjustsFontSizeToFit>{qtyDisplay}</Text>
 
             <TouchableOpacity
               style={styles.qtyBtn}
@@ -116,7 +109,11 @@ export default function ProductCard({ product, width, onPress }: Props) {
           </View>
         </View>
 
-        <TouchableOpacity style={styles.addBtn} activeOpacity={0.7} onPress={handleAddToCart}>
+        <TouchableOpacity
+          style={styles.addBtn}
+          activeOpacity={0.7}
+          onPress={onAddToCart || handleAddToCart}
+        >
           <Text style={styles.addBtnText} numberOfLines={1} adjustsFontSizeToFit>
             Добавить в заказ
           </Text>

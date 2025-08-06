@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { View, ScrollView, StyleSheet } from 'react-native';
 import Header from '../../components/Header';
 import SectionHeader from '../../components/SectionHeader';
@@ -6,53 +6,83 @@ import MenuBlock from '../../components/MenuBlock';
 import CategoryBlock from '../../components/CategoryBlock';
 
 import { useCity } from '../../context/CityContext';
+import { useSavedAddresses } from '../../context/SavedAddressesContext';
 
 import menuCategories from '../../data/categories.json';
-import rawRegions from '../../data/regions.json';
-import rawPlaces from '../../data/places.json';
 
 import { useNavigation } from '@react-navigation/native';
 import type { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import type { RootStackParamList } from '../../navigation/RootStack';
 
-const regions = rawRegions as any[];
-const places = rawPlaces as any[];
-
 export default function AllMenuScreen() {
-  const { mode, regionId, placeId } = useCity();
+  const {
+    categoriesOrder,
+    mode,
+    regionId,
+    region,
+    placeId,
+    place,
+    setRegionId,
+    setLocationId,
+    setAddress,
+  } = useCity();
+
+  const { selectedAddress } = useSavedAddresses();
+
   const navigation = useNavigation<NativeStackNavigationProp<RootStackParamList>>();
 
-  const currentRegion = React.useMemo(() => regions.find(r => r.id === regionId), [regionId]);
-  const currentPlace = React.useMemo(() => places.find(p => p.id === placeId), [placeId]);
+  // --- DEBUG OUTPUT ---
+  console.log('===========================');
+  console.log('📦 mode:', mode);
+  console.log('📦 regionId:', regionId);
+  console.log('📦 placeId:', placeId);
+  console.log('📦 region:', region);
+  console.log('📦 place:', place);
+  console.log('📦 categoriesOrder:', categoriesOrder);
+  console.log('📦 selectedAddress:', selectedAddress);
+  console.log('===========================');
 
-  const categoriesOrder = mode === 'pickup'
-    ? currentPlace?.categoriesOrder
-    : currentRegion?.categoriesOrder;
+  // 👉 Автоматическая синхронизация при смене сохранённого адреса
+  useEffect(() => {
+    if (mode === 'delivery' && selectedAddress) {
+      console.log('🔄 Синхронизируем адрес с CityContext');
+      setRegionId(selectedAddress.regionId);
+      setLocationId(selectedAddress.cityId);
+      setAddress(selectedAddress.address);
+    }
+  }, [mode, selectedAddress, setRegionId, setLocationId, setAddress]);
 
   const menuItems = React.useMemo(() => {
     if (categoriesOrder && Array.isArray(categoriesOrder)) {
-      return categoriesOrder
+      const items = categoriesOrder
         .map(catId => menuCategories.find(cat => cat.id === catId))
-        .filter(cat => !!cat)
+        .filter(Boolean)
         .map(cat => ({
           id: cat!.id,
           title: cat!.title,
           image: cat!.id,
           description: cat!.description,
         }));
-    } else {
-      return menuCategories.map(cat => ({
-        id: cat.id,
-        title: cat.title,
-        image: cat.id,
-        description: cat.description,
-      }));
+
+      console.log('🧩 Final rendered menuItems:', items.map(i => i.title));
+      return items;
     }
+
+    // fallback: все категории
+    const allItems = menuCategories.map(cat => ({
+      id: cat.id,
+      title: cat.title,
+      image: cat.id,
+      description: cat.description,
+    }));
+    console.log('🧩 Using fallback menuItems (all categories)');
+    return allItems;
   }, [categoriesOrder]);
 
   return (
     <View style={styles.container}>
       <Header />
+
       <ScrollView
         contentContainerStyle={styles.scrollContent}
         bounces={false}
@@ -97,6 +127,12 @@ export default function AllMenuScreen() {
 }
 
 const styles = StyleSheet.create({
-  container: { flex: 1, backgroundColor: '#fff' },
-  scrollContent: { flexGrow: 1, paddingBottom: 16 },
+  container: {
+    flex: 1,
+    backgroundColor: '#fff',
+  },
+  scrollContent: {
+    flexGrow: 1,
+    paddingBottom: 16,
+  },
 });

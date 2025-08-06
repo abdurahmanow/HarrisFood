@@ -16,11 +16,13 @@ type Addition = {
 };
 
 type CartItem = {
+  cartItemId: string;
   id: string;
   title: string;
   price: number;
   qty: number;
   size?: string;
+  variant?: string;
   image?: any;
   additions?: Addition[];
 };
@@ -29,7 +31,7 @@ type Props = {
   cartItems: CartItem[];
   deliveryPrice: number;
   onSubmit: () => void;
-  onRemoveItem: (id: string) => void;
+  onRemoveItem: (cartItemId: string) => void;
 };
 
 const CartSummaryBlock: React.FC<Props> = ({
@@ -40,25 +42,23 @@ const CartSummaryBlock: React.FC<Props> = ({
 }) => {
   const getItemTotal = (item: CartItem): number => {
     const additionsTotal = item.additions?.reduce(
-      (sum: number, a: Addition) => sum + a.price * a.count,
+      (sum, a) => sum + a.price * a.count,
       0
     ) || 0;
-
     return (item.price + additionsTotal) * item.qty;
   };
 
-  const subtotal: number = cartItems.reduce(
-    (acc: number, item: CartItem) => acc + getItemTotal(item),
+  const subtotal = cartItems.reduce(
+    (acc, item) => acc + getItemTotal(item),
     0
   );
-
-  const total: number = subtotal + deliveryPrice;
+  const total = subtotal + deliveryPrice;
 
   return (
     <ScrollView contentContainerStyle={styles.container}>
       {cartItems.map((item) => (
         <Animated.View
-          key={item.id}
+          key={item.cartItemId}
           exiting={FadeOutRight.duration(300)}
         >
           <View style={styles.itemRow}>
@@ -77,7 +77,7 @@ const CartSummaryBlock: React.FC<Props> = ({
 
                 <TouchableOpacity
                   style={styles.deleteButton}
-                  onPress={() => onRemoveItem(item.id)}
+                  onPress={() => onRemoveItem(item.cartItemId)}
                 >
                   <Text style={styles.deleteText}>✕</Text>
                 </TouchableOpacity>
