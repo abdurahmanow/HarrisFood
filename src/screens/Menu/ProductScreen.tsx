@@ -32,6 +32,8 @@ import ProductInfoBlock from '../../components/ProductInfoBlock';
 import ProductNotFoundBlock from '../../components/ProductNotFoundBlock';
 import uuid from 'react-native-uuid';
 
+import { useToast } from '../../providers/ToastProvider'; // 👈
+
 const CARD_GAP = 16;
 const CARD_WIDTH = (Dimensions.get('window').width - CARD_GAP * 3) / 2;
 
@@ -40,6 +42,7 @@ export default function ProductScreen() {
   const route = useRoute<RouteProp<RootStackParamList, 'Product'>>();
   const { productId, qty: routeQty } = route.params;
 
+  const { show } = useToast(); // 👈 глобальный тост
   const { addToCart } = useCart();
 
   const allProducts: ProductType[] = useMemo(() => {
@@ -68,11 +71,10 @@ export default function ProductScreen() {
 
   const [selectedAdditives, setSelectedAdditives] = useState<{ [id: string]: number }>({});
 
+  // ✅ только горизонтальный свайп-назад; вертикаль отдаём ScrollView
   const handleGesture = ({ nativeEvent }: PanGestureHandlerStateChangeEvent) => {
-    if (
-      nativeEvent.state === State.END &&
-      (nativeEvent.translationX > 50 || nativeEvent.translationY > 50)
-    ) {
+    if (nativeEvent.state === State.END && nativeEvent.translationX > 50) {
+      // свайп вправо — назад
       navigation.goBack();
     }
   };
@@ -90,17 +92,12 @@ export default function ProductScreen() {
       .map(([id, count]) => {
         const found = allAdditives.find((a) => a.id === id);
         return found
-          ? {
-              id: found.id,
-              title: found.title,
-              count,
-              price: found.price,
-            }
+          ? { id: found.id, title: found.title, count, price: found.price }
           : null;
       })
       .filter(Boolean) as Addition[];
 
-    const cartItemId = uuid.v4() as string; // 👈 уникальный ID
+    const cartItemId = uuid.v4() as string;
 
     addToCart({
       cartItemId,
@@ -114,6 +111,9 @@ export default function ProductScreen() {
       image: product.image,
     });
 
+    // ✅ Тост глобальный — отобразится даже после закрытия экрана
+    show('Добавлено в корзину', 'success');
+
     navigation.goBack();
   };
 
@@ -122,7 +122,12 @@ export default function ProductScreen() {
   }
 
   return (
-    <PanGestureHandler onHandlerStateChange={handleGesture}>
+    // ⬇️ добавил параметры, чтобы ПанЖест активировался только при горизонтальном движении
+    <PanGestureHandler
+      onHandlerStateChange={handleGesture}
+      activeOffsetX={[-30, 30]}  // активируемся, когда сдвиг по X > 30px в любую сторону
+      failOffsetY={[-10, 10]}    // если палец ушёл по вертикали больше 10px — этот жест фейлится (скролл победит)
+    >
       <View style={{ flex: 1, backgroundColor: '#fff' }}>
         <Header onLocationPress={() => {}} />
 
@@ -154,21 +159,13 @@ export default function ProductScreen() {
             <View style={{ marginTop: 28, marginBottom: 16 }}>
               <SectionHeader
                 title="Добавки"
-                style={{
-                  marginTop: 0,
-                  marginBottom: 8,
-                  paddingLeft: 24,
-                  paddingRight: 24,
-                }}
+                style={{ marginTop: 0, marginBottom: 8, paddingLeft: 24, paddingRight: 24 }}
               />
               <FlatList
                 data={additivesList}
                 keyExtractor={(item) => item.id}
                 numColumns={2}
-                columnWrapperStyle={{
-                  gap: CARD_GAP,
-                  marginBottom: CARD_GAP,
-                }}
+                columnWrapperStyle={{ gap: CARD_GAP, marginBottom: CARD_GAP }}
                 contentContainerStyle={{ paddingHorizontal: CARD_GAP }}
                 scrollEnabled={false}
                 renderItem={({ item }) => (
@@ -177,10 +174,7 @@ export default function ProductScreen() {
                     width={CARD_WIDTH}
                     qty={selectedAdditives[item.id] || 0}
                     onChange={(newQty) =>
-                      setSelectedAdditives((prev) => ({
-                        ...prev,
-                        [item.id]: newQty,
-                      }))
+                      setSelectedAdditives((prev) => ({ ...prev, [item.id]: newQty }))
                     }
                   />
                 )}

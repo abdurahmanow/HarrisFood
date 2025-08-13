@@ -14,6 +14,8 @@ import SectionHeader from '../../components/SectionHeader';
 import { useCart } from '../../context/CartContext';
 import uuid from 'react-native-uuid';
 
+import { useToast } from '../../providers/ToastProvider'; // 👈 добавили тост
+
 const CARD_GAP = 16;
 const CARD_WIDTH = (Dimensions.get('window').width - CARD_GAP * 3) / 2;
 
@@ -22,6 +24,7 @@ export default function CategoryProductsScreen() {
   const { categoryId } = route.params;
   const navigation = useNavigation<NativeStackNavigationProp<RootStackParamList>>();
   const { addToCart } = useCart();
+  const { show } = useToast(); // 👈 хук тоста
 
   const rawProducts = React.useMemo(
     () => categoryProductsMap[categoryId] || [],
@@ -55,7 +58,7 @@ export default function CategoryProductsScreen() {
         columnWrapperStyle={styles.row}
         renderItem={({ item }) => {
           const handleAddToCart = () => {
-            const cartItemId = uuid.v4().toString(); // ✅ безопасный ID
+            const cartItemId = uuid.v4().toString();
             addToCart({
               cartItemId,
               id: item.id,
@@ -67,6 +70,9 @@ export default function CategoryProductsScreen() {
               qty: 1,
               additions: [],
             });
+
+            // ✅ показать уведомление
+            show('Добавлено в корзину', 'success');
           };
 
           return (
@@ -81,7 +87,7 @@ export default function CategoryProductsScreen() {
                   qty: 1,
                 })
               }
-              onAddToCart={handleAddToCart}
+              onAddToCart={handleAddToCart} // показывает тост
             />
           );
         }}

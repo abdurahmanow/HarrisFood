@@ -22,7 +22,7 @@
       "fresh",
       "drinks"
     ],
-    "showOnHome": ["fastfood", "rolls", "mangal", "pizza"]
+    "showOnHome": ["fastfood", "rolls", "mangal","burgers", "sets", "pizza", "desserts", "tea_coffee"]
   },
   {
     "id": "harris2",
@@ -53,6 +53,6 @@
       "drinks",
       "ice_cream"
     ],
-    "showOnHome": ["hot_dishes", "salads", "rolls", "pizza"]
+    "showOnHome": ["soups","hot_dishes", "rolls", "salads", "mangal","pizza", "fastfood","desserts"]
   }
 ]

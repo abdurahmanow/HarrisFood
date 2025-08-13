@@ -5,11 +5,7 @@ import { SliderBanner } from '../../components/SliderBanner';
 import MenuBlock, { MenuItem, RawMenuCategory, toMenuItem } from '../../components/MenuBlock';
 import SectionHeader from '../../components/SectionHeader';
 import CategoryBlock from '../../components/CategoryBlock';
-
-import { useNavigation } from '@react-navigation/native';
-import type { NativeStackNavigationProp } from '@react-navigation/native-stack';
-import type { RootStackParamList } from '../../navigation/RootStack';
-
+import { useNavigation, NavigationProp } from '@react-navigation/native';
 import { useCity } from '../../context/CityContext';
 
 import rawRegions from '../../data/regions.json';
@@ -27,12 +23,23 @@ function getRandomCategories<T>(all: T[], count: number): T[] {
   return shuffled.slice(0, count);
 }
 
+// Описываем родительский TabNavigator
+type RootTabParamList = {
+  Home: undefined;
+  Menu: {
+    screen?: string;
+    params?: any;
+  };
+  Cart: undefined;
+  Profile: undefined;
+};
+
 export default function HomeScreen() {
-  const { mode, regionId, placeId } = useCity(); // <-- заменили pickupId на placeId
-  const navigation = useNavigation<NativeStackNavigationProp<RootStackParamList>>();
+  const { mode, regionId, placeId } = useCity();
+  const navigation = useNavigation<NavigationProp<RootTabParamList>>();
 
   const currentRegion = regions.find(r => r.id === regionId);
-  const currentPlace = places.find(p => p.id === placeId); // <-- placeId
+  const currentPlace = places.find(p => p.id === placeId);
 
   const showOnHome =
     mode === 'pickup'
@@ -49,6 +56,24 @@ export default function HomeScreen() {
     homeMenuItems = getRandomCategories(menuCategories, 4);
   }
 
+  const goToMenuMain = () => {
+    navigation.getParent()?.navigate('Menu', { screen: 'MenuMain' });
+  };
+
+  const goToMenuCategory = (item: MenuItem) => {
+    navigation.getParent()?.navigate('Menu', {
+      screen: 'CategoryProducts',
+      params: { categoryId: item.id, categoryTitle: item.title },
+    });
+  };
+
+  const goToMenuProduct = (product: { id: string }) => {
+    navigation.getParent()?.navigate('Menu', {
+      screen: 'Product',
+      params: { productId: product.id, qty: 1 },
+    });
+  };
+
   return (
     <View style={styles.container}>
       <Header />
@@ -64,45 +89,34 @@ export default function HomeScreen() {
         <SectionHeader
           title="Меню"
           rightText="Смотреть все"
-          onPressRight={() => navigation.navigate('AllMenu')}
+          onPressRight={goToMenuMain}
         />
+
         <MenuBlock
           items={homeMenuItems}
           columns={4}
-          onPressItem={item => {
-            navigation.navigate('CategoryProducts', {
-              categoryId: item.id,
-              categoryTitle: item.title,
-            });
-          }}
+          onPressItem={goToMenuCategory}
         />
 
-        {/* --- Спецблоки товаров --- */}
         <CategoryBlock
           title="Новинки"
           category="new"
           count={4}
-          onPressProduct={product =>
-            navigation.navigate('Product', { productId: product.id, qty: 1 })
-          }
+          onPressProduct={goToMenuProduct}
         />
 
         <CategoryBlock
           title="Рекомендуем"
           category="recommended"
           count={4}
-          onPressProduct={product =>
-            navigation.navigate('Product', { productId: product.id, qty: 1 })
-          }
+          onPressProduct={goToMenuProduct}
         />
 
         <CategoryBlock
           title="Сеты"
           category="sets"
           count={4}
-          onPressProduct={product =>
-            navigation.navigate('Product', { productId: product.id, qty: 1 })
-          }
+          onPressProduct={goToMenuProduct}
         />
       </ScrollView>
     </View>

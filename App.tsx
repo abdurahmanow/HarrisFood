@@ -1,5 +1,6 @@
+// App.tsx (или MainApp.tsx)
 import React, { useEffect } from 'react';
-import { Platform, LogBox, Text } from 'react-native';
+import { Platform, LogBox } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
@@ -12,13 +13,14 @@ import { CityProvider } from './src/context/CityContext';
 import LocationBottomSheetProvider from './src/context/LocationBottomSheetProvider';
 import { SavedAddressesProvider } from './src/context/SavedAddressesContext';
 import { CartProvider } from './src/context/CartContext';
+import { ToastProvider } from './src/providers/ToastProvider';
 
 // Экраны
 import TabNavigator from './src/navigation/TabNavigator';
 import AllMenuScreen from './src/screens/Menu/MenuScreen';
 import CategoryProductsScreen from './src/screens/Menu/CategoryProductsScreen';
 import ProductScreen from './src/screens/Menu/ProductScreen';
-import OrderScreen from './src/screens/Order/OrderScreen'; // ✅ Добавлен
+import OrderScreen from './src/screens/Order/OrderScreen';
 
 LogBox.ignoreLogs(['Text strings must be rendered within a <Text> component']);
 
@@ -31,40 +33,47 @@ export default function MainApp() {
         RNBootSplash.default.hide({ fade: true });
       });
     }
-
-    console.log('MainApp loaded ✅'); // добавим лог
+    console.log('MainApp loaded ✅');
   }, []);
 
-  try {
-    return (
-      <GestureHandlerRootView style={{ flex: 1 }}>
-        <SafeAreaProvider>
-          <CartProvider>
-            <SavedAddressesProvider>
-              <CityProvider>
-                <LocationBottomSheetProvider>
-                  <PortalProvider>
-                    <BottomSheetModalProvider>
+  return (
+    <GestureHandlerRootView style={{ flex: 1 }}>
+      {/* ВАЖНО: BottomSheetModalProvider достаточно один раз и как можно выше */}
+      <BottomSheetModalProvider>
+        {/* PortalProvider можно держать ниже — он не конфликтует с BottomSheet-порталом */}
+        <PortalProvider>
+          <SafeAreaProvider>
+            <CartProvider>
+              <SavedAddressesProvider>
+                <CityProvider>
+                  <LocationBottomSheetProvider>
+                    <ToastProvider>
                       <NavigationContainer>
                         <Stack.Navigator screenOptions={{ headerShown: false }}>
                           <Stack.Screen name="Tabs" component={TabNavigator} />
-                          <Stack.Screen name="AllMenu" component={AllMenuScreen} />
-                          <Stack.Screen name="CategoryProducts" component={CategoryProductsScreen} />
-                          <Stack.Screen name="Product" component={ProductScreen} />
+                          <Stack.Screen
+                            name="AllMenu"
+                            component={AllMenuScreen}
+                          />
+                          <Stack.Screen
+                            name="CategoryProducts"
+                            component={CategoryProductsScreen}
+                          />
+                          <Stack.Screen
+                            name="Product"
+                            component={ProductScreen}
+                          />
                           <Stack.Screen name="Order" component={OrderScreen} />
                         </Stack.Navigator>
                       </NavigationContainer>
-                    </BottomSheetModalProvider>
-                  </PortalProvider>
-                </LocationBottomSheetProvider>
-              </CityProvider>
-            </SavedAddressesProvider>
-          </CartProvider>
-        </SafeAreaProvider>
-      </GestureHandlerRootView>
-    );
-  } catch (error) {
-    console.error('Ошибка в рендере MainApp:', error);
-    return <Text>Произошла ошибка при запуске</Text>;
-  }
+                    </ToastProvider>
+                  </LocationBottomSheetProvider>
+                </CityProvider>
+              </SavedAddressesProvider>
+            </CartProvider>
+          </SafeAreaProvider>
+        </PortalProvider>
+      </BottomSheetModalProvider>
+    </GestureHandlerRootView>
+  );
 }

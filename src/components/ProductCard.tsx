@@ -4,6 +4,7 @@ import { productCardStyles as styles } from '../styles/ProductCard/productCardSt
 import { Product } from '../types/product';
 import { useCart } from '../context/CartContext';
 import uuid from 'react-native-uuid';
+import { useToast } from '../providers/ToastProvider'; // 👈 тост
 
 function formatWeight(value: number, unit: string = 'г'): string {
   if (unit === 'г' || unit === 'гр' || unit === 'грамм' || unit === 'граммов') {
@@ -18,7 +19,7 @@ type Props = {
   product: Product;
   width: number;
   onPress?: () => void;
-  onAddToCart?: () => void;
+  onAddToCart?: () => void; // если используешь кастомную логику — не забудь вызвать тост внутри неё
 };
 
 export default function ProductCard({ product, width, onPress, onAddToCart }: Props) {
@@ -41,6 +42,7 @@ export default function ProductCard({ product, width, onPress, onAddToCart }: Pr
   const [qty, setQty] = useState(minQty);
   const [imgError, setImgError] = useState(false);
   const { addToCart } = useCart();
+  const { show } = useToast(); // 👈
 
   const isWeight = !!price_per && !!per_unit;
   const displayPrice = isWeight
@@ -51,18 +53,21 @@ export default function ProductCard({ product, width, onPress, onAddToCart }: Pr
   const qtyBlockMinWidth = isWeight ? 56 : 40;
 
   const handleAddToCart = () => {
-    const cartItemId = uuid.v4().toString(); // ✅ генерируем уникальный ID
+    const cartItemId = uuid.v4().toString(); // ✅ уникальный ID
     addToCart({
       cartItemId,
       id,
       title,
-      price: isWeight ? displayPrice / qty : price,
+      price: isWeight ? displayPrice / qty : price, // единичная цена
       qty,
       image,
       size,
       variant,
       additions: [],
     });
+
+    // ✅ показать тост
+    show('Добавлено в корзину', 'success');
   };
 
   return (
@@ -84,7 +89,9 @@ export default function ProductCard({ product, width, onPress, onAddToCart }: Pr
         <Text style={styles.title} numberOfLines={2}>{title}</Text>
 
         <View style={styles.priceRow}>
-          <Text style={styles.price}>{displayPrice} {currency}</Text>
+          <Text style={styles.price}>
+            {displayPrice} {currency}
+          </Text>
 
           <View style={[styles.qtyBlock, { minWidth: qtyBlockMinWidth }]}>
             <TouchableOpacity
@@ -96,7 +103,9 @@ export default function ProductCard({ product, width, onPress, onAddToCart }: Pr
               <Text style={[styles.qtyBtnText, qty <= minQty && styles.qtyBtnDisabled]}>–</Text>
             </TouchableOpacity>
 
-            <Text style={styles.qtyText} numberOfLines={1} adjustsFontSizeToFit>{qtyDisplay}</Text>
+            <Text style={styles.qtyText} numberOfLines={1} adjustsFontSizeToFit>
+              {qtyDisplay}
+            </Text>
 
             <TouchableOpacity
               style={styles.qtyBtn}
@@ -112,7 +121,7 @@ export default function ProductCard({ product, width, onPress, onAddToCart }: Pr
         <TouchableOpacity
           style={styles.addBtn}
           activeOpacity={0.7}
-          onPress={onAddToCart || handleAddToCart}
+          onPress={onAddToCart || handleAddToCart} // если пробрасываешь свой onAddToCart — не забудь внутри вызвать show(...)
         >
           <Text style={styles.addBtnText} numberOfLines={1} adjustsFontSizeToFit>
             Добавить в заказ

@@ -23,7 +23,7 @@
       "drinks",
       "ice_cream"
     ],
-    "showOnHome": ["hot_dishes", "mangal", "pizza", "salads"]
+    "showOnHome": ["soups","hot_dishes", "rolls", "salads", "mangal","pizza", "fastfood","desserts"]
   },
   {
     "id": "sudak",
@@ -49,7 +49,7 @@
       "drinks",
       "ice_cream"
     ],
-    "showOnHome": ["hot_dishes", "mangal", "pizza"]
+    "showOnHome": ["soups","hot_dishes", "rolls", "salads", "mangal","pizza", "fastfood","desserts"]
   },
   {
     "id": "kirovskiy",
@@ -75,7 +75,7 @@
       "drinks",
       "ice_cream"
     ],
-    "showOnHome": ["hot_dishes", "rolls", "pizza"]
+    "showOnHome": ["soups","hot_dishes", "rolls", "salads", "mangal","pizza", "fastfood","desserts"]
   },
   {
     "id": "belogorskiy",
@@ -101,7 +101,7 @@
       "drinks",
       "ice_cream"
     ],
-    "showOnHome": ["hot_dishes", "pizza"]
+    "showOnHome": ["soups","hot_dishes", "rolls", "salads", "mangal","pizza", "fastfood","desserts"]
   },
   {
     "id": "sakskiy",
@@ -121,7 +121,7 @@
       "fresh",
       "drinks"
     ],
-    "showOnHome": ["hot_dishes", "mangal", "pizza", "salads"]
+    "showOnHome": ["fastfood", "rolls", "mangal","burgers", "sets", "pizza", "desserts", "tea_coffee"]
   },
   {
     "id": "evpatoriya",
@@ -141,6 +141,6 @@
       "fresh",
       "drinks"
     ],
-    "showOnHome": ["hot_dishes", "pizza"]
+    "showOnHome": ["fastfood", "rolls", "mangal","burgers", "sets", "pizza", "desserts", "tea_coffee"]
   }
 ]
